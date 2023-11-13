@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "dev": "npx nodemon bin/www",
     "test": "npx jest --detectOpenHandles --forceExit --runInBand --coverage"
   },
   "author": "arvinaufal",
