@@ -1,5 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
+const fs = require('fs');
+
 async function fetchGoogleBooks() {
     try {
         const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
@@ -35,14 +37,15 @@ async function fetchGoogleBooks() {
                 }
             });
         }
-        console.log(items);
 
-        // const result = items.map(item => ({
-        //   judul: item.volumeInfo.title || 'Tidak ada judul',
-        //   pengarang: item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Tidak ada pengarang',
-        // }));
+        const jsonBooks = JSON.stringify(items, null, 2); 
 
-        // return result;
+      
+        const filePath = path.join(__dirname, 'books.json');
+    
+      
+        fs.writeFileSync(filePath, jsonBooks);
+       
     } catch (error) {
         console.error(error);
         // throw new Error('Terjadi kesalahan dalam permintaan.');
