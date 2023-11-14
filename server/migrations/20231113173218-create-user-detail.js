@@ -22,8 +22,7 @@ module.exports = {
         allowNull: false
       },
       inumber: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       address: {
         type: Sequelize.TEXT

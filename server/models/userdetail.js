@@ -39,18 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    inumber: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Inumber is required!`
-        },
-        notNull: {
-          msg: `Inumber is required!`
-        }
-      }
-    },
+    inumber: DataTypes.STRING,
     address: DataTypes.TEXT,
     gender: DataTypes.STRING
   }, {
@@ -58,14 +47,13 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'UserDetail',
   });
 
-  UserDetail.beforeCreate((userDetail) => {
+  UserDetail.beforeCreate((user) => {
     let inumber = 'M-';
     inumber += new Date().getFullYear() + `-`;
-    inumber += userDetail.id + '-';
-    userDetail.gender ? inumber += 'F-' : inumber += 'M-';
+    inumber += user.id + '-';
+    user.gender ? inumber += 'F-' : inumber += 'M-';
     inumber += 'IPUSTAKA'
-    userDetail.inumber = inumber;
+    user.inumber = inumber;
   });
-
   return UserDetail;
 };
