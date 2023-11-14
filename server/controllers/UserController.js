@@ -34,10 +34,10 @@ class UserController {
     }
 
     static async create(request, response, next) {
-        const { username, email, password, role = 'member', accountType = 'manual', name, dob, address, gender } = request.body;
+        const { username, email, password, role = 'member', accountType = 'manual', name, address, gender } = request.body;
         try {
             const user = await User.create({ username, email, password, role, accountType });
-            await UserDetail.create({ userId: user.id, name, dob, address, gender });
+            await UserDetail.create({ userId: user.id, name, address, gender });
             response.status(201).json({ id: user.id, email: user.email, role: user.role });
         } catch (error) {
             next(error);
@@ -45,7 +45,7 @@ class UserController {
     }
 
     static async update(request, response, next) {
-        const { username, email, password, name, dob, address, gender } = request.body;
+        const { username, email, password, name, address, gender } = request.body;
         try {
             let user = await User.findByPk(request.params.id, {
                 include: {
@@ -54,7 +54,7 @@ class UserController {
             });
 
             await user.update({ username, email, password });
-            await user.UserDetail.update({ name, dob, address, gender });
+            await user.UserDetail.update({ name, address, gender });
 
             response.status(200).json(user);
         } catch (error) {

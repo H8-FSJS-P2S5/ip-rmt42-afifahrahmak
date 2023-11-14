@@ -21,9 +21,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      dob: {
-        type: Sequelize.DATE
-      },
       inumber: {
         type: Sequelize.STRING,
         allowNull: false
