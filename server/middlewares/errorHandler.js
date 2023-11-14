@@ -11,24 +11,29 @@ const errorHandler = {
                             });
             break;
 
+        case 'EmptyUsername':
+            statusCode = 400;
+            message = `Username is required`;
+            break;
+
         case 'EmptyEmail':
             statusCode = 400;
-            message = `Email must be exist`;
+            message = `Email is required`;
             break;
 
         case 'EmptyPassword':
             statusCode = 400;
-            message = `Password must be exist`;
+            message = `Password is required`;
             break;
 
-        case 'Error':
+        case 'EmptyEmailPassword':
             statusCode = 400;
-            message = `Unsupported ZIP file`;
+            message = `Email/Password is required`;
             break;
 
         case 'NotMatched':
             statusCode = 401;
-            message = `Invalid password/email!`;
+            message = `Invalid Email/Password!`;
             break;
 
         case 'JsonWebTokenError':

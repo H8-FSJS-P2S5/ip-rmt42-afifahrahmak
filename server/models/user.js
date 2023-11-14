@@ -13,10 +13,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasOne(models.UserDetail, {
-        foreignKey: 'userId'
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
       });
       User.hasMany(models.History, {
-        foreignKey: 'userId'
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
       });
     }
   }
@@ -36,24 +38,32 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Email is required!`
+      unique : true,
+      validate : {
+        notNull : {
+          msg : `Email is required!`
         },
-        notNull: {
-          msg: `Email is required!`
+        notEmpty : {
+          msg : `Email is required!`
+        },
+        isEmail : {
+          msg : `Must be an email!`
         }
       }
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Password is required!`
+      validate : {
+        notNull : {
+          msg : `Password is required!`
         },
-        notNull: {
-          msg: `Password is required!`
+        notEmpty : {
+          msg : `Password is required!`
+        },
+        len : {
+          args: [5, Infinity],
+          msg: "Password must be at least 5 characters!"
         }
       }
     },
@@ -73,7 +83,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: [['manual', 'google']], 
+        isIn: [['manual', 'github']], 
       } 
     }
   }, {

@@ -40,18 +40,9 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    deadline: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Deadline is required!`
-        },
-        notNull: {
-          msg: `Deadline is required!`
-        }
-      }
-    },
+    qna : DataTypes.TEXT,
+    question : DataTypes.TEXT,
+    point : DataTypes.TEXT,
     status: {
       type: DataTypes.STRING,
       allowNull: false,
