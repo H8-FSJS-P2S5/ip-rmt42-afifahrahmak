@@ -11,6 +11,7 @@ module.exports = class UserController {
 
             res.status(201).json({
                 "id": user.id,
+                "username": user.username
             });
 
         } catch (error) {
@@ -49,7 +50,8 @@ module.exports = class UserController {
             res.status(200).json({ access_token }); 
             
         } catch (error) {
-            next(error);
+            // next(error);
+            console.log(error)
         }
     }
 
