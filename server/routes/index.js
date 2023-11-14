@@ -1,3 +1,4 @@
+const UserController = require('../controllers/UserController');
 const authentication = require('../middlewares/authentication');
 const errorHandler = require('../middlewares/errorHandler');
 
