@@ -11,23 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      History.belongsTo(models.User);
-      History.belongsTo(models.Book);
+      History.belongsTo(models.User, { foreignKey: 'userId' });
+      History.belongsTo(models.Book, { foreignKey: 'bookId' });
     }
   }
   History.init({
-    bookId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Book is required!`
-        },
-        notNull: {
-          msg: `Book is required!`
-        }
-      }
-    },
+    bookId: DataTypes.INTEGER,
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      UserDetail.belongsTo(models.User);
+      UserDetail.belongsTo(models.User, { foreignKey: 'userId' });
     }
   }
   UserDetail.init({
@@ -36,18 +36,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         notNull: {
           msg: `Name is required!`
-        }
-      }
-    },
-    dob: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: `Date of birth is required!`
-        },
-        notNull: {
-          msg: `Date of birth is required!`
         }
       }
     },
@@ -78,6 +66,6 @@ module.exports = (sequelize, DataTypes) => {
     inumber += 'IPUSTAKA'
     userDetail.inumber = inumber;
   });
-  
+
   return UserDetail;
 };
