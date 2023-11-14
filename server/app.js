@@ -1,6 +1,6 @@
-// if(process.env.NODE_ENV !== "production"){
-//     require('dotenv').config()  //selalu ditulis di awal app.js & di pakai tahap dev
-//   }
+if(process.env.NODE_ENV !== "production"){
+    require('dotenv').config()  //selalu ditulis di awal app.js & di pakai tahap dev
+  }
 
 const express = require('express');
 const app = express();
