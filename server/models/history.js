@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    qna : DataTypes.TEXT,
+    answer : DataTypes.TEXT,
     question : DataTypes.TEXT,
     point : DataTypes.TEXT,
     status: {

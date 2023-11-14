@@ -24,7 +24,7 @@ module.exports = {
           key: 'id'
         }
       },
-      qna: {
+      answer: {
         type: Sequelize.TEXT,
       },
       question: {

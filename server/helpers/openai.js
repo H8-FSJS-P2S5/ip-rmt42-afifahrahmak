@@ -1,3 +1,19 @@
+const OpenAI = require('openai');
+
+const chatAI = async (req) => {
+    const openai = new OpenAI({
+        apiKey: process.env.OpenAI_KEY
+    });
+
+    const { choices } = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: [{ "role": "user", "content": req }],
+        max_tokens: 100
+    });
+
+    return choices[0].message.content;
+}
+
 const generateAnsPromt = (q, answer) => {
     let question = q.split(';;');
     let result = `berikan nilai terhadap jawaban atas pertanyaan di bawah ini.`;
@@ -17,4 +33,4 @@ const generateBookPromt = (desc) => {
     return result;
 }
 
-module.exports = { generateAnsPromt, generateBookPromt };
+module.exports = { chatAI, generateAnsPromt, generateBookPromt };

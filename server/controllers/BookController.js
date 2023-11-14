@@ -1,12 +1,7 @@
 const { Op } = require('sequelize');
 const { Book, User, sequelize } = require('../models');
-const cloudinary = require('cloudinary').v2;
-const { randomUUID } = require('crypto');
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY_CLOUDINARY,
-    api_secret: process.env.API_SECRET_CLOUDINARY
-});
+const { generateBookPromt, chatAI } = require('../helpers/openai');
+const { fetchGBooks } = require('../helpers/googlebooks');
 
 class BookController {
     static async getAll(req, res, next) {
@@ -95,6 +90,32 @@ class BookController {
 
             await book.destroy();
             res.status(200).json({ message: `Book with id: ${book.id} success to delete` });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async findBook(req, res, next) {
+        const { desc } = req.body;
+        try {
+            const promt = generateBookPromt(desc);
+            const bookTitle = chatAI(promt);
+            const books = await fetchGBooks(bookTitle, 1);
+            let book = books[0];
+
+            const existingBook = await Book.findOne({
+                where: {
+                    [Op.and]: [
+                        { title: book.title },
+                        { isbn: book.isbn }
+                    ]
+                }
+            });
+
+            !existingBook ? await Book.create(book) : book = existingBook;
+            let code = existingBook ? 200 : 201;
+
+            res.status(code).json({ message: 'Successfully find book', data: book });
         } catch (error) {
             next(error);
         }
