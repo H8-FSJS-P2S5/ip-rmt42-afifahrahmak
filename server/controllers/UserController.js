@@ -1,14 +1,25 @@
 const { bcryptCompare } = require("../helpers/bcryptjs");
 const { createToken } = require("../helpers/jwt");
-const { User, UserDetail } = require("../models");
+const { User, UserDetail, History } = require("../models");
 
 class UserController {
-    static async getAll(request, response) {
+    static async getTopThree(request, response) {
         try {
             const users = await User.findAndCountAll({
-                include: {
-                    model: UserDetail
-                }
+                include: [
+                    { model: UserDetail },
+                    { 
+                        model: History,
+                        attributes: [
+                            [sequelize.fn('SUM', sequelize.col('point')), 'totalPoints']
+                        ],
+                        group: ['userId'],
+                    },
+                ],
+                order: [
+                    [sequelize.literal('totalPoints DESC')],
+                ],
+                limit: 3,
             });
 
             response.status(200).json(users);
@@ -20,9 +31,11 @@ class UserController {
     static async getById(request, response, next) {
         try {
             const user = await User.findByPk(request.params.id, {
-                include: {
-                    model: UserDetail
-                }
+                include: [
+                    { model: UserDetail },
+                    { model: History },
+                ]
+
             });
 
             if (!user) throw ({ name: "NotFound" });
@@ -37,8 +50,8 @@ class UserController {
         const { username, email, password, role = 'member', accountType = 'manual', name, address, gender } = request.body;
         try {
             const user = await User.create({ username, email, password, role, accountType });
-            await UserDetail.create({ userId: user.id, name, address, gender});
-           
+            await UserDetail.create({ userId: user.id, name, address, gender });
+
             response.status(201).json({ id: user.id, email: user.email, role: user.role });
         } catch (error) {
             next(error);
@@ -79,7 +92,7 @@ class UserController {
         try {
             if (!email || email === "") throw ({ name: `EmptyEmail` });
             if (!password || password === "") throw ({ name: `EmptyPassword` });
-            
+
             const user = await User.findOne({ where: { email } });
             if (!user || !bcryptCompare(password, user.password)) throw ({ name: "NotMatched" });
 

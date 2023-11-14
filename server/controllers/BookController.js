@@ -6,13 +6,15 @@ const { fetchGBooks } = require('../helpers/googlebooks');
 class BookController {
     static async getAll(req, res, next) {
         let { filter, page = 1, q, sortBy, limit } = req.query;
-
+        const { userId } = req.params;
         let queryOptions = {
-            attributes: ['id', 'name', 'description', 'price', 'imageUrl', 'categoryId', 'authorId'],
+            attributes: ['title', 'isbn', 'author', 'synopsis', 'pageCount', 'stock', 'publisher', 'publishedDate', 'lang', 'imgUrl', 'status', 'category', 'pricePerWeek'],
             limit: 12,
             offset: 0,
             where: {}
         };
+
+        if (userId) queryOptions.where.userId = userId;
 
         if (filter && filter !== '') {
             if (filter.category !== '' && typeof filter.category !== 'undefined') {
@@ -83,8 +85,9 @@ class BookController {
     }
 
     static async delete(req, res, next) {
+        const { bookId } = req.params;
         try {
-            let book = await Book.findByPk(req.params.id);
+            let book = await Book.findByPk(bookId);
 
             if (!book) throw ({ name: "NotFound" });
 
