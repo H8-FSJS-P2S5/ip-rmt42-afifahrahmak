@@ -24,16 +24,16 @@
             "Spoon the dressing over the salad and stir well to coat.",
             "Sprinkle over the sesame seeds to serve."
         ],
-        "nutrients": {
-            "caloriesKCal": 170.313,
-            "totalCarbs": 2.366,
-            "sugar": 1.166,
-            "protein": 11.004,
-            "fat": 13.018,
-            "cholesterol": 175.938,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/133fcdec-4595-44be-a302-02df4c209451.png"
     },
     {
@@ -55,16 +55,16 @@
             "Add the butter to the mug. Stir well to combine. Let the butter completely melt into the milky coffee.",
             "Carefully use a hand held stick blender or milk frother and blend the coffee and butter. Continue blending until you have a thick frothy layer on the top of your coffee. Serve hot."
         ],
-        "nutrients": {
-            "caloriesKCal": 203.555,
-            "totalCarbs": 5.903,
-            "sugar": 0.572,
-            "protein": 1.779,
-            "fat": 21.015,
-            "cholesterol": 45.755,
-            "alcohol": 0.631,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/ccef957b-351f-4c14-b33c-ef050045b877.png"
     },
     {
@@ -87,16 +87,16 @@
             "Bake the bird nests for approx 20 minutes. This is enough time for the eggs to fully cook and the zucchini to turn just slightly golden on the edges. Allow the tray to cool for 2-3 minutes before transferring the finished recipe to plates with a spatula.",
             "You may cook the bird nests for less than 20 minutes, if you want runnier eggs!"
         ],
-        "nutrients": {
-            "caloriesKCal": 114.047,
-            "totalCarbs": 2.801,
-            "sugar": 2.07,
-            "protein": 7.079,
-            "fat": 8.329,
-            "cholesterol": 186.5,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/348b12ac-3cf3-44a7-b193-4c686a07c0f2.png"
     },
     {
@@ -131,16 +131,16 @@
             "Finally, chop the cilantro and basil and toss these with the chicken.",
             "Serve the hot chicken with the cool slaw and two lime wedges. You can add extra cilantro as a garnish at your discretion. Enjoy!"
         ],
-        "nutrients": {
-            "caloriesKCal": 394.486,
-            "totalCarbs": 5.723,
-            "sugar": 2.351,
-            "protein": 47.457,
-            "fat": 19.403,
-            "cholesterol": 123.372,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/2b3146d9-f265-48f1-8142-6d445ad8f4a8.png"
     },
     {
@@ -164,16 +164,16 @@
             "Thinly slice the scallions. Heat a tablespoon of olive oil in a skillet over a low/medium heat. Add the scallions and sauté for 2-3 minutes until tender.",
             "Whisk together the remaining olive oil, sesame oil, lime juice, chili flakes, salt and pepper. Add the green beans to the pan and drizzle over the spiced oil. Stir well to combine and cook for a further minute or two to heat the beans through."
         ],
-        "nutrients": {
-            "caloriesKCal": 70.591,
-            "totalCarbs": 3.578,
-            "sugar": 1.619,
-            "protein": 0.869,
-            "fat": 6.341,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/1a69a125-7c33-4664-b4c2-f4fdddab8781.png"
     },
     {
@@ -201,16 +201,16 @@
             "Add the Bok choy leaves and stir until just wilted. Transfer to a blender or use a handheld stick blender and process until smooth.",
             "Scatter with dried chili flakes and fresh cilantro to serve."
         ],
-        "nutrients": {
-            "caloriesKCal": 68,
-            "totalCarbs": 6.005,
-            "sugar": 1.978,
-            "protein": 2.983,
-            "fat": 3.912,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/682207ec-7c88-4eb4-84d8-ddd1703d9346.png"
     },
     {
@@ -233,16 +233,16 @@
             "Crumble the blue cheese into the mayo and yogurt mix. You can crumble the cheese roughly so you have a mixture of large chunks and smaller pieces. Add the garlic powder and black pepper. You can omit or adjust the quantities of these seasonings as desired. Mix together well to combine, distributing the cheese evenly throughout the dressing. If you would prefer an entirely smooth dressing you can prepare this in a food processor, blending until smooth.",
             "Add the water to the dressing and whisk well to combine. This can be omitted or increased to suit your personal preference. Add more water for a thinner salad dressing or omit entirely if you want a thicker dressing for topping meats and burgers. Refrigerate in an airtight container until ready to serve."
         ],
-        "nutrients": {
-            "caloriesKCal": 211.721,
-            "totalCarbs": 1.823,
-            "sugar": 1.197,
-            "protein": 5.384,
-            "fat": 20.375,
-            "cholesterol": 25.964,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/2a4fac4d-b935-4360-b72c-934e34895681.png"
     },
     {
@@ -268,16 +268,16 @@
             "Return the chicken thighs to the pan along with the lemon zest and tear in the rosemary.",
             "Continue to cook over a medium heat, spooning the hot butter over the chicken until completely cooked through and no longer pink. Serve with steamed green beans or broccoli."
         ],
-        "nutrients": {
-            "caloriesKCal": 418.52,
-            "totalCarbs": 1.96,
-            "sugar": 0.138,
-            "protein": 40.354,
-            "fat": 26.988,
-            "cholesterol": 214.822,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/1f11e666-3601-4f21-9cf2-c9c7427481b7.png"
     },
     {
@@ -296,16 +296,16 @@
             "Melt the coconut oil in a skillet over a medium heat. Thinly slice the mushrooms and add to the skillet, cook through for 6-7 minutes until browned all over and tender.",
             "Add the tahini and tamari and stir well, melting the tahini into the mushrooms. Cook briefly until the mushrooms are golden and coated in tamari and tahini. Serve hot. "
         ],
-        "nutrients": {
-            "caloriesKCal": 91.746,
-            "totalCarbs": 2.683,
-            "sugar": 1.15,
-            "protein": 2.742,
-            "fat": 8.322,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0.036
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/e77c981f-193e-42d6-b250-47150568c661.png"
     },
     {
@@ -337,16 +337,16 @@
             "Allow donuts to cool in the pan for 15 minutes before removing to a cooling rack.",
             "In the meantime, prepare the glaze by combining the rest of the Swerve, 3 tablespoons of coconut milk, ¼ t vanilla extract, and a pinch of salt.  Dip the top of each donut into the glaze and then set aside on the rack to dry.  Keep donuts stored in an airtight container for up to one week."
         ],
-        "nutrients": {
-            "caloriesKCal": 207.871,
-            "totalCarbs": 14.628,
-            "sugar": 1.382,
-            "protein": 7.474,
-            "fat": 17.364,
-            "cholesterol": 62.167,
-            "alcohol": 0.311,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/fe58600a-a0b3-4b72-b0f1-691bd85f3198.png"
     },
     {
@@ -374,16 +374,16 @@
             "Prepare a whole avocado by slicing it in half, removing the pit, and scooping out 1-2 tablespoons of fruit from the middle of each half. Sprinkle the second amount of salt over the avocado. Next, set the avocado halves on a sheet tray lined with foil or parchment paper. Use a spoon to fill each avocado half with the scrambled egg tuna filling. Gently pack the filling down, as it piles high. Finally, layer a slice of provolone cheese over each avocado half.",
             "Bake the tray for just a few minutes - until the cheese is melted and the avocado has been warmed."
         ],
-        "nutrients": {
-            "caloriesKCal": 340.14,
-            "totalCarbs": 7.084,
-            "sugar": 1.126,
-            "protein": 25.731,
-            "fat": 24.069,
-            "cholesterol": 232.615,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/a336c4de-5d90-4a89-90ce-e0bbee045c62.png"
     },
     {
@@ -406,16 +406,16 @@
             "Whilst the onion cooks, dice the cauliflower into bite sized chunks. Add the cauliflower pieces and the stock to the instant pot and stir well to combine. At this point you may season with salt and pepper if you wish. This will depend on the level of seasoning already in your stock. You may also use chicken or vegetable stock if preferred but be sure to adjust your macros for any changes.",
             "Place the lid on the instant pot with the valve set to ‘sealing’ and set to high pressure. Set the time for 8 minutes. After this time, do a quick release to release the steam. Once the pressure has been released and it is safe to do so, open the lid and portion out the soup for serving. Taste and adjust seasonings if required."
         ],
-        "nutrients": {
-            "caloriesKCal": 292.466,
-            "totalCarbs": 6.395,
-            "sugar": 2.887,
-            "protein": 20.826,
-            "fat": 20.381,
-            "cholesterol": 61.873,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/2d1b92c4-84fd-48ed-ba94-dcb6148170e9.png"
     },
     {
@@ -434,16 +434,16 @@
             "Place cauliflower rice into a medium-sized microwave-safe bowl. Microwave on high for 4 minutes. \n",
             "In the meantime, wash and chop the cilantro leaves. Add them to the cauliflower rice once heated. Then squeeze on the lime juice and add the salt. Give the mixture a good toss. Taste adding more lime and salt, as desired. Serve immediately.\n"
         ],
-        "nutrients": {
-            "caloriesKCal": 19.12,
-            "totalCarbs": 3.844,
-            "sugar": 1.628,
-            "protein": 1.391,
-            "fat": 0.343,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/df9fd021-4abe-4c34-8f46-484e74e71ac5.png"
     },
     {
@@ -466,205 +466,16 @@
             "Grate the ginger and thinly slice the garlic. Add to the pan and stir well to combine. Pan fry over a medium heat for a further 2-3 minutes until the garlic is tender and fragrant and the cabbage is soft.",
             "Stir through the tamari sauce to serve."
         ],
-        "nutrients": {
-            "caloriesKCal": 78.549,
-            "totalCarbs": 4.115,
-            "sugar": 1.889,
-            "protein": 1.061,
-            "fat": 6.845,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0.018
-        },
+        "nutrients": [
+            "caloriesKCal",
+            "totalCarbs",
+            "sugar",
+            "protein",
+            "fat",
+            "cholesterol",
+            "alcohol",
+            "gluten"
+        ],
         "image": "https://tinyurl.com/2p82zzca/dce25a9d-8be4-4c4b-afaa-f994ef227f06.png"
-    },
-    {
-        "id": 15,
-        "name": "Keto Stir Fried Bell Peppers with Capers and Olives",
-        "description": "These simple stir fried peppers are cooked until soft and tender with salty capers and olives, aromatic garlic and a little twist of lemon.\n\nThis is a great topping for grilled meats or fish or added to salads.",
-        "prepareTime": 5,
-        "cookTime": 8,
-        "ingredients": [
-            "Black Olives 8 medium",
-            "Olive Oil 1-½ tablespoon",
-            "Garlic 1 clove",
-            "Capers 1 tablespoon, whole pieces",
-            "Lemon Peel Or Zest Raw 1 tsp",
-            "Yellow Bell Peppers, Raw 1 medium - 2 1/2\" diameter x 2 3/4\"",
-            "Red Bell Peppers, Raw ½ medium - 2 1/2\" diameter x 2 3/4\""
-        ],
-        "steps": [
-            "Slice the bell peppers into thin strips. Heat the oil in a skillet over a medium heat and add the pepper strips, cooking for 3-4 minutes to soften.",
-            "Crush the garlic, slice the olives and roughly chop the capers. Add to the pan along with the lemon zest and stir well to combine. Cook for a further 2-3 minutes until the peppers are soft and the garlic is tender."
-        ],
-        "nutrients": {
-            "caloriesKCal": 91.258,
-            "totalCarbs": 4.948,
-            "sugar": 2.959,
-            "protein": 0.824,
-            "fat": 8.064,
-            "cholesterol": 0,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/01c3c96f-5d3b-4d0b-b870-9f29c20eef10.png"
-    },
-    {
-        "id": 16,
-        "name": "Keto Parmesan, Almond and Chorizo Chips",
-        "description": "These quick and easy keto chips are loaded with smokey Spanish chorizo, aromatic rosemary, crunchy flaked almonds and crispy baked parmesan.\n\nThese are an excellent option for snacking and sharing.",
-        "prepareTime": 6,
-        "cookTime": 6,
-        "ingredients": [
-            "Almonds, Raw 1-½ tablespoon, sliced",
-            "Fresh Food Spanish Chorizo by Sainsbury's 20 gram",
-            "Rosemary, Fresh 1 teaspoon",
-            "Parmesan Cheese ⅔ cup, grated",
-            "Black Pepper ⅛ teaspoon"
-        ],
-        "steps": [
-            "Preheat the oven to 375 degrees Fahrenheit and line a shallow oven tray with baking paper.",
-            "Finely dice the chorizo (1.5 tbsp) and finely chop the rosemary. Add to a mixing bowl along with the parmesan, almonds and black pepper. Mix well to combine.",
-            "Spoon a heaped tablespoon of the mixture onto the lined baking tray then repeat 5 more times so you have six piles of mixture. Leave a gap between each and press the mixture into a rough circle shape with your hands.",
-            "Transfer to the oven to bake for 6 minutes or until hot through, golden and bubbling. Set aside to cool completely and firm."
-        ],
-        "nutrients": {
-            "caloriesKCal": 137.236,
-            "totalCarbs": 1.729,
-            "sugar": 0.453,
-            "protein": 11.068,
-            "fat": 9.603,
-            "cholesterol": 17.076,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/28f03845-6fec-427c-ae69-f537403d0ff4.png"
-    },
-    {
-        "id": 17,
-        "name": "Keto Curried Cabbage",
-        "description": "This tender cabbage is loaded with aromatic spices, creamy butter and sweet red onion.\n\nThis is a great side to accompany curried meats, rotisserie chicken or lamb chops.",
-        "prepareTime": 6,
-        "cookTime": 16,
-        "ingredients": [
-            "Cabbage 2 cup",
-            "Unsalted Butter 2 tablespoon",
-            "Garlic 1 clove",
-            "Cumin, Seed 1 teaspoon",
-            "Curry Powder 1 tablespoon",
-            "Vegetable Broth, Bouillon Or Consomme ½ cup",
-            "Red Onion ¼ medium - 2 1/2\" diameter"
-        ],
-        "steps": [
-            "Heat a tablespoon of butter in a large skillet over a low/medium heat. Finely slice the onion and add to the skillet, cooking gently until tender.",
-            "Thinly slice the garlic and add to the pan along with the cumin seeds. Cook for a further minute or two until fragrant.",
-            "Thinly slice the cabbage and add to the skillet with the remaining butter and curry powder. Stir well to combine and cook over a medium heat for 4-5 minutes until the cabbage is just tender.",
-            "Add the vegetable stock and simmer for 5-6 minutes until all the liquid has evaporated and the cabbage is soft."
-        ],
-        "nutrients": {
-            "caloriesKCal": 80.354,
-            "totalCarbs": 6.385,
-            "sugar": 2.601,
-            "protein": 1.517,
-            "fat": 6.161,
-            "cholesterol": 15.252,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/f36344ed-2a4d-4627-9dd7-9fb604ce0f3d.png"
-    },
-    {
-        "id": 18,
-        "name": "Keto Parmesan and Prosciutto Baked Avocado",
-        "description": "These simple baked avocado are rolled in grated parmesan and wrapped with prosciutto before cooking until crisp and golden.\n\nThese make a great snack between meals or party appetizer!",
-        "prepareTime": 7,
-        "cookTime": 10,
-        "ingredients": [
-            "Prosciutto 4 slice",
-            "Avocado 1 each",
-            "Parmesan Cheese 1 tablespoon, grated"
-        ],
-        "steps": [
-            "Preheat the oven to 400 degrees Fahrenheit.",
-            "Slice the avocado into 8 even wedges.",
-            "Sprinkle over the grated Parmesan and roll the avocado slices in the cheese, pressing gently so it sticks.",
-            "Tear each prosciutto slice in half and wrap a half around each avocado slice. Transfer to the oven and bake for 10 minutes until the prosciutto is crisp and golden."
-        ],
-        "nutrients": {
-            "caloriesKCal": 160.154,
-            "totalCarbs": 5.99,
-            "sugar": 0.232,
-            "protein": 6.756,
-            "fat": 13.05,
-            "cholesterol": 13.257,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/346c9866-26a3-46d2-8d8e-4259a84f6c26.png"
-    },
-    {
-        "id": 19,
-        "name": "Keto Everything Celery Sticks",
-        "description": "This 5-minute snack is crunchy, creamy, and flavorful. Everything but the bagel is here in a snack, and the bagel itself is replaced with crunchy, refreshing celery sticks!\n\nJessica L.",
-        "prepareTime": 4,
-        "cookTime": 1,
-        "ingredients": [
-            "Celery 4-½ ounce",
-            "Cream Cheese 3 ounce",
-            "Everything But The Bagel Sesame Seasoning Blend by Trader Joe's 2 tsp"
-        ],
-        "steps": [
-            "Slice away the leaves and hard white base of 2 celery stalks. Cut each stalk in half to yield 4 pieces.",
-            "Microwave your cream cheese for 7-10 seconds to get warm. Mix the cream cheese with the everything seasoning.",
-            "Spoon the cream cheese mixture into each celery stick. Enjoy!"
-        ],
-        "nutrients": {
-            "caloriesKCal": 179.041,
-            "totalCarbs": 4.242,
-            "sugar": 2.453,
-            "protein": 3.056,
-            "fat": 14.755,
-            "cholesterol": 42.95,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/67b63b11-b5a2-44a8-92ec-33f3180a289e.png"
-    },
-    {
-        "id": 20,
-        "name": "Low Carb Autumn Vegetable Medley",
-        "description": "There is so much delicious and colorful produce that is in peak season, come Autumn! Many of it can be enjoyed while on the keto diet. This recipe avoids any squash, but the other seasonal vegetables are bright, juicy, and flavorful. A pinch of nutmeg really sets the tone for a chilly atmosphere.\n\nJessica L.",
-        "prepareTime": 10,
-        "cookTime": 10,
-        "ingredients": [
-            "Baby Carrots 2 ounce",
-            "Brussel Sprouts by Great Value 3 ounce",
-            "Cauliflower, Raw 4 ounce",
-            "Kale 2-¼ ounce",
-            "Butter 2 tablespoon",
-            "Salt 0.5 teaspoon",
-            "Black Pepper 0.5 teaspoon",
-            "Italian Seasoning 1 teaspoon",
-            "Garlic Powder 0.25 teaspoon",
-            "Onion Powder 0.25 teaspoon",
-            "Spices Nutmeg Ground ¼ tsp"
-        ],
-        "steps": [
-            "Prepare all the vegetables first. Give the carrots a small chop. Quarter the brussel sprouts, removing any hard bottoms. Chop the cauliflower. You can chop the kale or simply rip it up with your hands, removing the stem.",
-            "Melt the butter in a large skillet over medium-low heat. Toss in the carrots, sprouts, and cauliflower. Leave the kale aside. Coat the veggies in the butter, then cover with a lid and cook on low for about 5 minutes. The firmer vegetables should be tender and the brussel sprouts should be bright green.",
-            "Sprinkle all the seasonings over the skillet. Then, place the kale on top. Replace the lid, then let the kale cook down on its own for 2-3 minutes on a low heat. Remove the lid, and continually stir and cook the ingredients until the kale has cooked down significantly and the vegetables have browned edges.",
-            "Serve hot!"
-        ],
-        "nutrients": {
-            "caloriesKCal": 83.614,
-            "totalCarbs": 6.582,
-            "sugar": 2.141,
-            "protein": 2.288,
-            "fat": 6.096,
-            "cholesterol": 15.252,
-            "alcohol": 0,
-            "gluten": 0
-        },
-        "image": "https://tinyurl.com/2p82zzca/1a7a2a70-b217-42d5-9a57-a103c089543b.png"
     }
 ]

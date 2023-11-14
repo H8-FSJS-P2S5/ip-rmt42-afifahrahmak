@@ -14,6 +14,14 @@ router.use(authentication)
 
 router.get("/recipes", RecipeController.recipes); 
 
+router.get("/recipes/:id", RecipeController.recipeById); 
+
+
+// =============== DEVELOPMENT ====================
+router.get("/recDB", RecipeController.getRecDb); 
+router.get("/recDB/:id", RecipeController.getRecDbId); 
+// ================================================
+
 router.use(errorHandler);
 
 
