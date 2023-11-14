@@ -10,6 +10,8 @@ router.get('/', async(req, res) => {
 
 //User routes
 router.post("/register", UserController.register)
+router.post("/login", UserController.login)
+router.post("/googleLogin", UserController.googleLogin)
 
 router.use(errorHandler)
 
