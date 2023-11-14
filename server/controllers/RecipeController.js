@@ -102,8 +102,9 @@ module.exports = class RecipeController {
         }
       })
 
-      const recipe = await mappedRecipes.findByPk(req.params.id)
-      console.log(recipe)
+      const recipe = mappedRecipes.find((recipe) => recipe.id === req.params.id)
+      console.log(mappedRecipes) 
+      console.log(recipe) // ======= undefined
       res.status(200).json(recipe);
     } catch (error) {
       // next(error);
