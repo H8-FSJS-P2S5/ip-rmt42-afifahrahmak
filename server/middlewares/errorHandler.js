@@ -15,6 +15,12 @@ function errorHandler(err, req, res, next) {
         case "JsonWebTokenError":
             res.status(401).json({message: "Unauthenticated"})
             break
+        case "Forbidden":
+            res.status(403).json({message: "You are not authorized"})
+            break
+        case "Data not found":
+            res.status(404).json({message: err.name})
+            break
         default:
             res.status(500).json({message: "Internal server error"})
     }
