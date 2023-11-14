@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 
@@ -32,6 +32,7 @@ async function fetchGoogleBooks() {
                     imgUrl: imageLinks.thumbnail,
                     status: 'available',
                     category: categories ? categories.join(', ') : '-',
+                    pricePerWeek: Math.ceil(Math.random() * 1000 * 5)
                 };
             });
         };
@@ -52,5 +53,5 @@ async function fetchGoogleBooks() {
 }
 
 
-fetchGoogleBooks();
+// fetchGoogleBooks();
 // module.exports = fetchGoogleBooks;

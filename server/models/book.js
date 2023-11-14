@@ -11,21 +11,69 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Book.hasMany(models.History, {
+        foreignKey: 'bookId'
+      });
     }
   }
   Book.init({
-    title: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Title is required!`
+        },
+        notNull: {
+          msg: `Title is required!`
+        }
+      }
+    },
     isbn: DataTypes.STRING,
     author: DataTypes.STRING,
     synopsis: DataTypes.TEXT,
     pageCount: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Stock is required!`
+        },
+        notNull: {
+          msg: `Stock is required!`
+        }
+      }
+    },
     publisher: DataTypes.STRING,
-    publishedDate: DataTypes.DATE,
+    publishedDate: DataTypes.STRING,
     lang: DataTypes.STRING,
     imgUrl: DataTypes.STRING,
-    status: DataTypes.STRING,
-    category: DataTypes.STRING
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Status is required!`
+        },
+        notNull: {
+          msg: `Status is required!`
+        }
+      }
+    },
+    category: DataTypes.STRING,
+    pricePerWeek: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: `Price per week is required!`
+        },
+        notNull: {
+          msg: `Price per week is required!`
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Book',

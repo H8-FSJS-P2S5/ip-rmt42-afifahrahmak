@@ -33,7 +33,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       publishedDate: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       lang: {
         type: Sequelize.STRING
@@ -42,10 +42,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       category: {
         type: Sequelize.STRING
+      },
+      pricePerWeek: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
