@@ -1,9 +1,9 @@
 const { User, Book } = require("../models");
 
 const authorization = {
-    AdminOnly: async (request, response, next) => {
+    AdminOnly: async (req, res, next) => {
         try {
-            const user = await User.findByPk(request.user.id);
+            const user = await User.findByPk(req.user.id);
             if (!user) throw ({ name: "Unauthorized" });
             if (user.role !== 'admin') throw ({ name: "Unauthorized" });
 

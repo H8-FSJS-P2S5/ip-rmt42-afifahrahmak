@@ -37,7 +37,8 @@ class UserController {
         const { username, email, password, role = 'member', accountType = 'manual', name, address, gender } = request.body;
         try {
             const user = await User.create({ username, email, password, role, accountType });
-            await UserDetail.create({ userId: user.id, name, address, gender });
+            await UserDetail.create({ userId: user.id, name, address, gender});
+           
             response.status(201).json({ id: user.id, email: user.email, role: user.role });
         } catch (error) {
             next(error);
@@ -76,7 +77,6 @@ class UserController {
     static async login(request, response, next) {
         const { username, email, password } = request.body;
         try {
-            if (!username || username === "") throw ({ name: `EmptyUsername` });
             if (!email || email === "") throw ({ name: `EmptyEmail` });
             if (!password || password === "") throw ({ name: `EmptyPassword` });
             
