@@ -25,8 +25,14 @@ module.exports = {
           key: 'id'
         }
       },
-      deadline: {
-        type: Sequelize.DATE,
+      qna: {
+        type: Sequelize.TEXT,
+      },
+      question: {
+        type: Sequelize.TEXT,
+      },
+      point: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       status: {

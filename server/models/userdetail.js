@@ -69,5 +69,15 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'UserDetail',
   });
+
+  UserDetail.beforeCreate((userDetail) => {
+    let inumber = 'M-';
+    inumber += new Date().getFullYear() + `-`;
+    inumber += userDetail.id + '-';
+    userDetail.gender ? inumber += 'F-' : inumber += 'M-';
+    inumber += 'IPUSTAKA'
+    userDetail.inumber = inumber;
+  });
+  
   return UserDetail;
 };
