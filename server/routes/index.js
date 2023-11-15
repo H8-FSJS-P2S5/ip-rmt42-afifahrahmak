@@ -10,6 +10,8 @@ router.post("/register", UserController.register);   //register
 
 router.post("/login", UserController.login);    //login
 
+router.post("/google-login", UserController.googleLogin);  //GOOGLE LOGIN
+
 router.use(authentication)
 
 router.get("/recipes", RecipeController.recipes); 
