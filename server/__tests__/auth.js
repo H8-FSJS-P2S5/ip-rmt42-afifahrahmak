@@ -11,6 +11,9 @@ const user1 = {
 };
 
 const timeOut = 20000;
+beforeAll(async () => {
+  await User.create({...user1, email: 'user2@gmail.com', accountType: 'google'});
+}, timeOut);
 
 describe('/register', () => {
   describe('Positive Testing', () => {
@@ -106,6 +109,16 @@ describe('/login', () => {
       expect(body).toHaveProperty("message", "Password is required");
     }, timeOut);
 
+    test('failed manual login with google account', async () => {
+      let { status, body } = await request(app)
+        .post('/login')
+        .send({...user1, email: 'user2@gmail.com'});
+
+      expect(status).toBe(401);
+      expect(body).toBeInstanceOf(Object);
+      expect(body).toHaveProperty("message", "Use your Google account to login");
+    }, timeOut);
+
     test('failed login with unregistered  user/email invalid', async () => {
       let { status, body } = await request(app)
         .post('/login')
@@ -125,6 +138,7 @@ describe('/login', () => {
       expect(body).toBeInstanceOf(Object);
       expect(body).toHaveProperty("message", "Invalid Email/Password!");
     }, timeOut);
+
   });
 });
 

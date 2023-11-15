@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">48.57% </span>
+                <span class="strong">52.63% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/35</span>
+                <span class='fraction'>20/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.66% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/12</span>
+                <span class='fraction'>6/13</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">51.35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/34</span>
+                <span class='fraction'>19/37</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,10 +125,15 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -161,6 +166,11 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -182,7 +192,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -222,23 +232,28 @@
                 message = `Invalid Email/Password!`;
                 break;
 &nbsp;
-<span class="branch-7 cbranch-no" title="branch not covered" >            case 'JsonWebTokenError':</span>
-<span class="branch-8 cbranch-no" title="branch not covered" >            case 'Unauthenticated':</span>
+            case 'googleAcc':
+                statusCode = 401;
+                message = `Use your Google account to login`;
+                break;
+&nbsp;
+<span class="branch-8 cbranch-no" title="branch not covered" >            case 'JsonWebTokenError':</span>
+<span class="branch-9 cbranch-no" title="branch not covered" >            case 'Unauthenticated':</span>
 <span class="cstat-no" title="statement not covered" >                statusCode = 401;</span>
 <span class="cstat-no" title="statement not covered" >                message = `Unauthenticated`;</span>
 <span class="cstat-no" title="statement not covered" >                break;</span>
 &nbsp;
-<span class="branch-9 cbranch-no" title="branch not covered" >            case 'Unauthorized':</span>
+<span class="branch-10 cbranch-no" title="branch not covered" >            case 'Unauthorized':</span>
 <span class="cstat-no" title="statement not covered" >                statusCode = 403;</span>
 <span class="cstat-no" title="statement not covered" >                message = `You're not authorized`;</span>
 <span class="cstat-no" title="statement not covered" >                break;</span>
 &nbsp;
-<span class="branch-10 cbranch-no" title="branch not covered" >            case 'NotFound':</span>
+<span class="branch-11 cbranch-no" title="branch not covered" >            case 'NotFound':</span>
 <span class="cstat-no" title="statement not covered" >                statusCode = 404;</span>
 <span class="cstat-no" title="statement not covered" >                message = `Not Found`;</span>
 <span class="cstat-no" title="statement not covered" >                break;</span>
 &nbsp;
-<span class="branch-11 cbranch-no" title="branch not covered" >            default:</span>
+<span class="branch-12 cbranch-no" title="branch not covered" >            default:</span>
 <span class="cstat-no" title="statement not covered" >                statusCode = 500;</span>
 <span class="cstat-no" title="statement not covered" >                message = `Internal Server Error`;</span>
 <span class="cstat-no" title="statement not covered" >                break;</span>
@@ -256,7 +271,7 @@ module.exports = errorHandler;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-14T14:31:43.913Z
+                at 2023-11-15T03:52:58.153Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

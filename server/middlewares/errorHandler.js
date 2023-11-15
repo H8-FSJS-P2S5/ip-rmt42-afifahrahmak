@@ -33,6 +33,11 @@ const errorHandler = {
                 message = `Invalid Email/Password!`;
                 break;
 
+            case 'googleAcc':
+                statusCode = 401;
+                message = `Use your Google account to login`;
+                break;
+
             case 'JsonWebTokenError':
             case 'Unauthenticated':
                 statusCode = 401;

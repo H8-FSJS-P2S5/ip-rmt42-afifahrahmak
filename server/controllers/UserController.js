@@ -1,6 +1,8 @@
 const { bcryptCompare } = require("../helpers/bcryptjs");
 const { createToken } = require("../helpers/jwt");
 const { User, UserDetail, History } = require("../models");
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client();
 
 class UserController {
     static async getTopThree(request, response) {
@@ -8,7 +10,7 @@ class UserController {
             const users = await User.findAndCountAll({
                 include: [
                     { model: UserDetail },
-                    { 
+                    {
                         model: History,
                         attributes: [
                             [sequelize.fn('SUM', sequelize.col('point')), 'totalPoints']
@@ -88,13 +90,14 @@ class UserController {
     }
 
     static async login(request, response, next) {
-        const { username, email, password } = request.body;
+        const { email, password } = request.body;
         try {
             if (!email || email === "") throw ({ name: `EmptyEmail` });
             if (!password || password === "") throw ({ name: `EmptyPassword` });
 
             const user = await User.findOne({ where: { email } });
             if (!user || !bcryptCompare(password, user.password)) throw ({ name: "NotMatched" });
+            if(user.accountType === 'google') throw ({name: 'googleAcc'});
 
             const token = createToken({ id: user.id });
             response.status(200).json({ access_token: token, email: user.email, role: user.role });
@@ -103,7 +106,29 @@ class UserController {
         }
     }
 
-
+    static async loginGoogle(req, res, next) {
+        try {
+            const ticket = await client.verifyIdToken({
+                idToken: req.headers.g_token,
+                audience: process.env.G_CLIENT,
+            });
+            const payload = ticket.getPayload();
+            const [user, newUser] = await User.findOrCreate({
+                where: {
+                    email: payload.email
+                },
+                defaults: {
+                    username: payload.name,
+                    password: String(Math.random()),
+                    accountType: 'google'
+                }
+            });
+            if (newUser) await UserDetail.create({ userId: user.id, name: user.username });
+            res.status(newUser ? 201 : 200).json({ access_token: createToken({ id: user.id }) });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = UserController;
