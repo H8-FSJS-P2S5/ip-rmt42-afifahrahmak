@@ -11,8 +11,8 @@ module.exports = function errorHandler(error, req, res, next) {
             res.status(401).json({ message: error.message ?? "Unauthenticated" });
             break;
 
-        case "NotFound":
-            res.status(404).json({ message: error.message ?? "Data not found" }); //cusine -> error
+        case "AxiosError":
+            res.status(404).json({ message: "Recipe not found" });
             break;
 
         default:
