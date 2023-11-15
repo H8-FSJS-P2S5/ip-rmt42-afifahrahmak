@@ -1,3 +1,4 @@
+const MailController = require('../controllers/MailController');
 const RecipeController = require('../controllers/RecipeController');
 const UserController = require('../controllers/UserController');
 const authentication = require('../middlewares/authentication');
@@ -18,11 +19,9 @@ router.get("/recipes", RecipeController.recipes);
 
 router.get("/recipes/:id", RecipeController.recipeById); 
 
+router.post("/contact", MailController.sendMail); 
 
-// =============== DEVELOPMENT ====================
-router.get("/recDB", RecipeController.getRecDb); 
-router.get("/recDB/:id", RecipeController.getRecDbId); 
-// ================================================
+
 
 router.use(errorHandler);
 
