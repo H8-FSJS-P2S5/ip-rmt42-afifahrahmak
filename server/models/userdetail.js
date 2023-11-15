@@ -48,9 +48,10 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   UserDetail.beforeCreate((user) => {
+    console.log(user);
     let inumber = 'M-';
     inumber += new Date().getFullYear() + `-`;
-    inumber += user.id + '-';
+    inumber += user.userId + '-';
     user.gender ? inumber += 'F-' : inumber += 'M-';
     inumber += 'IPUSTAKA'
     user.inumber = inumber;

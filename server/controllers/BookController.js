@@ -53,7 +53,7 @@ class BookController {
 
     static async getById(req, res, next) {
         try {
-            const book = await Book.findByPk(req.params.id);
+            const book = await Book.findByPk(req.params.bookId);
             if (!book) throw ({ name: "NotFound" });
             res.status(200).json(book);
         } catch (error) {
