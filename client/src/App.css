@@ -1,6 +1,10 @@
+body{
+    font-family: sans-serif;
+    background: radial-gradient(circle, rgba(50,50,50,1) 0%, rgba(38,38,38,1) 60%, rgb(16, 16, 16) 100%);
+}
+
 .formRegister{
     color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.824);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -18,13 +22,12 @@
 
 }
 
-.formRegister .formWrapper .logo{
-    color: rgb(255, 0, 0);
-    font-weight: bold;
-    font-size: 30px;
+
+.formRegister .formWrapper .logoRegister{
+    width: 25vh;
 }
 .formRegister .formWrapper .title{
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.866);
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -47,8 +50,8 @@
 }
 
 .formRegister .formWrapper .submitButton{
-    background-color: rgba(255, 0, 0, 0.789);
-    color: white;
+    background-color: rgb(255, 208, 0);
+    color: rgba(0, 0, 0, 0.866);
     padding: 10px;
     font-weight: bold;
     border: none;
@@ -57,12 +60,47 @@
 }
 
 .formRegister .formWrapper p{
-    color: white;
+    color: rgba(255, 255, 255, 0.866);
     font-size: 14px;
     margin-top: 10px;
 }
 
 .formRegister .formWrapper a{
-    color: red;
+    color: rgb(255, 208, 0);
     text-decoration: none;
 }
+
+  /* =================alret=================*/
+  
+  .custom-pop-up{
+    background-color: rgba(55, 55, 55, 0.776);
+    color: rgb(231, 231, 231);
+  }
+
+  /* =================navbar=================*/
+
+
+  .submitButton{
+    background-color: rgb(255, 208, 0);
+    color: rgba(0, 0, 0, 0.866);
+    padding: 4px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.container{
+  background-color: rgb(15, 15, 15);
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.list-group-item{
+  background-color: rgb(31, 31, 31);
+  border-color: black;
+  color: white;
+  height: 60px;
+}
+
+
+  

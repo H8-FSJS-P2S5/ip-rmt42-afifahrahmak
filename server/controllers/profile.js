@@ -1,4 +1,4 @@
-const {Profile, User} = require('../models')
+const {Profile, User, Post} = require('../models')
 
 class ProfileController {
     static async create(req, res, next) {
@@ -38,7 +38,15 @@ class ProfileController {
                 throw {name: 'NotFound', message: 'User not found'}
             }
 
-            const profile = await Profile.findOne({where: {UserId: id}})
+            const profile = await Profile.findOne({
+                where: {UserId: id},
+                include: {
+                    model: User,
+                    include: {
+                        model: Post
+                    }
+                } 
+            })
             res.status(200).json(profile)
         } catch (error) {
             next(error)

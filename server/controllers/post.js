@@ -1,4 +1,4 @@
-const {Post, User, Category, Profile} = require('../models')
+const {Post, User, Category, Profile, Comment} = require('../models')
 const { Op } = require("sequelize")
 
 class PostController {
@@ -6,7 +6,7 @@ class PostController {
         try {
             const {id} = req.user
 
-            const data = await Post.create({...req.body, UserId: id, status: 'Free'})
+            const data = await Post.create({...req.body, UserId: id})
             res.status(201).json(data)
         } catch (error) {
             next(error)
@@ -45,7 +45,7 @@ class PostController {
 
             const {count} = await Post.findAndCountAll()
 
-            console.log(count)
+            let totalPage = Math.ceil(count/10)
 
             const data = await Post.findAll({
                 where: cek,
@@ -54,22 +54,36 @@ class PostController {
                     include: {model: Profile}
                 }, {
                     model: Category
+                }, {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        include: {model: Profile}
+                    }
                 }],
                 order: [[`${sortBy}`, `ASC`]],
                 limit: 10,
                 offset: page * 10 - 10
             })
-            res.status(200).json(data)
+            res.status(200).json({totalPage ,data})
         } catch (error) {
-            console.log(error)
+            next(error)
         }
     }
 
     static async editPost(req, res, next) {
         try {
-            
+            const {postId} = req.params
+            const post = await Post.findByPk(postId) 
+            if (!post) {
+                throw { name: 'NotFound', message: 'Cuisine not Found' }
+            }
+
+            const newPost = req.body
+            const updated = await post.update(newPost)
+            res.status(201).json(updated)
         } catch (error) {
-            console.log(error)
+            next(error)
         }
     }
 }
