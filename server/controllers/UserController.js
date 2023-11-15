@@ -60,12 +60,15 @@ module.exports = class UserController {
 
     static async googleLogin(req, res, next) {
         console.log(req.headers.g_token)
+        
         try {
             const ticket = await client.verifyIdToken({
                 idToken: req.headers.g_token,
                 audience: process.env.G_CLIENT_ID, 
             });
             const payload = ticket.getPayload();
+
+        console.log(payload)
 
             const [user, isNewRecord] = await User.findOrCreate({
                 where: {

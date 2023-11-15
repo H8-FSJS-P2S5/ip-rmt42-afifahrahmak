@@ -22,7 +22,7 @@ export default function Contact() {
         event.preventDefault();
         try {
             const { data } = await axios({
-                url: "http://localhost:3000/contact",
+                url: "http://localhost:3000/contact-mail",
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -50,7 +50,7 @@ export default function Contact() {
 
         } catch ({ response }) {
 
-            toast.error("Unauthenticated", {
+            toast.error(response.data.message, {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: true,

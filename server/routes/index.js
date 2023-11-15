@@ -19,7 +19,7 @@ router.get("/recipes", RecipeController.recipes);
 
 router.get("/recipes/:id", RecipeController.recipeById); 
 
-router.post("/contact", MailController.sendMail); 
+router.post("/contact-mail", MailController.sendMail); 
 
 
 

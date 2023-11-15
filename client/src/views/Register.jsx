@@ -33,7 +33,7 @@ export default function Register() {
             })
             console.log(data)
 
-            toast.success('Thank You For Joining', {
+            toast.success('Thank You For Joining 🥰', {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: true,

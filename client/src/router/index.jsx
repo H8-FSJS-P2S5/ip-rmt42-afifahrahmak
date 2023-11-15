@@ -3,12 +3,13 @@ import Login from "../views/Login";
 import Home from "../views/Home";
 import Contact from "../views/Contact";
 import Register from "../views/Register";
+import Landing from "../views/Landing";
 
 const router = createBrowserRouter([
-    // {
-    //     path: "/",
-    //     element: <Landing />,
-    // },
+    {
+        path: "/",
+        element: <Landing />,
+    },
     {
         path: "/register",
         element: <Register />,
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/contact",
+        path: "/contact-mail",
         element: <Contact />,
     },
     {/* {

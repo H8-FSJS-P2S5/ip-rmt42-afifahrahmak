@@ -2,7 +2,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12856485&assignment_repo_type=AssignmentRepo)
 # Individual Project Phase 2
 
-CYTO is my Individual Project application developed for assignment purposes. 
+CYTO is my Individual Project developed for assignment purposes. 
 It is an application ___
 This app has : 
 * RESTful endpoint for asset's CRUD operation
@@ -113,6 +113,42 @@ _Response (401 - Unauthorized)_
 ```
 ---
 
+### POST /google-login
+
+> User login via Google Account
+
+_Request Header_
+```
+"g_token"
+```
+
+_URL Params_
+```
+not needed
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+{
+    "email": "string",
+    "username": "string",
+    "password": "string"
+}
+```
+
+_Response (200 - OK)_
+```
+{
+    "access_token": "string"
+}
+```
+---
+
 ## Recipes
 ### GET /recipes
 
@@ -211,7 +247,6 @@ not needed
 
 _Response (200 - OK)_
 ```
-
 {
     "id": "string",
     "name": "string",
@@ -251,7 +286,6 @@ _Response (200 - OK)_
     },
     "image": "string"
 }
-
 ```
 
 _Response (404 - Not Found)_
@@ -262,6 +296,51 @@ _Response (404 - Not Found)_
 ```
 
 ---
+### POST /contact-mail
+
+> Send Message to the CYTO team
+
+_Request Header_
+```
+{"Authorization": "Bearer <access_token>"}
+```
+
+_URL Params_
+```
+not needed
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+{ 
+    "username":"string", 
+    "email": "string", 
+    "message": "string" 
+}
+```
+
+_Response (200 - OK)_
+```
+{
+    "message": "Your message sent successfully"
+}
+
+```
+
+_Response (400 - Bad Request)_
+```
+{
+    "message": "Please fill the required form!"
+}
+```
+
+---
+
 ### Global Error
 
 _Response (401 - Unauthorized)_

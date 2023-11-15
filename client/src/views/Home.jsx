@@ -20,4 +20,10 @@ export default function Home() {
         navigate("/landing");
     }
 
+
+    return(
+        <>
+        </>
+    )
+
 }
