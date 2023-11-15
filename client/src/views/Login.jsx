@@ -1,16 +1,73 @@
-import { useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { GoogleLogin } from '@react-oauth/google';
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 
 export default function Login() {
     const navigate = useNavigate();
+    const [formData, setData] = useState({
+        email: "",
+        password: ""
+    })
 
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setData({ ...formData, [name]: value });
+    };
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await axios({
+                url: "http://localhost:3000/login",
+                method: "post",
+                data:
+                {
+                    email: formData.email,
+                    password: formData.password,
+                }
+            })
+
+            localStorage.setItem("access_token", data.access_token)
+
+            toast.success('Welcome Home ViCYTOr ❣️', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+            navigate("/home");
+
+        } catch ({ response }) {
+
+            toast.error(response.data.message, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+
+            console.log({ response })
+        }
+    }
+
+
+    // GOOGLE LOGIN
     async function handleCredentialResponse(response) {
         console.log("Encoded JWT ID token: " + response.credential);
         try {
-            let {data} = await axios.post("http://localhost:3000/google-login", null, {
+            let { data } = await axios.post("http://localhost:3000/google-login", null, {
                 headers: {
                     g_token: response.credential
                 }
@@ -36,13 +93,12 @@ export default function Login() {
 
                                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Welcome back!</p>
 
-                                        <form className="mx-1 mx-md-4">
+                                        <form onSubmit={handleLogin} className="mx-1 mx-md-4">
 
                                             <div className="d-flex flex-row align-items-center mb-4">
-                                                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    {/* <label className="form-label" htmlFor="form3Example3c">Email</label> */}
-                                                    <input name="email" type="email" id="form3Example3c"
+                                                    <input name="email" type="email" id="email"
+                                                        onChange={handleChange} value={formData.email}
                                                         placeholder="Email" className="form-control" />
                                                 </div>
                                             </div>
@@ -50,13 +106,20 @@ export default function Login() {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input name="password" type="password" id="form3Example4c"
+                                                    <input name="password" type="password" id="password"
+                                                        onChange={handleChange} value={formData.password}
                                                         placeholder="Password" className="form-control" />
                                                 </div>
                                             </div>
 
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                 <button type="submit" className="btn btn-dark mt-3">LOGIN</button>
+                                            </div>
+
+                                            <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <Link to={"/register"}>
+                                                    <button type="button" className="btn btn-outline-dark flex-shrink-0">REGISTER</button>
+                                                </Link>
                                             </div>
 
                                             <div className="mb-3 w-100 position-relative text-center mt-4">
