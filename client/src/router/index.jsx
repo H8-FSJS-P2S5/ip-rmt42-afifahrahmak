@@ -19,8 +19,9 @@ const router = createBrowserRouter([
         children: [
           {
             path: "home",
-            element: <SideBar />,
+            element: <BookCard />,
           },
+         
         //   {
         //     path: "cuisine/create",
         //     element: <CuisineCreatePage />
