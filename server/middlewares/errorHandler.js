@@ -28,14 +28,14 @@ const errorHandler = {
                 message = `Email/Password is required`;
                 break;
 
+            case 'googleAcc':
+                statusCode = 400;
+                message = `Use your Google account to login`;
+                break;
+
             case 'NotMatched':
                 statusCode = 401;
                 message = `Invalid Email/Password!`;
-                break;
-
-            case 'googleAcc':
-                statusCode = 401;
-                message = `Use your Google account to login`;
                 break;
 
             case 'JsonWebTokenError':

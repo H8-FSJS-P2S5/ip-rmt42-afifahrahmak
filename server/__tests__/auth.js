@@ -114,7 +114,7 @@ describe('/login', () => {
         .post('/login')
         .send({...user1, email: 'user2@gmail.com'});
 
-      expect(status).toBe(401);
+      expect(status).toBe(400);
       expect(body).toBeInstanceOf(Object);
       expect(body).toHaveProperty("message", "Use your Google account to login");
     }, timeOut);

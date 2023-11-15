@@ -98,9 +98,7 @@ class UserController {
             const user = await User.findOne({ where: { email } });
             if (!user || !bcryptCompare(password, user.password)) throw ({ name: "NotMatched" });
             if(user.accountType === 'google') throw ({name: 'googleAcc'});
-
-            const token = createToken({ id: user.id });
-            response.status(200).json({ access_token: token, email: user.email, role: user.role });
+            response.status(200).json({ access_token: createToken({ id: user.id }), email: user.email, role: user.role });
         } catch (error) {
             next(error);
         }
