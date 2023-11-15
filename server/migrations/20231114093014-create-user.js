@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: 'free'
       },
+      role: {
+        type: Sequelize.STRING,
+        defaultValue: 'Player'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

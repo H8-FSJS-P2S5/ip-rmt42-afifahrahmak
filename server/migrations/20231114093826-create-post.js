@@ -33,6 +33,10 @@ module.exports = {
           key: 'id'
         }
       },
+      status: {
+        type: Sequelize.STRING,
+        defaultValue: 'Free'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
