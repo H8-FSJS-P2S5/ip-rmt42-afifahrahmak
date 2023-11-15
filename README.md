@@ -116,7 +116,7 @@ _Response (401 - Unauthorized)_
 ## Recipes
 ### GET /recipes
 
-> Get all Recipes
+> Get All Recipes
 
 _Request Header_
 ```
@@ -142,11 +142,11 @@ _Response (200 - OK)_
 ```
 [
     {
-        "id": integer,
+        "id": "string",
         "name": "string",
         "description": "string",
-        "prepareTime": integer,
-        "cookTime": integer,
+        "prepareTime": "string",
+        "cookTime": "string",
         "ingredients": [
             "string",
             "string",
@@ -184,7 +184,82 @@ _Response (200 - OK)_
 ]
 ```
 
+---
+### GET /recipes/:id
 
+> Get One Recipe by Id
+
+_Request Header_
+```
+{"Authorization": "Bearer <access_token>"}
+```
+
+_URL Params_
+```
+id: integer [required]
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200 - OK)_
+```
+
+{
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "prepareTime": "string",
+    "cookTime": "string",
+    "ingredients": [
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string"
+    ],
+    "steps": [
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+        "string",
+    ],
+    "nutrients": {
+        "string": integer,
+        "string": integer,
+        "string": integer,
+        "string": integer,
+        "string": integer,
+        "string": integer,
+        "string": integer,
+        "string": integer
+    },
+    "image": "string"
+}
+
+```
+
+_Response (404 - Not Found)_
+```
+{
+    "message": "Recipe not found"
+}
+```
 
 ---
 ### Global Error

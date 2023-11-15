@@ -116,37 +116,4 @@ module.exports = class RecipeController {
   }
 
 
-
-
-
-  /*
-    ==================== DEVELOPMENT ========================
-  */
-  static async getRecDb(req, res, next) {
-    try {
-      const recipes = await Recipe.findAll();
-      res.status(200).json(recipes);
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  static async getRecDbId(req, res, next) {
-    try {
-      const { id } = req.params;
-      const recipes = await Recipe.findByPk(id);
-
-      if (!recipes) {
-        next({ name: 'NotFound', message: "Recipe not found" });
-        return;
-      }
-
-      res.status(200).json(recipes);
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  //================================================================
-
 }
