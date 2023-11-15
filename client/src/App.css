@@ -35,7 +35,7 @@
     gap: 20px;
 }
 
-.formRegister .formWrapper input{
+.formRegister .formWrapper .inputForm{
     padding: 15px;
     border: none;
     width: 300px;
@@ -46,7 +46,7 @@
     }
 }
 
-.formRegister .formWrapper button{
+.formRegister .formWrapper .submitButton{
     background-color: rgba(255, 0, 0, 0.789);
     color: white;
     padding: 10px;

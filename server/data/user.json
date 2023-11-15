@@ -1,0 +1,9 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@mail.com",
+        "password": "admin",
+        "status": "Immortal",
+        "role": "GM"
+    }
+]
