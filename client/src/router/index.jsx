@@ -1,6 +1,7 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../views/Login";
 import Home from "../views/Home";
+import Contact from "../views/Contact";
 
 const router = createBrowserRouter([
     // {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: "/home",
         element: <Home />,
+    },
+    {
+        path: "/contact",
+        element: <Contact />,
     },
     {/* {
 

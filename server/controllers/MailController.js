@@ -8,6 +8,8 @@ module.exports = class MailController {
 
             // console.log(username, email, message)
 
+            if(!username || !email || !message) throw ({name: "IncompleteData", message: "Please fill the required form!"})
+
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -19,8 +21,8 @@ module.exports = class MailController {
             const mailOptions = {
                 from: `${email}`,
                 to: `${process.env.E_RECEIVER}`,
-                subject: `New Message from our dearest ${username},`,
-                text: `${message}`,
+                subject: `New Message from our dearest ViCYTOr - ${username},`,
+                text: `From: ${username} \nEmail: ${email} \nMessage: ${message}`,
             };
 
             await transporter.sendMail(mailOptions);
