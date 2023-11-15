@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export const Register = () => {
     const [username, setUsername] = useState('')
@@ -21,7 +22,15 @@ export const Register = () => {
 
             navigate('/login')
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                text: error.response.data.message,
+                icon: 'warning',
+                confirmButtonText: "Back",
+                confirmButtonColor: "red",
+                customClass: {
+                    popup: 'custom-pop-up'
+                }
+              })
         }
     }
 
@@ -29,7 +38,7 @@ export const Register = () => {
         <>
             <div className="formRegister">
                 <div className="formWrapper">
-                    <span className="logo">We Are...</span>
+                    <span><img className="logoRegister" src="https://i.imgur.com/xWgz4We.png" alt="logo" /></span>
                     <span className="title">Register</span>
                     <form onSubmit={handleSubmit}>
                         <input className="inputForm" onChange={(e) => setUsername(e.target.value)} type="text" placeholder="username" />
