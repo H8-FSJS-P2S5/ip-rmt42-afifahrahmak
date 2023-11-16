@@ -34,7 +34,7 @@ beforeAll(async () => {
             "imgUrl": "http://www.com",
             "username": "Any",
             "description": "Any",
-            "userId": 2,
+            "userId": 1,
             "createdAt": dateNow,
             "updatedAt": dateNow,
         },
@@ -55,10 +55,10 @@ describe("/comment", () => {
         expect(body).toBeInstanceOf(Array);
         expect(body[0]).toBeInstanceOf(Object);
         expect(body[0]).toHaveProperty("id", expect.any(Number));
-        expect(body).toHaveProperty("imgUrl", expect.any(String));;   
-        expect(body).toHaveProperty("username", expect.any(String));    
-        expect(body).toHaveProperty("description", expect.any(String));;   
-        expect(body).toHaveProperty("userId", expect.any(Number));
+        expect(body[0]).toHaveProperty("imgUrl", expect.any(String));;   
+        expect(body[0]).toHaveProperty("username", expect.any(String));    
+        expect(body[0]).toHaveProperty("description", expect.any(String));;   
+        expect(body[0]).toHaveProperty("userId", expect.any(Number));
     })
 
 

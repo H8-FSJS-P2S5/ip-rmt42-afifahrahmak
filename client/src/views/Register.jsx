@@ -74,7 +74,7 @@ export default function Register() {
                             <div className="row justify-content-center">
                                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-5">Register</p>
 
                                     <form onSubmit={handleRegister} className="mx-1 mx-md-4">
 
@@ -112,7 +112,7 @@ export default function Register() {
                                 </div>
                                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                    <img src="https://sg.sodexo.com/files/live/sites/com-sg/files/Images/inspired%20thinking/food%20across%20cultures.png"
+                                    <img src="https://npr.brightspotcdn.com/dims4/default/ff62923/2147483647/strip/true/crop/1024x1024+0+0/resize/880x880!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fkufm%2Ffiles%2F202103%2Flanguages_iStock.jpg"
                                         className="img-fluid" alt="Sample image" />
 
                                 </div>

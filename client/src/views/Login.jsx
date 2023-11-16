@@ -145,7 +145,7 @@ export default function Login() {
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                        <img src="https://img.fixthephoto.com/blog/images/gallery/news_preview_mob_image__preview_746.jpg"
+                                        <img src="https://thumbs.dreamstime.com/b/welcome-different-languages-wordcloud-vector-92521661.jpg"
                                             className="img-fluid" alt="Sample image" />
 
                                     </div>
