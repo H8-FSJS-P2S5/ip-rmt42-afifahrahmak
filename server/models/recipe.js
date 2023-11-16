@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Recipe.init({
     name: DataTypes.STRING,
-    description: DataTypes.STRING(10000),
+    description: DataTypes.TEXT,
     prepareTime: DataTypes.STRING,
     cookTime: DataTypes.STRING,
-    ingredients: DataTypes.ARRAY(DataTypes.STRING(20000)),
-    steps: DataTypes.ARRAY(DataTypes.STRING(20000)),
+    ingredients: DataTypes.ARRAY(DataTypes.TEXT),
+    steps: DataTypes.ARRAY(DataTypes.TEXT),
     nutrients: DataTypes.JSON,
     image: DataTypes.STRING
   }, {

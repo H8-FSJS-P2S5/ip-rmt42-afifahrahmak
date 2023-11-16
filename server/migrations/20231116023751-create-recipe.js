@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING(10000)
+        type: Sequelize.TEXT
       },
       prepareTime: {
         type: Sequelize.STRING
@@ -22,10 +22,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       ingredients: {
-        type: Sequelize.ARRAY(Sequelize.STRING(20000))
+        type: Sequelize.ARRAY(Sequelize.TEXT)
       },
       steps: {
-        type: Sequelize.ARRAY(Sequelize.STRING(20000))
+        type: Sequelize.ARRAY(Sequelize.TEXT)
       },
       nutrients: {
         type: Sequelize.JSON
