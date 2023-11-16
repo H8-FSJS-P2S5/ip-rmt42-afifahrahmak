@@ -3,6 +3,7 @@ const { signToken } = require('../helper/jwt')
 const { User, Profile } = require('../models')
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client();
+const midtransClient = require('midtrans-client');
 
 class UserController {
     static async login(req, res, next) {
@@ -75,19 +76,65 @@ class UserController {
     static async upgradeUser(req, res, next) {
         try {
             const { userId } = req.params
+            const {orderId} = req.body
             const user = await User.findByPk(userId)
-            const profile = await Profile.findOne({where: {UserId: user.id}})
+            const profile = await Profile.findOne({ where: { UserId: user.id } })
 
             if (!user) {
                 throw { name: 'NotFound', message: 'User not found' }
             }
 
+            if (!orderId) {
+                throw { name: 'Forbidden', message: 'Order not complete'}
+            }
+
             await profile.update({ status: 'Immortal' })
             const updateUser = await user.update({ status: 'Immortal' })
-            res.status(201).json(updateUser)
+            
+            res.status(201).json({updateUser: 'joss'})
         } catch (error) {
             console.log(error)
             next(error)
+        }
+    }
+
+    static async payment(req, res, next) {
+        try {
+            const { userId } = req.params
+            const user = await User.findByPk(userId)
+            const profile = await Profile.findOne({ where: { UserId: user.id } })
+
+            const snap = new midtransClient.Snap({
+                isProduction: false,
+                serverKey: process.env.SERVER_KEY
+            });
+
+            const orderId = `trx-ua-${new Date().getTime()}`
+
+            const parameter = {
+                "transaction_details": {
+                    "order_id": orderId,
+                    "gross_amount": 10000
+                },
+                "credit_card": {
+                    "secure": true
+                },
+                "customer_details": {
+                    "first_name": profile.firstName,
+                    "last_name": profile.lastName,
+                    "email": user.email
+                }
+            }
+
+            const {token} = await snap.createTransaction(parameter)
+
+            if (!user) {
+                throw { name: 'NotFound', message: 'User not found' }
+            }
+
+            res.status(201).json({transaction_token: token, orderId})
+        } catch (error) {
+            
         }
     }
 }

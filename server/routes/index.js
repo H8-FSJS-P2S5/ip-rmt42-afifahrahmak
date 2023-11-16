@@ -17,6 +17,7 @@ router.get('/pub/posts', PostController.posts)
 router.use(authentication)
 
 router.patch('/upgrade/:userId', UserController.upgradeUser)
+router.get('/payment/:userId', UserController.payment)
 router.get('/profile/:username', ProfileController.getProfile)
 router.put('/profile/:username/edit', profileAuthorization, ProfileController.editProfile)
 
