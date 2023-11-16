@@ -20,6 +20,8 @@ beforeAll(async () => {
     tokenAdm = signToken({id: admin.id});
 
     comment = {
+        "imgUrl": "http://www.com",
+        "username": "Any",
         "description": "Any",
         "userId": admin.id,
     }
@@ -37,7 +39,9 @@ describe("/comment/add", () => {
 
         expect(status).toBe(201);
         expect(body).toBeInstanceOf(Object);
-        expect(body).toHaveProperty("id", expect.any(Number));      
+        expect(body).toHaveProperty("id", expect.any(Number));  
+        expect(body).toHaveProperty("imgUrl", expect.any(String));;   
+        expect(body).toHaveProperty("username", expect.any(String));    
         expect(body).toHaveProperty("description", expect.any(String));;   
         expect(body).toHaveProperty("userId", expect.any(Number));
     })

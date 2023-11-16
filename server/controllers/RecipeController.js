@@ -5,7 +5,7 @@ module.exports = class RecipeController {
 
   static async recipes(req, res, next) {
 
-    const { search, filter, page } = req.query;
+    const { search, filter, page = 1 } = req.query;
 
     const options = {
       method: 'GET',
@@ -60,20 +60,28 @@ module.exports = class RecipeController {
         }
       })
 
-      const offset = !Number(page) ? 0 : 8 * (page - 1)
-      const newPage = offset + 8
-      const result = mappedRecipes.slice(offset, newPage)
+      const lim = 8
+      const offset = 8 * (page - 1)
+      const total = recipes.length;
+      const totalPage = Math.ceil(total / 8)
+      const results = mappedRecipes.slice(offset, offset + lim)
 
-      res.status(200).json(result);
+      res.status(200).json({
+        total,
+        totalPage,
+        results,
+      });
+
     } catch (error) {
       next(error);
+      console.log(error)
     }
   }
 
 
   static async recipeById(req, res, next) {
 
-    const {id} = req.params
+    const { id } = req.params
 
     const options = {
       method: 'GET',

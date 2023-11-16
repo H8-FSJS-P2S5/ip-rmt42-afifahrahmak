@@ -366,6 +366,8 @@ not needed
 _Request Body_
 ```
 {
+    "imgUrl": "string",
+    "username": "string",
     "description": "string",
     "userId": integer
 }
@@ -375,6 +377,7 @@ _Response (201 - Created)_
 ```
 {
     "id": integer,
+    "username": "string",
     "description": "string",
     "userId": integer,
     "createdAt": "date",
@@ -412,6 +415,7 @@ _Response (201 - Created)_
 ```
 {
     "id": integer,
+    "username": "string",
     "description": "string",
     "userId": integer,
     "createdAt": "date",

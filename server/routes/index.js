@@ -1,7 +1,7 @@
+const CommentController = require('../controllers/CommentController');
 const MailController = require('../controllers/MailController');
 const RecipeController = require('../controllers/RecipeController');
 const UserController = require('../controllers/UserController');
-const CommentController = require('../controllers/CommentController');
 const authentication = require('../middlewares/authentication');
 const authorization = require('../middlewares/authorization');
 const errorHandler = require('../middlewares/errorHandler');
@@ -23,6 +23,9 @@ router.use(authentication)
 router.get("/recipes", RecipeController.recipes); 
 
 router.get("/recipe/:id", RecipeController.recipeById); 
+
+
+// =======================================================
 
 router.post("/contact-mail", MailController.sendMail); 
 

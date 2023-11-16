@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Comment.init({
-    description: DataTypes.STRING,
+    imgUrl: DataTypes.STRING(1000),
+    username: DataTypes.STRING,
+    description: DataTypes.TEXT,
     userId: DataTypes.INTEGER
   }, {
     sequelize,

@@ -1,6 +1,6 @@
 const { Comment } = require("../models");
 
-module.exports = class MailController {
+module.exports = class CommentController {
 
     static async addComment(req, res, next) {
         try {

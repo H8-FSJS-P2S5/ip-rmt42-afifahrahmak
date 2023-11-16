@@ -6,8 +6,6 @@ module.exports = class MailController {
         try {
             const { username, email, message } = req.body;
 
-            // console.log(username, email, message)
-
             if(!username || !email || !message) throw ({name: "IncompleteData", message: "Please fill the required form!"})
 
             const transporter = nodemailer.createTransport({

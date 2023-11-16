@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.25% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/16</span>
+                <span class='fraction'>6/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.25% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/16</span>
+                <span class='fraction'>6/16</span>
             </div>
         
             
@@ -101,29 +101,29 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,12 +131,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { Comment } = require("../models");
 &nbsp;
-module.exports = class MailController {
+module.exports = class CommentController {
 &nbsp;
-    static async addComment(req, res, next) {
-        try {
-            const comment = await Comment.create({ ...req.body, userId: req.user.id })
-            res.status(201).json(comment);
+<span class="fstat-no" title="function not covered" >    st</span>atic async addComment(req, res, next) {
+<span class="cstat-no" title="statement not covered" >        try {</span>
+            const comment = <span class="cstat-no" title="statement not covered" >await Comment.create({ ...req.body, userId: req.user.id })</span>
+<span class="cstat-no" title="statement not covered" >            res.status(201).json(comment);</span>
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            next(error); </span>
         }
@@ -152,11 +152,11 @@ module.exports = class MailController {
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    st</span>atic async deleteComment(req, res, next) { 
-<span class="cstat-no" title="statement not covered" >        try {</span>
-            let comment = <span class="cstat-no" title="statement not covered" >await Comment.findByPk(req.params.id);</span>
-<span class="cstat-no" title="statement not covered" >            await comment.destroy();</span>
-<span class="cstat-no" title="statement not covered" >            res.status(200).json({ message: `Comment success to delete` });</span>
+    static async deleteComment(req, res, next) { 
+        try {
+            let comment = await Comment.findByPk(req.params.id);
+            await comment.destroy();
+            res.status(200).json({ message: `Comment success to delete` });
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            next(error);</span>
         }
@@ -169,7 +169,7 @@ module.exports = class MailController {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-16T05:48:41.066Z
+                at 2023-11-16T11:24:40.491Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

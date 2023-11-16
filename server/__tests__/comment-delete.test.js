@@ -32,18 +32,24 @@ beforeAll(async () => {
 
     await queryInterface.bulkInsert('Comments', [
         {
+            "imgUrl": "http://www.com",
+            "username": "Any",
             "description": "Any",
             "userId": admin.id,
             "createdAt": dateNow,
             "updatedAt": dateNow
         },
         {
+            "imgUrl": "http://www.com",
+            "username": "Any",
             "description": "Any",
             "userId": staff.id,
             "createdAt": dateNow,
             "updatedAt": dateNow
         },
         {
+            "imgUrl": "http://www.com",
+            "username": "Any",
             "description": "Any",
             "userId": admin.id,
             "createdAt": dateNow,

@@ -4,6 +4,7 @@ import Home from "../views/Home";
 import Contact from "../views/Contact";
 import Register from "../views/Register";
 import Landing from "../views/Landing";
+import Detail from "../views/Detail";
 
 const router = createBrowserRouter([
     {
@@ -19,13 +20,41 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
-        path: "/home",
-        element: <Home />,
+        loader: () => {
+            const access_token = localStorage.getItem("access_token")
+            if (!access_token) {
+                throw redirect("/login")
+            }
+            return null;
+        },
+        children: [
+            {
+                path: "/home",          // => /recipes
+                element: <Home />,
+            },
+            {
+                path: "/recipe/:id",
+                element: <Detail />,
+            },
+            {
+                path: "/contact-mail",
+                element: <Contact />,
+            },
+            {
+                path: "/post/add",      // => comment
+                element: <></>,
+            },
+            {
+                path: "/post/edit/:id",
+                element: <></>,
+            },
+            {
+                path: "/post/add",
+                element: <></>,
+            },
+        ]
     },
-    {
-        path: "/contact-mail",
-        element: <Contact />,
-    },
+
     {/* {
 
         path: "/",

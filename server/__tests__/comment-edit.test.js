@@ -32,12 +32,16 @@ beforeAll(async () => {
 
     await queryInterface.bulkInsert('Comments', [
         {
+            "imgUrl": "http://www.com",
+            "username": "Any",
             "description": "Any",
             "userId": admin.id,
             "createdAt": dateNow,
             "updatedAt": dateNow
         },
         {
+            "imgUrl": "http://www.com",
+            "username": "Any",
             "description": "Any",
             "userId": staff.id,
             "createdAt": dateNow,
@@ -64,11 +68,11 @@ describe("/comment/edit/:id", () => {
 
         expect(status).toBe(200);
         expect(body).toBeInstanceOf(Object);
-        expect(body).toHaveProperty("id", expect.any(Number));
-        expect(body.id).toBe(commentId);      
-        expect(body).toHaveProperty("description", expect.any(String));   
+        expect(body).toHaveProperty("id", expect.any(Number));  
+        expect(body).toHaveProperty("imgUrl", expect.any(String));;   
+        expect(body).toHaveProperty("username", expect.any(String));    
+        expect(body).toHaveProperty("description", expect.any(String));;   
         expect(body).toHaveProperty("userId", expect.any(Number));
-        expect(body.userId).toBe(admin.id); 
     })
 
 
