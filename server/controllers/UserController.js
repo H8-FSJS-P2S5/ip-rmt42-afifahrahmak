@@ -1,7 +1,10 @@
 const { hashPassword, comparePassword } = require("../helpers/bcrypt");
 const { signToken, verifyToken } = require("../helpers/jwt");
 const {User} = require("../models");
-
+const passport = require("passport");
+const { Strategy } = require("passport-steam");
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client();
 
 class UserController {
     static async register(req, res, next) {
@@ -46,7 +49,7 @@ class UserController {
     static async googleLogin(req, res, next) {
         try {
             const ticket = await client.verifyIdToken({
-                idToken: req.headers.google_token,
+                idToken: req.headers.g_token,
                 audience: process.env.G_CLIENT
             })
             const payload = ticket.getPayload()
@@ -63,6 +66,7 @@ class UserController {
             }
 
             let token = signToken({id: user.id, email: user.email})
+            res.status(200).json({access_token: token, id: user.id, email: user.email})
         } catch (err) {
             next(err)
         }
