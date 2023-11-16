@@ -34,6 +34,11 @@ const errorHandler = {
                 message = `Use your Google account to login`;
                 break;
 
+            case 'ExistUserBooks':
+                statusCode = 400;
+                message = `Book has been exists`;
+                break;
+
             case 'NotMatched':
                 statusCode = 401;
                 message = `Invalid Email/Password!`;

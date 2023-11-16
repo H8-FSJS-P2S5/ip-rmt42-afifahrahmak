@@ -1,6 +1,7 @@
 const OpenAI = require('openai');
-const { History } = require('../models');
+const { History, Book } = require('../models');
 const { generateAnsPromt, chatAI } = require('../helpers/openai');
+const { Op } = require('sequelize');
 
 class HistoryController {
     static async create(req, res, next) {
@@ -41,12 +42,64 @@ class HistoryController {
         const { historyId, bookId } = req.params;
         try {
             const history = await History.findByPk(historyId);
+            const histories = await History.findAll({
+                where: {
+                    userId: req.user.id
+                }
+            });
+
+            const existingBookIds = histories.map(el => el.bookId);
+
+            if (existingBookIds.includes(parseInt(bookId))) {
+                const existingHistory = histories.find(el => el.bookId === parseInt(bookId));
+
+                await existingHistory.update({
+                    point: existingHistory.point + history.point
+                });
+
+                throw ({ name: "ExistUserBooks" });
+            }
             await history.update({ bookId });
             res.status(200).json({ messages: `Successfully update book` });
         } catch (error) {
             next(error);
         }
     }
+
+    static async getByUserId(req, res, next) {
+        try {
+            const histories = await History.findAndCountAll({
+                include: {
+                  model: Book,
+                },
+                where: {
+                  userId: req.user.id,
+                  [Op.and]: [
+                    { answer: { [Op.not]: null } },
+                    { point: { [Op.not]: 0 } },
+                    { question: { [Op.not]: null } },
+                  ],
+                },
+              });
+
+            if (!histories) throw ({ name: "NotFound" });
+            res.status(200).json(histories);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+
+    static async delete(request, response, next) {
+        try {
+            let history = await History.findByPk(request.params.historyId);
+            await history.destroy();
+            response.status(200).json({ message: `Book is success to delete` });
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 module.exports = HistoryController;

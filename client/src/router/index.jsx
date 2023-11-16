@@ -6,6 +6,7 @@ import { SideBar } from "../components/Sidebar";
 import { HomePage } from "../views/Books";
 import { GamePage } from "../views/game";
 import { GameCard } from "../components/GameCard";
+import { MyBookPage } from "../views/History";
 
 // const RootLayout = () => {
 //     return (
@@ -36,23 +37,10 @@ const router = createBrowserRouter([
             path: "game",
             element: <GamePage />,
           },
-         
-        //   {
-        //     path: "cuisine/create",
-        //     element: <CuisineCreatePage />
-        //   },
-        //   {
-        //     path: "cuisine/edit/:cuisineId",
-        //     element: <CuisineEditPage />
-        //   },
-        //   {
-        //     path: "category",
-        //     element: <CategoryTablePage />
-        //   },
-        //   {
-        //     path: "user",
-        //     element: <RegisterStaffPage />
-        //   }
+          {
+            path: "mybooks",
+            element: <MyBookPage />,
+          },
         ],
     },
     {

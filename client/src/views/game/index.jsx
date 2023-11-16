@@ -144,7 +144,7 @@ export const GamePage = () => {
                                                 console.log(error);
                                                 Swal.fire({
                                                     title: "Cancelled",
-                                                    text: "Kesalahan sistem",
+                                                    text: "Anda sudah memiliki bukunya sebelumnya",
                                                     icon: "error"
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
