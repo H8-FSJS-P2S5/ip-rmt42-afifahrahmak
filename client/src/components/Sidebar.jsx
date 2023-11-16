@@ -1,7 +1,5 @@
 export default function Sidebar({ search, setSearch, filter, setFilter }) {
 
-
-
     return (
         <>
             <div className="card mb-4">

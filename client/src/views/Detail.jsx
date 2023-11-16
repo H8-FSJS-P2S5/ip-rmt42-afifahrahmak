@@ -55,10 +55,10 @@ export default function Detail() {
                             <h2 className="display-5 fw-bolder">{data.name}</h2>
                             <div className="fs-5 mb-5">
 
-                                {/* {data.steps.map((step, index) => (
+                                {data.steps.map((step, index) => (
                                 <li key={index}>{++index. step}</li>
-                                    ))} */}
-<li>{data.steps}</li>
+                                    ))}
+{/* <li>{data.steps}</li> */}
 
                             </div>
                             <p className="lead">{data.steps}</p>
