@@ -44,7 +44,7 @@ function RegisterPage() {
     return (
         <>
             <div className="cs2-main2-bg">
-                <div className="login-content">
+                <div className="login-content" style={{position: "fixed"}}>
                     <h2 className='white'>Register Page</h2>
                     <Form onSubmit={register}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -57,7 +57,7 @@ function RegisterPage() {
                     </Form>
                     <div className='flex-row' style={{gap: "1%", justifyContent: "center", marginTop: "2%"}}>
                         <p className='white' style={{gap: "1%"}}>Already have an account?</p>
-                        <Link to="/login">Login to your account</Link>
+                        <Link to="/login" style={{color: "turquoise"}}>Login to your account</Link>
                     </div>
                 </div>
             </div>           

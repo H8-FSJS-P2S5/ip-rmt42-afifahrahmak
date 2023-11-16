@@ -1,6 +1,6 @@
 .cs2-main2-bg {
     width: 100%;
-    height: 100vw;
+    height: 100vh;
     background-image: linear-gradient(to right, rgba(0,0,0,0.70), rgba(0,0,0,0.70), rgba(0,0,0,0.50), rgba(0,0,0,0.0), rgba(0,0,0,0), rgba(0,0,0,0)), url("../src/assets/CS2-main2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,7 +10,7 @@
 
 .dust2-left-bg {
     width: 100%;
-    height: 100vw;
+    height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url("../src/assets/dust2-left-edit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,7 +20,7 @@
 
 .overpass-bg {
     width: 100%;
-    height: 100vw;
+    height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url("../src/assets/overpass.jpeg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -30,7 +30,7 @@
 
 .nuke-bg {
     width: 100%;
-    height: 100vw;
+    height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)), url("../src/assets/nuke.jpeg");
     background-repeat: no-repeat;
     background-attachment: fixed;
