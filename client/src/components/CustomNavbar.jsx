@@ -12,20 +12,26 @@ function CustomNavbar () {
         navigate("/login")
     }
 
-    const goToInventory = () => {
-        
+    const goToHome = (event) => {
+        event.preventDefault()
+        navigate("/home")
+    }
+    
+    const goToInventory = (event) => {
+        event.preventDefault()
+        navigate("/inventory")
     }
 
     return (
         <>
-            <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+            <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark" style={{position: "-webkit-sticky"}}>
                 <Container>
-                    <Navbar.Brand >Home</Navbar.Brand>
+                    <Navbar.Brand onClick={goToHome} style={{cursor: "pointer"}}>Home</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link>Inventory</Nav.Link>
-                        <Nav.Link onClick={logout}>Logout</Nav.Link>
+                        <Nav.Link onClick={goToInventory}>Inventory</Nav.Link>
+                        <Nav.Link onClick={logout} style={{position: "absolute", right: "8%"}}>Logout</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -3,6 +3,9 @@ import LoginPage from "../views/LoginPage";
 import HomePage from "../views/HomePage";
 import RegisterPage from "../views/RegisterPage";
 import CustomNavbar from "../components/CustomNavbar";
+import InventoryPage from "../views/InventoryPage";
+import DetailsPage from "../views/DetailsPage";
+
 const NavbarLayout = () => {
     return (
         <>
@@ -42,6 +45,14 @@ const router = createBrowserRouter([
             {
                 path: "home",
                 element: <HomePage/>
+            },
+            {
+                path: "inventory",
+                element: <InventoryPage/>
+            },
+            {
+                path: "details/:id",
+                element: <DetailsPage/>
             }
         ]
     }
