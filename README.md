@@ -344,9 +344,49 @@ _Response (400 - Bad Request)_
 
 ## Comment
 
+### GET /comment
+
+> Get all comments/posts
+
+_Request Header_
+```
+{"Authorization": "Bearer <your access token>"}
+```
+
+_URL Params_
+```
+not needed
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200 - OK)_
+```
+[
+    {
+        "imgUrl": "string",
+        "username": "string",
+        "description": "string",
+        "userId": integer
+        "createdAt": "date",
+        "updatedAt": "date"
+    },
+    ...
+]
+```
+---
+
 ### POST/comment/add
 
-> Create new commebt
+> Create new comment/post
 
 _Request Header_
 ```
@@ -387,7 +427,7 @@ _Response (201 - Created)_
 ---
 ### PUT /comment/edit/:id
 
-> Edit comment by id
+> Edit comment/post by id
 
 _Request Header_
 ```
@@ -432,7 +472,7 @@ _Response (404 - Not Found)_
 ---
 ### DELETE /comment/delete/:id
 
-> Delete comment by id
+> Delete comment/post by id
 
 _Request Header_
 ```

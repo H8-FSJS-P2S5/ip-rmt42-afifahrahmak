@@ -5,6 +5,8 @@ import Contact from "../views/Contact";
 import Register from "../views/Register";
 import Landing from "../views/Landing";
 import Detail from "../views/Detail";
+import AddPost from "../views/AddPost";
+import EditPost from "../views/EditPost";
 
 const router = createBrowserRouter([
     {
@@ -41,17 +43,17 @@ const router = createBrowserRouter([
                 element: <Contact />,
             },
             {
-                path: "/post/add",      // => comment
+                path: "/posts",      // => HALAMAN ISINYA POST
                 element: <></>,
+            },
+            {
+                path: "/post/add",      // => comment
+                element: <AddPost></AddPost>,
             },
             {
                 path: "/post/edit/:id",
-                element: <></>,
-            },
-            {
-                path: "/post/add",
-                element: <></>,
-            },
+                element: <EditPost></EditPost>
+            }
         ]
     },
 
