@@ -43,13 +43,13 @@ export const Home = () => {
                 customClass: {
                     popup: 'custom-pop-up'
                 }
-              })
+            })
         }
     }
 
     const getProfile = async () => {
         try {
-            const { data} = await axios({
+            const { data } = await axios({
                 method: 'GET',
                 url: `http://localhost:3000/profile/${user.username}`,
                 headers: {
@@ -59,17 +59,45 @@ export const Home = () => {
 
             setProfile(data)
         } catch (error) {
-            
+
         }
     }
 
     const handleOnUpgrade = async () => {
         try {
-            const {data} = await axios({
-                method: 'PATCH',
-                url: `http://localhost:3000/upgrade/${user.id}`,
+            const { data } = await axios({
+                method: 'GET',
+                url: `http://localhost:3000/payment/${user.id}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+
+            window.snap.pay(data.transaction_token, {
+                onSuccess: async function () {
+                    /* You may add your own implementation here */
+                    await axios({
+                        method: 'PATCH',
+                        url: `http://localhost:3000/upgrade/${user.id}`,
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`
+                        },
+                        data: {
+                            orderId: data.orderId
+                        }
+                    })
+                },
+                onClose: function () {
+                    /* You may add your own implementation here */
+                    Swal.fire({
+                        text: "you closed the popup without finishing the payment",
+                        icon: 'warning',
+                        confirmButtonText: "Back",
+                        confirmButtonColor: "red",
+                        customClass: {
+                            popup: 'custom-pop-up'
+                        }
+                    })
                 }
             })
 
@@ -83,7 +111,7 @@ export const Home = () => {
                 customClass: {
                     popup: 'custom-pop-up'
                 }
-              })
+            })
         }
     }
 
@@ -92,10 +120,10 @@ export const Home = () => {
     }, [updrade])
 
     useEffect(() => {
-        if(localStorage.getItem('token')) {
+        if (localStorage.getItem('token')) {
             getProfile()
         }
-    },[posts, updrade])
+    }, [posts, updrade])
 
     return (
         <>
@@ -110,7 +138,7 @@ export const Home = () => {
                                     <p style={{ color: "white" }}>Discus about anything...</p>
                                 </div>
                                 <div className={localStorage.getItem('token') ? "position-absolute bottom-0 start-0" : "d-none"}>
-                                    <Link to={`/profile/${user.username}`} className="card mb-3" style={{textDecoration: 'none'}}>
+                                    <Link to={`/profile/${user.username}`} className="card mb-3" style={{ textDecoration: 'none' }}>
                                         <div className="row g-0">
                                             <div className="col-md-4">
                                                 <img src={`${profile.imgUrl}`} className="img-fluid rounded-start" alt="..." />
@@ -118,9 +146,9 @@ export const Home = () => {
                                             <div className="col-md-8">
                                                 <div className="card-body">
                                                     <h5 className="card-title">{profile.displayName}</h5>
-                                                    <p className="card-text"><small style={{fontSize: '13px'}} className="text-body-light">Status: {profile.status}</small></p>
+                                                    <p className="card-text"><small style={{ fontSize: '13px' }} className="text-body-light">Status: {profile.status}</small></p>
                                                 </div>
-                                            <span className={profile.status === 'Free' ? '' : 'd-none'}><button onClick={handleOnUpgrade} className="ms-3 btn btn-sm btn-warning">Upgrade</button></span>
+                                                <span className={profile.status === 'Free' ? '' : 'd-none'}><button onClick={handleOnUpgrade} className="ms-3 btn btn-sm btn-warning">Upgrade</button></span>
                                             </div>
                                         </div>
                                     </Link>
