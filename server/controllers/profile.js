@@ -33,13 +33,13 @@ class ProfileController {
     static async getProfile(req, res, next) {
         try {
             const {username} = req.params
-            const {id} = await User.findOne({where: {username}})
-            if (!id) {
+            const user = await User.findOne({where: {username: username}})
+            if (!user.id) {
                 throw {name: 'NotFound', message: 'User not found'}
             }
 
             const profile = await Profile.findOne({
-                where: {UserId: id},
+                where: {UserId: user.id},
                 include: {
                     model: User,
                     include: {
@@ -49,6 +49,7 @@ class ProfileController {
             })
             res.status(200).json(profile)
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }

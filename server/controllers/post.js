@@ -16,7 +16,7 @@ class PostController {
     static async posts(req, res, next) {
         try {
             let {category, search, sortBy, page} = req.query
-
+            const user = req.user
             let cek 
             if (category && search) {
                 cek = {
@@ -45,7 +45,8 @@ class PostController {
 
             const {count} = await Post.findAndCountAll()
 
-            let totalPage = Math.ceil(count/10)
+            const totalPage = Math.ceil(count/10)
+            const totalData = count
 
             const data = await Post.findAll({
                 where: cek,
@@ -65,7 +66,34 @@ class PostController {
                 limit: 10,
                 offset: page * 10 - 10
             })
-            res.status(200).json({totalPage ,data})
+            res.status(200).json({totalPage, totalData ,data, user})
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async detailPost(req, res, next) {
+        try {
+            const {postId} = req.params
+            const post = await Post.findByPk(postId, {
+                include: [{
+                    model: User,
+                    include: {model: Profile}
+                }, {
+                    model: Category
+                }, {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        include: {model: Profile}
+                    }
+                }],
+            })
+            if (!post) {
+                throw { name: 'NotFound', message: 'Cuisine not Found' }
+            }
+
+            res.status(200).json(post)
         } catch (error) {
             next(error)
         }

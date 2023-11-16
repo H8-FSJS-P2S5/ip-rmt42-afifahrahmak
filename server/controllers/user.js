@@ -76,14 +76,17 @@ class UserController {
         try {
             const { userId } = req.params
             const user = await User.findByPk(userId)
+            const profile = await Profile.findOne({where: {UserId: user.id}})
 
             if (!user) {
                 throw { name: 'NotFound', message: 'User not found' }
             }
 
+            await profile.update({ status: 'Immortal' })
             const updateUser = await user.update({ status: 'Immortal' })
             res.status(201).json(updateUser)
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }
