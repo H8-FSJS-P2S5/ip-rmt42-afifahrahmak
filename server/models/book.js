@@ -62,6 +62,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     category: DataTypes.STRING,
+    link: DataTypes.TEXT,
     pricePerWeek: {
       type: DataTypes.INTEGER,
       allowNull: false,

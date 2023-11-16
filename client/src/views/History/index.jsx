@@ -28,10 +28,24 @@ export const MyBookPage = () => {
                 showCancelButton: true,
                 confirmButtonText: "Baca Buku",
                 denyButtonText: `Hapus Buku`
-              }).then(async (result) => {
+            }).then(async (result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                  Swal.fire("Membaca Buku", "", "info");
+                    try {
+                        await axios({
+                            url: `/mail`,
+                            method: 'post',
+                            data: { historyId },
+                            headers: {
+                                Authorization: `Bearer ` + localStorage.getItem('access_token')
+                            }
+                        });
+                        Swal.fire("Link Terkirim", "Mohon cek Gmail Anda!", "success");
+                        fetchMyBooks();
+                    } catch (error) {
+                        Swal.fire("Failed", "Kesalahan server, gagal mengirim link baca buku", "danger");
+                    }
+
                 } else if (result.isDenied) {
                     try {
                         await axios({
@@ -41,13 +55,13 @@ export const MyBookPage = () => {
                                 Authorization: `Bearer ` + localStorage.getItem('access_token')
                             }
                         });
-                      Swal.fire("Berhasil menghapus buku", "", "success");
+                        Swal.fire("Berhasil menghapus buku", "", "success");
                         fetchMyBooks();
                     } catch (error) {
                         Swal.fire("Failed", "Kesalahan server, gagal menghapus buku", "danger");
                     }
                 }
-              });
+            });
         } catch (error) {
             console.log(error);
         }
@@ -102,8 +116,8 @@ export const MyBookPage = () => {
             <section className="product_section">
                 <div className="flex flex-row">
                     {/* <div className="w-1/6"> */}
-                        {/* <FilterMenu filterBy={filter} sortBy={sort} changeFilter={changeFilter} changeSorting={changeSorting} /> */}
-                        <SideBar />
+                    {/* <FilterMenu filterBy={filter} sortBy={sort} changeFilter={changeFilter} changeSorting={changeSorting} /> */}
+                    <SideBar />
                     {/* </div> */}
                     <div className="w-5/6">
                         <section className="welcoming_text">

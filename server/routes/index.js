@@ -4,6 +4,7 @@ const UserController = require('../controllers/UserController');
 const errorHandler = require('../middlewares/errorHandler');
 const authentication = require('../middlewares/authentication');
 const BookController = require('../controllers/BookController');
+const MailController = require('../controllers/mails/MailController');
 const router = express.Router();
 
 router.post('/register', UserController.create);
@@ -11,6 +12,7 @@ router.post('/login', UserController.login);
 router.post('/login-google', UserController.loginGoogle);
 
 router.get('/users/leaderboards', authentication, UserController.getTopThree);
+router.post('/mail', authentication, MailController.sendMail);
 router.post('/histories', authentication, HistoryController.create);
 // router.post('/histories/:bookId', authentication, HistoryController.create); //Klik card
 router.get('/histories', authentication, HistoryController.getByUserId);
