@@ -1,5 +1,5 @@
-const { Inventory, MusicKit } = require("../models");
-
+const { Inventory, MusicKit, Order } = require("../models");
+const axios = require("axios")
 class InventoryController {
     static async getInventories(req, res, next) {
         try {
@@ -19,6 +19,34 @@ class InventoryController {
 
     static async postInventory(req, res, next) {
         try {
+            const orderId = req.body.orderId
+            const order = await Order.findOne({
+                where: {
+                    orderId
+                }
+            })
+            if(!order) {
+                throw {name: "Data not found"}
+            }
+
+            const base64Key = Buffer.from(process.env.MIDTRANS_SERVER_KEY).toString("base64")
+            const {data} = await axios({
+                method: "GET",
+                url: `https://api.sandbox.midtrans.com/v2/${orderId}/status`,
+                headers: {
+                    Authorization: `Basic ${base64Key}`
+                }
+            })
+            if (Number(data.status_code) !== 200) {
+                throw {name: "Transaction failed"}
+            }
+            if (data.transaction_status !== "capture") {
+                throw {name: "Transaction failed"}
+            }
+
+            await order.update({ status: "paid", paidDate: new Date()})
+
+            //ADD INVENTORY
             const id = req.params.id
             const music = await MusicKit.findByPk(id)
             if(!music) {

@@ -8,6 +8,7 @@ const InventoryController = require('../controllers/InventoryController')
 const router = express.Router()
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const PaymentController = require('../controllers/PaymentController')
 
 // define the home page route
 router.get('/', async(req, res) => {
@@ -49,6 +50,10 @@ router.get("/musicKits/:id", MusicKitController.getMusicKitId)
 //Inventory routes
 router.get("/inventories", InventoryController.getInventories)
 router.post("/inventories/:id", InventoryController.postInventory)
+
+//Midtrans
+router.get("/payment/midtrans/token/:id", PaymentController.getMidtransToken)
+router.post("/generate-midtrans-token/:id")
 
 router.use(errorHandler)
 

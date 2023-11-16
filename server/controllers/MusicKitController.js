@@ -9,8 +9,8 @@ class MusicKitController {
             const offset = (page - 1) * limit
 
             const options = {}
-            options.limit = limit
-            options.offset = offset
+            // options.limit = limit
+            // options.offset = offset
 
             if(search) {
                 options.where = {

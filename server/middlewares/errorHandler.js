@@ -18,6 +18,9 @@ function errorHandler(err, req, res, next) {
         case "Invalid email or password":
             res.status(401).json({message: err.name})
             break
+        case "Transaction failed":
+            res.status(402).json({message: err.name})
+            break
         case "Forbidden":
             res.status(403).json({message: "You are not authorized"})
             break

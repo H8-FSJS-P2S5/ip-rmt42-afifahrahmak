@@ -40,7 +40,6 @@ function DetailsPage() {
                             <br />
                         <h3 className="white">Price : Rp{musicKit.price}</h3>
                             <br />
-                        <Button variant="success">Purchase Music Kit</Button>{' '}
                     </div>
                 </div> 
 

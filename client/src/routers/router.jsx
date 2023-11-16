@@ -32,13 +32,13 @@ const router = createBrowserRouter([
         element: <RegisterPage/>
     },
     {
-        // loader: () => {
-        //     const access_token = localStorage.getItem("Authorization")
-        //     if(!access_token) {
-        //         throw redirect ("/login")
-        //     }
-        //     return null
-        // },
+        loader: () => {
+            const access_token = localStorage.getItem("Authorization")
+            if(!access_token) {
+                throw redirect ("/login")
+            }
+            return null
+        },
         path: "/",
         element: <NavbarLayout/>,
         children: [
