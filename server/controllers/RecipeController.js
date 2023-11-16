@@ -39,7 +39,6 @@ module.exports = class RecipeController {
       const recipes = response.data;
       const mappedRecipes = recipes.map((recipe, index) => {
         return {
-          number: ++index,
           id: recipe.id,
           name: recipe.name,
           description: recipe.description,
@@ -93,8 +92,8 @@ module.exports = class RecipeController {
         id: recipe.id,
         name: recipe.name,
         description: recipe.description,
-        prepareTime: recipe.prepareTime,
-        cookTime: recipe.cookTime,
+        prepareTime: `${recipe.prepareTime} minutes`,
+        cookTime: `${recipe.cookTime} minutes`,
         ingredients: recipe.ingredients.map(ingredient => `${ingredient.name} ${ingredient.servingSize.desc}`),
         steps: recipe.steps,
         nutrients: {

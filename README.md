@@ -221,7 +221,7 @@ _Response (200 - OK)_
 ```
 
 ---
-### GET /recipes/:id
+### GET /recipe/:id
 
 > Get One Recipe by Id
 
@@ -296,6 +296,8 @@ _Response (404 - Not Found)_
 ```
 
 ---
+## Mail Sending
+
 ### POST /contact-mail
 
 > Send Message to the CYTO team
@@ -338,6 +340,129 @@ _Response (400 - Bad Request)_
     "message": "Please fill the required form!"
 }
 ```
+---
+
+## Comment
+
+### POST/comment/add
+
+> Create new commebt
+
+_Request Header_
+```
+{"Authorization": "Bearer <your access token>"}
+```
+
+_URL Params_
+```
+not needed
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+{
+    "description": "string",
+    "userId": integer
+}
+```
+
+_Response (201 - Created)_
+```
+{
+    "id": integer,
+    "description": "string",
+    "userId": integer,
+    "createdAt": "date",
+    "updatedAt": "date"
+}
+```
+---
+### PUT /comment/edit/:id
+
+> Edit comment by id
+
+_Request Header_
+```
+{"Authorization": "Bearer <your access token>"}
+```
+
+_URL Params_
+```
+id: integer [required]
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+{
+    "description": "string",
+}
+```
+
+_Response (201 - Created)_
+```
+{
+    "id": integer,
+    "description": "string",
+    "userId": integer,
+    "createdAt": "date",
+    "updatedAt": "date"
+}
+```
+
+_Response (404 - Not Found)_
+```
+{
+    "message": "Comment not found"
+}
+```
+---
+### DELETE /comment/delete/:id
+
+> Delete comment by id
+
+_Request Header_
+```
+{"Authorization": "Bearer <your access token>"}
+```
+
+_URL Params_
+```
+id: integer [required]
+```
+
+_Data Params_
+```
+not needed
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200 - OK)_
+```
+{
+    "message": "Comment success to delete"
+}
+```
+
+_Response (404 - Not Found)_
+```
+{
+    "message": "Comment not found"
+}
+```
 
 ---
 
@@ -347,6 +472,13 @@ _Response (401 - Unauthorized)_
 ```
 {
     "message": "Unauthenticated"
+}
+```
+
+_Response (403 - Forbidden)_
+```
+{
+    "message": "You are not authorized"
 }
 ```
 
