@@ -16,16 +16,18 @@ class CommentController {
         }
     }
 
-    static async destroy(req, res, next) {
+    static async destroyComment(req, res, next) {
         try {
-            const {postId} = req.params
-            const post = await Post.findByPk(postId)
-            if (!post) {
+            const {commentId} = req.params
+            const comment = await Comment.findByPk(commentId)
+            if (!comment) {
                 throw {name: 'NotFound', message: 'Post not found'}
             }
 
-            await Post.destroy(postId)
+            await Comment.destroy({where: {id: commentId}})
+            res.status(200).json({message: 'Delete success'})
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }   

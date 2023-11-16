@@ -29,7 +29,7 @@ class PostController {
                 cek = {CategoryId: category}
             } else if (search) {
                 cek = {
-                    name : {
+                    title : {
                         [Op.iLike]: `%${search}%`
                     }
                 }
@@ -68,6 +68,7 @@ class PostController {
             })
             res.status(200).json({totalPage, totalData ,data, user})
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }
@@ -90,7 +91,7 @@ class PostController {
                 }],
             })
             if (!post) {
-                throw { name: 'NotFound', message: 'Cuisine not Found' }
+                throw { name: 'NotFound', message: 'Post not Found' }
             }
 
             res.status(200).json(post)
@@ -104,7 +105,7 @@ class PostController {
             const {postId} = req.params
             const post = await Post.findByPk(postId) 
             if (!post) {
-                throw { name: 'NotFound', message: 'Cuisine not Found' }
+                throw { name: 'NotFound', message: 'Post not Found' }
             }
 
             const newPost = req.body

@@ -211,3 +211,9 @@ body{
   border-color: rgb(41, 41, 41);
 }
   
+/*===============profile=====================*/
+
+.img-thumbnail{
+  width: 100px;
+  border-radius: 99px;
+}

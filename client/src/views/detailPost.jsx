@@ -10,6 +10,7 @@ export const DetailPost = () => {
     const [post, setPost] = useState([])
     const [comment, setComment] = useState([])
     const [loading, setLoading] = useState(true)
+    const [idDelete, setIdDelete] = useState('')
     const navigate = useNavigate()
 
     const fetchPost = async () => {
@@ -32,6 +33,7 @@ export const DetailPost = () => {
                     popup: 'custom-pop-up'
                 }
             })
+            navigate('/')
         } finally {
             setLoading(false)
         }
@@ -40,7 +42,7 @@ export const DetailPost = () => {
     const handleComment = async (e) => {
         e.preventDefault()
         try {
-            const {data} = await axios({
+            const { data } = await axios({
                 method: 'POST',
                 url: `http://localhost:3000/post/${postId}/comment`,
                 headers: {
@@ -65,12 +67,36 @@ export const DetailPost = () => {
         }
     }
 
+    const handleOnDelete = async (id) => {
+        try {
+            const {data} = await axios({
+                method: 'DELETE',
+                url: `http://localhost:3000/post/${postId}/comment/${id}`,
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                },
+            })
+            
+            fetchPost()
+        } catch (error) {
+            Swal.fire({
+                text: error.response.data.message,
+                icon: 'warning',
+                confirmButtonText: "Back",
+                confirmButtonColor: "red",
+                customClass: {
+                    popup: 'custom-pop-up'
+                }
+            })
+        }
+    }
+
     useEffect(() => {
-        if(!localStorage.getItem('token')) {
+        if (!localStorage.getItem('token')) {
             navigate('/login')
         }
         fetchPost()
-    }, [])
+    }, [idDelete])
 
 
     if (loading) {
@@ -103,9 +129,12 @@ export const DetailPost = () => {
                             <p className="ms-3" style={{ color: 'white' }}>Comments :</p>
                             {post.Comments.map(el => (
                                 <div key={el.id} className="card border-secondary ms-5 mt-3 mb-3" style={{ maxWidth: "100rem", borderRadius: "10px" }}>
-                                    <div className="card-header" style={{ fontSize: "15px" }}>
-                                        <img className="image-profile-comment" src={`${el.User.Profile.imgUrl}`} alt="profile image" />
-                                        {el.User.Profile.displayName}
+                                    <div className="card-header d-flex justify-content-between align-items-center" style={{ fontSize: "15px" }}>
+                                        <div className="d-flex align-items-center">
+                                            <img className="image-profile-comment" src={`${el.User.Profile.imgUrl}`} alt="profile image" />
+                                            {el.User.Profile.displayName}
+                                        </div>
+                                        <img onClick={() => handleOnDelete(el.id)} style={{ cursor: 'pointer' }} width="25" height="25" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/FA5252/external-delete-customer-reviews-tanah-basah-glyph-tanah-basah.png" alt="delete" />
                                     </div>
                                     <hr className="mt-1 border-2" style={{ margin: "0 40px", color: "white" }} />
                                     <div className="card-body text-secondary">

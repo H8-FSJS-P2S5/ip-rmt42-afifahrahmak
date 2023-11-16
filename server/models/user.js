@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         notNull: {
           msg: 'Password is required'
+        },
+        len: {
+          args: [8, 255],
+          msg: 'Password at least 8 character'
         }
       }
     },
@@ -54,9 +58,8 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           msg: 'Email is required'
         },
-        len: {
-          args: [8, 255],
-          msg: 'Password at least 8 character'
+        isEmail: {
+          msg: 'Invalid email format'
         }
       }
     },
