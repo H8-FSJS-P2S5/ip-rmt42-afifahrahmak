@@ -9,7 +9,7 @@ class BookController {
         const { userId } = req.params;
         let queryOptions = {
             attributes: ['title', 'isbn', 'author', 'synopsis', 'pageCount', 'stock', 'publisher', 'publishedDate', 'lang', 'imgUrl', 'status', 'category', 'pricePerWeek'],
-            limit: 12,
+            limit: 16,
             offset: 0,
             where: {}
         };
@@ -29,7 +29,7 @@ class BookController {
         }
 
         page = +page ?? 1;
-        if (q !== '' && typeof q !== 'undefined') queryOptions.where.name = { [Op.iLike]: `%${q}%` };
+        if (q !== '' && typeof q !== 'undefined') queryOptions.where.title = { [Op.iLike]: `%${q}%` };
         if (limit !== '' && typeof limit !== 'undefined') queryOptions.limit = limit;
         if (sortBy !== '' && typeof sortBy !== 'undefined') queryOptions.order = [['createdAt', sortBy]];
 

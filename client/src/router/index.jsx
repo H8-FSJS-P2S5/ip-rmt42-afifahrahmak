@@ -3,7 +3,16 @@ import { BookCard } from "../components/BookCard";
 import { LoginPage } from "../views/Auth/Login";
 import { RegisterPage } from "../views/Auth/Register";
 import { SideBar } from "../components/Sidebar";
+import { HomePage } from "../views/Books";
 
+// const RootLayout = () => {
+//     return (
+//       <>
+//         <SideBar />
+//         <Outlet />
+//       </>
+//     );
+//   };
 const router = createBrowserRouter([
     {
         loader: () => {
@@ -15,11 +24,15 @@ const router = createBrowserRouter([
             return null;
         },
         path: "/",
-        // element: <CmsRootLayout />,
+        // element: <RootLayout />,
         children: [
           {
-            path: "home",
-            element: <BookCard />,
+            path: "",
+            element: <HomePage />,
+          },
+          {
+            path: "game",
+            element: <GamePage />,
           },
          
         //   {

@@ -17,6 +17,7 @@ router.post('/histories/:bookId', authentication, HistoryController.create); //K
 router.put('/histories/:historyId', authentication, HistoryController.updatePoin);
 router.patch('/histories/:historyId/books/:bookId', authentication, HistoryController.updateBookId);
 router.post('/books', authentication, BookController.findBook);
+router.get('/books', authentication, BookController.getAll);
 router.get('/books/:bookId', authentication, BookController.getById);
 router.delete('/books/:bookId', authentication, authorization.AdminOnly, BookController.delete)
 router.use(errorHandler.handler);

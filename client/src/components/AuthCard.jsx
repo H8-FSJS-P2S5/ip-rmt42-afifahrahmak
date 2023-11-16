@@ -48,7 +48,6 @@ export const AuthCard = ({ type }) => {
     }
 
     async function handleGoogleAuth(res) {
-        console.log(res);
         try {
             let { data } = await axios({
                 url: '/login-google',

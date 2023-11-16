@@ -6,3 +6,21 @@
     border-radius: 0px 36px 36px 0px !important;
     box-shadow: 8px 6px 8px 0px rgba(0, 0, 0, 0.2);
 }
+
+.search_section {
+    padding: 20px 0px;
+  }
+  
+  .search_bar {
+    margin: 10px 0px;
+    width: 400px !important;
+  }
+  
+  .search_button {
+    background-color: rgb(51, 128, 216) !important;
+    border-color: white !important;
+  }
+  
+  .search_button:hover {
+    background-color: rgb(14, 102, 190) !important;
+  }
