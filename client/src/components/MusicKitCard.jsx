@@ -1,10 +1,8 @@
 import Card from 'react-bootstrap/Card'; 
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import HomeButton from './HomeButton';
 import InventoryButton from './InventoryButton';
 
-function MusicKitCard({musicKit, page}) {
+function MusicKitCard({musicKit, inventory, onDelete, page}) {
     return (
         <>
             <Card style={{ width: '18rem', marginBottom: "2%" }}>
@@ -22,7 +20,9 @@ function MusicKitCard({musicKit, page}) {
                     }
                     {
                         page === "inventory" && <InventoryButton
-                            id = {musicKit.id}
+                            inventoryId = {inventory.id}
+                            musicId = {musicKit.id}
+                            onDelete={onDelete}
                         />
                     }
             </Card>

@@ -58,6 +58,21 @@ class InventoryController {
             next(err)
         }
     }
+
+    static async deleteInventory(req, res, next) {
+        try {
+            const id = req.params.id
+            const inventory = await Inventory.destroy({
+                where: {id}
+            })
+            if(!inventory) {
+                throw {name: "Data not found"}
+            }
+            res.status(200).json(`Success deleting item from inventory`)
+        } catch(err) {
+            next(err)
+        }
+    }
 }
 
 module.exports = InventoryController

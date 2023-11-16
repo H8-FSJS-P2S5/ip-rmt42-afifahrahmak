@@ -21,6 +21,12 @@ function InventoryPage() {
         .catch(console.log)
     }, [])
 
+    const handleDeleteItem = (inventoryId) => {
+        setInventories((prevInventories) =>
+          prevInventories.filter((inventory) => inventory.id !== inventoryId)
+        );
+      };
+
     return (
         <>
             <div className="overpass-bg">
@@ -29,7 +35,9 @@ function InventoryPage() {
                                 return <MusicKitCard
                                     key = {inventory.MusicKit.id}
                                     musicKit = {inventory.MusicKit}
+                                    inventory = {inventory}
                                     page = {"inventory"}
+                                    onDelete={() => handleDeleteItem(inventory.id)}
                                 />
                                 
                             })}
