@@ -21,10 +21,10 @@ export const Navbar = () => {
                                 <Link to="/" className="nav-link text-light" aria-current="page">Home</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link to="/dashboard" className="nav-link text-light" aria-current="page">Discusion</Link>
+                                <Link to="/discusion" className="nav-link text-light" aria-current="page">Discusion</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link to="/categories" className="nav-link text-light" aria-current="page">Game List</Link>
+                                <Link to="/game-list" className="nav-link text-light" aria-current="page">Game List</Link>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@ export const Navbar = () => {
                                 <Link to="/dashboard" className="nav-link text-light" aria-current="page">Discusion</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link to="/categories" className="nav-link text-light" aria-current="page">Game List</Link>
+                                <Link to="/game-list" className="nav-link text-light" aria-current="page">Game List</Link>
                             </li>
                         </ul>
                     </div>
