@@ -52,6 +52,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      link: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

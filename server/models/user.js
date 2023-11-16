@@ -70,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
     role: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: 'member',
       validate: {
         notEmpty: {
           msg: `Role is required!`
@@ -83,7 +84,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: [['manual', 'github']], 
+        isIn: [['manual', 'google']], 
       } 
     }
   }, {

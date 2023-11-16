@@ -14,7 +14,7 @@ const fetchGBooks = async (query, maxResults) => {
     const items = response.data.items || [];
 
     return items.map(item => {
-        const { title, authors, publisher, publishedDate, description, industryIdentifiers, pageCount, categories, imageLinks, language } = item.volumeInfo;
+        const { title, authors, publisher, publishedDate, description, industryIdentifiers, pageCount, categories, imageLinks, language, previewLink } = item.volumeInfo;
         return {
             title,
             isbn: industryIdentifiers ? industryIdentifiers[0].identifier : '-',
@@ -28,7 +28,8 @@ const fetchGBooks = async (query, maxResults) => {
             imgUrl: imageLinks.thumbnail,
             status: 'available',
             category: categories ? categories.join(', ') : '-',
-            pricePerWeek: Math.ceil(Math.random() * 1000 * 5)
+            pricePerWeek: Math.ceil(Math.random() * 1000 * 5),
+            link: previewLink
         };
     });
 };

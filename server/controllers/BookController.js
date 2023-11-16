@@ -6,13 +6,15 @@ const { fetchGBooks } = require('../helpers/googlebooks');
 class BookController {
     static async getAll(req, res, next) {
         let { filter, page = 1, q, sortBy, limit } = req.query;
-
+        const { userId } = req.params;
         let queryOptions = {
-            attributes: ['id', 'name', 'description', 'price', 'imageUrl', 'categoryId', 'authorId'],
-            limit: 12,
+            attributes: ['id', 'title', 'isbn', 'author', 'synopsis', 'pageCount', 'stock', 'publisher', 'publishedDate', 'lang', 'imgUrl', 'status', 'category', 'pricePerWeek'],
+            limit: 16,
             offset: 0,
             where: {}
         };
+
+        if (userId) queryOptions.where.userId = userId;
 
         if (filter && filter !== '') {
             if (filter.category !== '' && typeof filter.category !== 'undefined') {
@@ -27,7 +29,7 @@ class BookController {
         }
 
         page = +page ?? 1;
-        if (q !== '' && typeof q !== 'undefined') queryOptions.where.name = { [Op.iLike]: `%${q}%` };
+        if (q !== '' && typeof q !== 'undefined') queryOptions.where.title = { [Op.iLike]: `%${q}%` };
         if (limit !== '' && typeof limit !== 'undefined') queryOptions.limit = limit;
         if (sortBy !== '' && typeof sortBy !== 'undefined') queryOptions.order = [['createdAt', sortBy]];
 
@@ -44,14 +46,13 @@ class BookController {
             }
             res.status(200).json(datas);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
 
     static async getById(req, res, next) {
         try {
-            const book = await Book.findByPk(req.params.id);
+            const book = await Book.findByPk(req.params.bookId);
             if (!book) throw ({ name: "NotFound" });
             res.status(200).json(book);
         } catch (error) {
@@ -83,8 +84,9 @@ class BookController {
     }
 
     static async delete(req, res, next) {
+        const { bookId } = req.params;
         try {
-            let book = await Book.findByPk(req.params.id);
+            let book = await Book.findByPk(bookId);
 
             if (!book) throw ({ name: "NotFound" });
 
@@ -99,7 +101,7 @@ class BookController {
         const { desc } = req.body;
         try {
             const promt = generateBookPromt(desc);
-            const bookTitle = chatAI(promt);
+            const bookTitle = await chatAI(promt);
             const books = await fetchGBooks(bookTitle, 1);
             let book = books[0];
 
@@ -112,10 +114,11 @@ class BookController {
                 }
             });
 
-            !existingBook ? await Book.create(book) : book = existingBook;
+            let result = '';
+            !existingBook ? result = await Book.create(book) : result = existingBook;
             let code = existingBook ? 200 : 201;
-
-            res.status(code).json({ message: 'Successfully find book', data: book });
+          
+            res.status(code).json({ message: 'Successfully find book', data: result });
         } catch (error) {
             next(error);
         }

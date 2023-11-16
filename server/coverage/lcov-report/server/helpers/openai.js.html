@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.42% </span>
+                <span class="strong">26.31% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/14</span>
+                <span class='fraction'>5/19</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.07% </span>
+                <span class="strong">27.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/13</span>
+                <span class='fraction'>5/18</span>
             </div>
         
             
@@ -82,7 +82,39 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,7 +133,23 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const generateAnsPromt = <span class="fstat-no" title="function not covered" >(q</span>, answer) =&gt; {
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const OpenAI = require('openai');
+&nbsp;
+const chatAI = <span class="fstat-no" title="function not covered" >as</span>ync (req) =&gt; {
+    const openai = <span class="cstat-no" title="statement not covered" >new OpenAI({</span>
+        apiKey: process.env.OpenAI_KEY
+    });
+&nbsp;
+    const { choices } = <span class="cstat-no" title="statement not covered" >await openai.chat.completions.create({</span>
+        model: 'gpt-3.5-turbo',
+        messages: [{ "role": "user", "content": req }],
+        max_tokens: 100
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return choices[0].message.content;</span>
+}
+&nbsp;
+const generateAnsPromt = <span class="fstat-no" title="function not covered" >(q</span>, answer) =&gt; {
     let question = <span class="cstat-no" title="statement not covered" >q.split(';;');</span>
     let result = <span class="cstat-no" title="statement not covered" >`berikan nilai terhadap jawaban atas pertanyaan di bawah ini.`;</span>
 &nbsp;
@@ -120,14 +168,14 @@ const generateBookPromt = <span class="fstat-no" title="function not covered" >(
 <span class="cstat-no" title="statement not covered" >    return result;</span>
 }
 &nbsp;
-module.exports = { generateAnsPromt, generateBookPromt };</pre></td></tr></table></pre>
+module.exports = { chatAI, generateAnsPromt, generateBookPromt };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-14T14:31:43.913Z
+                at 2023-11-15T03:52:58.153Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

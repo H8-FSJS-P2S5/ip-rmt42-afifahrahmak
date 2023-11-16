@@ -31,7 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     answer : DataTypes.TEXT,
     question : DataTypes.TEXT,
-    point : DataTypes.TEXT,
+    point : {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     status: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -1,6 +1,7 @@
 const errorHandler = {
     handler: (error, request, response, next) => {
         let statusCode, message;
+        console.log(error)
         switch (error.name) {
             case 'SequelizeValidationError':
             case 'SequelizeUniqueConstraintError':
@@ -26,6 +27,16 @@ const errorHandler = {
             case 'EmptyEmailPassword':
                 statusCode = 400;
                 message = `Email/Password is required`;
+                break;
+
+            case 'googleAcc':
+                statusCode = 400;
+                message = `Use your Google account to login`;
+                break;
+
+            case 'ExistUserBooks':
+                statusCode = 400;
+                message = `Book has been exists`;
                 break;
 
             case 'NotMatched':

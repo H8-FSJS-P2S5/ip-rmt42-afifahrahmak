@@ -17,11 +17,5 @@ async function fetchGoogleBooks() {
     }
 }
 
-const test = async () => {
-    const a = await fetchGBooks('mantappu jiwa', 1);
-    console.log(a)
-    return a;
-};
-test();
 // fetchGoogleBooks();
 // module.exports = fetchGoogleBooks;
