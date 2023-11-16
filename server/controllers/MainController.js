@@ -4,7 +4,7 @@ class MainController{
 
     static async fetchAgents(req, res, next) {
         try {
-          const { page = 1 } = req.query;
+        //   const { page = 1 } = req.query;
           const { data } = await axios({
             method: "GET",
             url: "https://valorant-api.com/v1/agents",
@@ -21,15 +21,15 @@ class MainController{
               roleIcon: el.role ? el.role.displayIcon : null,
             };
           });
-          let filteredAgents = agents.filter((agent) => agent.role !== null);
-          if (page) {
-            let limit = 8;
-            let index = (page - 1) * limit;
-            const pageAgents = filteredAgents.slice(index, index + limit);
-            return res.status(200).json(pageAgents);
-          }
+        //   let filteredAgents = agents.filter((agent) => agent.role !== null);
+        //   if (page) {
+        //     let limit = 8;
+        //     let index = (page - 1) * limit;
+        //     const pageAgents = filteredAgents.slice(index, index + limit);
+        //     return res.status(200).json(pageAgents);
+        //   }
     
-          res.status(200).json(filteredAgents);
+          res.status(200).json(agents);
         } catch (error) {
           console.log(error);
           next(error);
@@ -39,7 +39,7 @@ class MainController{
 
       static async fetchBundles(req, res, next) {
         try {
-          const { page = 1 } = req.query;
+        //   const { page = 1 } = req.query;
           const { data } = await axios({
             method: "GET",
             url: "https://valorant-api.com/v1/bundles",
@@ -54,12 +54,12 @@ class MainController{
             };
           });
     
-          if (page) {
-            let limit = 16;
-            let index = (page - 1) * limit;
-            const pageBundles = bundles.slice(index, index + limit);
-            return res.status(200).json(pageBundles);
-          }
+        //   if (page) {
+        //     let limit = 16;
+        //     let index = (page - 1) * limit;
+        //     const pageBundles = bundles.slice(index, index + limit);
+        //     return res.status(200).json(pageBundles);
+        //   }
     
           res.status(200).json(bundles);
         } catch (error) {
