@@ -9,11 +9,11 @@ const errorHandler = require('../middlewares/errorHandler');
 const router = require('express').Router(); 
 
 
-router.post("/register", UserController.register);   //register
+router.post("/register", UserController.register);   // REGISTER
 
-router.post("/login", UserController.login);    //login
+router.post("/login", UserController.login);    // LOGIN 
 
-router.post("/google-login", UserController.googleLogin);  //GOOGLE LOGIN
+router.post("/google-login", UserController.googleLogin);  //GOOGLE login
 
 
 // ======================== Authentication START ============================
@@ -32,11 +32,13 @@ router.post("/contact-mail", MailController.sendMail);
 
 // ==================================== Comment ======================================
 
-router.post("/comment/add", CommentController.addComment); 
+router.get("/comment", CommentController.getComment);   // POSTS
 
-router.put("/comment/edit/:id", authorization, CommentController.editComment);  
+router.post("/comment/add", CommentController.addComment);  // ADD 
 
-router.delete("/comment/delete/:id", authorization, CommentController.deleteComment); 
+router.put("/comment/edit/:id", authorization, CommentController.editComment);  // EDIT
+
+router.delete("/comment/delete/:id", authorization, CommentController.deleteComment);   // DELETE
 
 
 router.use(errorHandler);

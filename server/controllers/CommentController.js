@@ -2,6 +2,15 @@ const { Comment } = require("../models");
 
 module.exports = class CommentController {
 
+    static async getComment(req, res, next) {
+        try {
+            const comments = await Comment.findAll()
+            res.status(200).json(comments);
+        } catch (error) {
+            next(error); 
+        }
+    }
+
     static async addComment(req, res, next) {
         try {
             const comment = await Comment.create({ ...req.body, userId: req.user.id })
