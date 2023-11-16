@@ -24,13 +24,12 @@ class HistoryController {
     static async updatePoin(req, res, next) {
         const { answer } = req.body;
         const { historyId } = req.params;
-        console.log(historyId, answer);
+
         try {
             const history = await History.findByPk(historyId);
             const promt = generateAnsPromt(history.question, answer);
             let point = await chatAI(promt);
             if (+point === NaN) point = 0;
-            console.log(point);
             await history.update({ point: +point, answer: answer.join(";;") });
             res.status(200).json({ messages: `Successfully get point`, data: +point });
         } catch (error) {

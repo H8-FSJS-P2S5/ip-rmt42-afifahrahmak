@@ -11,7 +11,7 @@ router.post('/register', UserController.create);
 router.post('/login', UserController.login);
 router.post('/login-google', UserController.loginGoogle);
 
-router.get('/users/leaderboards', authentication, UserController.getTopThree);
+// router.get('/users/leaderboards', authentication, UserController.getTopThree);
 router.post('/mail', authentication, MailController.sendMail);
 router.post('/histories', authentication, HistoryController.create);
 // router.post('/histories/:bookId', authentication, HistoryController.create); //Klik card

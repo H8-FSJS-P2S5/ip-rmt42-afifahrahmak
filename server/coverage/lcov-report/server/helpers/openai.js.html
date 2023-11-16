@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.31% </span>
+                <span class="strong">61.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/19</span>
+                <span class='fraction'>11/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">64.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>11/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,21 +97,19 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -127,45 +125,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const OpenAI = require('openai');
 &nbsp;
-const chatAI = <span class="fstat-no" title="function not covered" >as</span>ync (req) =&gt; {
-    const openai = <span class="cstat-no" title="statement not covered" >new OpenAI({</span>
+const chatAI = async (req) =&gt; {
+    const openai = new OpenAI({
         apiKey: process.env.OpenAI_KEY
     });
 &nbsp;
-    const { choices } = <span class="cstat-no" title="statement not covered" >await openai.chat.completions.create({</span>
+    const { choices } = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [{ "role": "user", "content": req }],
         max_tokens: 100
     });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    return choices[0].message.content;</span>
+    return choices[0].message.content;
 }
 &nbsp;
 const generateAnsPromt = <span class="fstat-no" title="function not covered" >(q</span>, answer) =&gt; {
     let question = <span class="cstat-no" title="statement not covered" >q.split(';;');</span>
-    let result = <span class="cstat-no" title="statement not covered" >`berikan nilai terhadap jawaban atas pertanyaan di bawah ini.`;</span>
+    let result = <span class="cstat-no" title="statement not covered" >`berikan nilai terhadap jawaban dari pertanyaan-pertanyaan berikut. tentukan apakah jawabannya benar dari pertanyaannya `;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 5; i++) {</span>
-<span class="cstat-no" title="statement not covered" >        result += ' ' + question[i] + ' jawabannya ' + answer[i] + '. ';</span>
+<span class="cstat-no" title="statement not covered" >        result += ' ' + question[i] + ' apakah benar jawabannya adalah ' + answer[i] + '. ';</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    result += 'cukup keluarkan respons dalam bentuk integer javascript. setiap jawaban benar mendapat 20 poin. Tidak perlu mengeluarkan respons deskripsi apa pun cukup integer total poinnya dalam bentuk js. cukup jawab misal 10 atau 50, tidak perlu ada deklarasi atau console log cukup angkanya saja'</span>
+<span class="cstat-no" title="statement not covered" >    result += 'cukup keluarkan respons dalam bentuk integer javascript. setiap jawaban benar mendapat 20 poin. Tidak perlu mengeluarkan respons deskripsi apa pun cukup integer total poinnya dalam bentuk js. cukup jawab misal 10 atau 50, tidak perlu ada deklarasi atau console log cukup angkanya saja. pastikan hitung dengan benar, koreksi dengan tepat antara pertanyaan dan jawaban! Jika jawaban asal dan tidak dapat dipahami maka salahkan/jangan tambah poin!'</span>
 <span class="cstat-no" title="statement not covered" >    return result;</span>
 }
 &nbsp;
-const generateBookPromt = <span class="fstat-no" title="function not covered" >(d</span>esc) =&gt; {
-    let result = <span class="cstat-no" title="statement not covered" >`berikan saya 1 buku yang menggambarkan atau yang isinya mirip atau sesuai dengan deskripsi di bawah ini. `;</span>
-<span class="cstat-no" title="statement not covered" >    result += ` ${desc} `</span>
-<span class="cstat-no" title="statement not covered" >    result += 'cukup keluarkan respons dalam bentuk string javascript. Tidak perlu mengeluarkan respons deskripsi apa pun cukup judul bukunya saja. cukup jawab misal Laskar Pelangi atau Atomic Habbits, tidak perlu ada deklarasi atau console log cukup judul bukunya saja'</span>
-<span class="cstat-no" title="statement not covered" >    return result;</span>
+const generateBookPromt = (desc) =&gt; {
+    let result = `Berikan saya 1 judul buku, cukup respons judul bukunya saja dalam 1 string tidak perlu ada deskripsi apa pun. Buku yang saya inginkan memiliki isi yang sesuai atau mirip dengan deskripsi di bawah ini, deskripsi di apit oleh tanda titik koma (;) atau jika di deskripsi sudah ada judul bukunya atau sudah disebutkan judul bukunya maka cukup keluarkan respons judul bukunya apa tanpa perlu dicari kembali judul bukunya atau jika tidak ada maka cari buku sesuai dengan perintah atau deskripsi yang ada.
+    `;
+    result += ` ;${desc}; `
+    return result;
 }
 &nbsp;
 module.exports = { chatAI, generateAnsPromt, generateBookPromt };</pre></td></tr></table></pre>
@@ -175,7 +172,7 @@ module.exports = { chatAI, generateAnsPromt, generateBookPromt };</pre></td></tr
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-15T03:52:58.153Z
+                at 2023-11-16T23:22:53.870Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

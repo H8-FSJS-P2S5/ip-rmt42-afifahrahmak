@@ -5,14 +5,14 @@ const { queryInterface } = sequelize;
 
 const user1 = {
   username: "usrOne",
-  email: "user1@gmail.com",
+  email: "userscxas@gmail.com",
   password: '11111',
   name: 'User 1',
 };
 
 const timeOut = 20000;
 beforeAll(async () => {
-  await User.create({...user1, email: 'user2@gmail.com', accountType: 'google'});
+  await User.create({...user1, email: 'sasascac@gmail.com', accountType: 'google'});
 }, timeOut);
 
 describe('/register', () => {
@@ -75,7 +75,16 @@ describe('/register', () => {
 
 describe('/login', () => {
   describe('Positive Testing', () => {
-    test('success login with registered user', async () => {
+    test('success login with google account', async () => {
+      let { status, body } = await request(app)
+        .post('/login-google')
+        .set("g_token", process.env.APP_USER_GMAIL_LOGIN_CREDENTIAL);
+
+      expect(status).toBe(201);
+      expect(body).toBeInstanceOf(Object);
+    }, timeOut);
+
+    test('success login with new user', async () => {
       let { status, body } = await request(app)
         .post('/login')
         .send(user1);
@@ -137,6 +146,15 @@ describe('/login', () => {
       expect(status).toBe(401);
       expect(body).toBeInstanceOf(Object);
       expect(body).toHaveProperty("message", "Invalid Email/Password!");
+    }, timeOut);
+
+    test('failed login with google account but invalid token', async () => {
+      let { status, body } = await request(app)
+        .post('/login-google')
+        .set("g_token", ` thetoken`);
+
+      expect(status).toBe(500);
+      expect(body).toBeInstanceOf(Object);
     }, timeOut);
 
   });

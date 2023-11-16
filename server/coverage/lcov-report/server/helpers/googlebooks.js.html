@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,10 +98,11 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,11 +112,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,8 +137,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const axios = require('axios');
 &nbsp;
-const fetchGBooks = <span class="fstat-no" title="function not covered" >as</span>ync (query, maxResults) =&gt; {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get('https://www.googleapis.com/books/v1/volumes', {</span>
+const fetchGBooks = async (query, maxResults) =&gt; {
+    const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
         params: {
             key: process.env.GOOGLE_BOOKS_API_KEY,
             q: query,
@@ -146,14 +148,14 @@ const fetchGBooks = <span class="fstat-no" title="function not covered" >as</spa
         },
     });
 &nbsp;
-    const items = <span class="cstat-no" title="statement not covered" >response.data.items || [];</span>
+    const items = response.data.items || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return items.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {</span>
-        const { title, authors, publisher, publishedDate, description, industryIdentifiers, pageCount, categories, imageLinks, language } = <span class="cstat-no" title="statement not covered" >item.volumeInfo;</span>
-<span class="cstat-no" title="statement not covered" >        return {</span>
+    return items.map(item =&gt; {
+        const { title, authors, publisher, publishedDate, description, industryIdentifiers, pageCount, categories, imageLinks, language, previewLink } = item.volumeInfo;
+        return {
             title,
-            isbn: industryIdentifiers ? industryIdentifiers[0].identifier : '-',
-            author: authors ? authors.join(', ') : '-',
+            isbn: industryIdentifiers ? industryIdentifiers[0].identifier : <span class="branch-1 cbranch-no" title="branch not covered" >'-',</span>
+            author: authors ? authors.join(', ') : <span class="branch-1 cbranch-no" title="branch not covered" >'-',</span>
             synopsis: description,
             pageCount,
             stock: Math.ceil(Math.random() * 5),
@@ -162,8 +164,9 @@ const fetchGBooks = <span class="fstat-no" title="function not covered" >as</spa
             lang: language,
             imgUrl: imageLinks.thumbnail,
             status: 'available',
-            category: categories ? categories.join(', ') : '-',
-            pricePerWeek: Math.ceil(Math.random() * 1000 * 5)
+            category: categories ? categories.join(', ') : <span class="branch-1 cbranch-no" title="branch not covered" >'-',</span>
+            pricePerWeek: Math.ceil(Math.random() * 1000 * 5),
+            link: previewLink
         };
     });
 };
@@ -175,7 +178,7 @@ module.exports = { fetchGBooks };</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-15T03:52:58.153Z
+                at 2023-11-16T23:22:53.870Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
