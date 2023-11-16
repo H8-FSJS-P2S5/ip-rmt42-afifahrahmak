@@ -8,7 +8,7 @@ class BookController {
         let { filter, page = 1, q, sortBy, limit } = req.query;
         const { userId } = req.params;
         let queryOptions = {
-            attributes: ['title', 'isbn', 'author', 'synopsis', 'pageCount', 'stock', 'publisher', 'publishedDate', 'lang', 'imgUrl', 'status', 'category', 'pricePerWeek'],
+            attributes: ['id', 'title', 'isbn', 'author', 'synopsis', 'pageCount', 'stock', 'publisher', 'publishedDate', 'lang', 'imgUrl', 'status', 'category', 'pricePerWeek'],
             limit: 16,
             offset: 0,
             where: {}
@@ -46,7 +46,6 @@ class BookController {
             }
             res.status(200).json(datas);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
@@ -102,7 +101,7 @@ class BookController {
         const { desc } = req.body;
         try {
             const promt = generateBookPromt(desc);
-            const bookTitle = chatAI(promt);
+            const bookTitle = await chatAI(promt);
             const books = await fetchGBooks(bookTitle, 1);
             let book = books[0];
 
@@ -115,10 +114,11 @@ class BookController {
                 }
             });
 
-            !existingBook ? await Book.create(book) : book = existingBook;
+            let result = '';
+            !existingBook ? result = await Book.create(book) : result = existingBook;
             let code = existingBook ? 200 : 201;
-
-            res.status(code).json({ message: 'Successfully find book', data: book });
+          
+            res.status(code).json({ message: 'Successfully find book', data: result });
         } catch (error) {
             next(error);
         }

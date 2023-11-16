@@ -37,7 +37,6 @@ export const HomePage = () => {
                     Authorization: `Bearer ` + localStorage.getItem('access_token')
                 }
             });
-
             setBooks(data.books);
             setLoading(false);
         } catch (error) {
@@ -64,7 +63,6 @@ export const HomePage = () => {
         );
     }
 
-
     return (
         <section id="home">
             <section className="product_section">
@@ -78,7 +76,7 @@ export const HomePage = () => {
                             <div className="text-center mt-8">
                                 <h1>
                                     <Link to="#" className=" text-decoration-none">
-                                        <span className=" font-bold text-4xl  text-indigo-700">Welcome to AA Restaurant!</span>
+                                        <span className=" font-bold text-4xl  text-indigo-700">Welcome to IPustaka!</span>
                                     </Link>
                                 </h1>
                             </div>
@@ -88,8 +86,8 @@ export const HomePage = () => {
                         <div className="grid grid-cols-8 gap-4 justify-center mr-4 ml-4" id="books-display" style={{ paddingTop: '26px' }}>
                             {
                                 books.length > 0 ? (
-                                    books.map((el, index) => (
-                                        <BookCard key={index} book={el} />
+                                    books.map((el) => (
+                                        <BookCard key={el.id} book={el} />
                                     ))
                                 ) : (
                                     <h1 className="col-span-8 text-center">Buku tidak dapat ditemukan</h1>

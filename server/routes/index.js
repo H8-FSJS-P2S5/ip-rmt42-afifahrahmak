@@ -12,8 +12,8 @@ router.post('/login', UserController.login);
 router.post('/login-google', UserController.loginGoogle);
 
 router.get('/users/leaderboards', authentication, UserController.getTopThree);
-router.post('/histories', authentication, HistoryController.create); //Klik tombol main game
-router.post('/histories/:bookId', authentication, HistoryController.create); //Klik card
+router.post('/histories', authentication, HistoryController.create); //Klik tombol main game dan klik
+// router.post('/histories/:bookId', authentication, HistoryController.create); //Klik card
 router.put('/histories/:historyId', authentication, HistoryController.updatePoin);
 router.patch('/histories/:historyId/books/:bookId', authentication, HistoryController.updateBookId);
 router.post('/books', authentication, BookController.findBook);

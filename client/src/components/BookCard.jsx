@@ -2,12 +2,19 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../helpers/axios";
 import { hideLoading, loading, swalFire, toaster } from "../helpers/notification";
+import { useDataContext } from "../context";
 
 export const BookCard = ({ book }) => {
+    const { setExBookIdContext } = useDataContext();
+
+    const handleLinkClick = () => {
+        const dataToSend = book.id;
+        setExBookIdContext(dataToSend);
+      };
     return (
         <div className="col-span-1 mx-auto">
         <div className="bg-white rounded-xl shadow-lg w-auto h-auto div">
-            <Link to={`/`} style={{ textDecoration: 'none' }} className="w-10">
+            <Link to={'/game'} style={{ textDecoration: 'none' }} className="w-10" onClick={handleLinkClick}>
                 <div className="flex justify-center static">
                     <div className="relative group">
                         <img

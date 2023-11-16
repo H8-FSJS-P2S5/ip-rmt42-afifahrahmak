@@ -4,6 +4,8 @@ import { LoginPage } from "../views/Auth/Login";
 import { RegisterPage } from "../views/Auth/Register";
 import { SideBar } from "../components/Sidebar";
 import { HomePage } from "../views/Books";
+import { GamePage } from "../views/game";
+import { GameCard } from "../components/GameCard";
 
 // const RootLayout = () => {
 //     return (
