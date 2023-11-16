@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Navbar from "../components/Navbar";
 
 export default function Register() {
 
@@ -65,6 +66,7 @@ export default function Register() {
 
     
     return (
+        <>
         <section className="vh-100" style={{ backgroundColor: "#eee" }}>
         <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -101,9 +103,9 @@ export default function Register() {
 
 
                                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" className="btn btn-primary btn-lg">Register</button>
+                                            <button type="submit" className="btn btn-dark me-3">Register</button>
                                             <Link to={"/"}>
-                                                <button type="button" className="btn btn-primary btn-lg ms-5">Cancel</button>
+                                                <button type="button" className="btn btn-outline-dark flex-shrink-0">Cancel</button>
                                             </Link>
                                         </div>
 
@@ -123,6 +125,7 @@ export default function Register() {
             </div>
         </div>
     </section>
+    </>
 
     )
 }

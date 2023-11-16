@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 export default function Contact() {
 
@@ -60,13 +61,15 @@ export default function Contact() {
                 progress: undefined,
                 theme: "dark",
             });
-            console.log({response})
+            console.log({ response })
         }
     }
 
     return (
-        <section className="vh-100" style={{ backgroundColor: "#eee" }}>
-            <div className="container h-100">
+        <>
+            <Navbar />
+            <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+                {/* <div className="container h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
                         <div className="card text-black" style={{ borderRadius: "25px" }}>
@@ -127,8 +130,47 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div> */}
 
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-5">
+                            <div className="card shadow-lg border-0 rounded-lg mt-5">
+                                <div className="card-header"><h3 className="text-center font-weight-light my-4">Contact Us</h3></div>
+                                <div className="card-body">
+                                    <form onSubmit={handleSubmit} >
+
+                                        <label className="form-floating mb-1">Username</label>
+                                        <div className="form-floating mb-3">
+                                            <input onChange={handleChange} value={formData.username}
+                                                name="username" type="text" id="username"
+                                                placeholder="username" className="form-control" />
+                                        </div>
+
+                                            <label className="form-floating mb-1">Email</label>
+                                        <div className="form-floating mb-3">
+                                            <input value={formData.email} onChange={handleChange}
+                                                name="email" type="email" id="email"
+                                                placeholder="Email" className="form-control" />
+                                        </div>
+
+                                            <label className="form-floating mb-1">Message</label>
+                                        <div className="form-floating mb-3">
+                                            <textarea onChange={handleChange} value={formData.message}
+                                                name="message" id="message"
+                                                style={{height: "10rem"}} placeholder="Write your message here" className="form-control"></textarea>
+                                        </div>
+
+                                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" className="btn btn-dark mt-3">SEND</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
