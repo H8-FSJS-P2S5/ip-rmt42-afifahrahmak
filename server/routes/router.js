@@ -51,9 +51,9 @@ router.get("/musicKits/:id", MusicKitController.getMusicKitId)
 router.get("/inventories", InventoryController.getInventories)
 router.post("/inventories/:id", InventoryController.postInventory)
 router.delete("/inventories/:id", authorization, InventoryController.deleteInventory)
+
 //Midtrans
 router.get("/payment/midtrans/token/:id", PaymentController.getMidtransToken)
-router.post("/generate-midtrans-token/:id")
 
 router.use(errorHandler)
 
