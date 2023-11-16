@@ -5,7 +5,7 @@ const ProfileController = require('../controllers/profile')
 const UserController = require('../controllers/user')
 const errorHandler = require('../middlewares/errorHandler')
 const authentication = require('../middlewares/authentication')
-const { profileAuthorization, postAuthorization, statusAuthorization } = require('../middlewares/authorization')
+const { profileAuthorization, postAuthorization, statusAuthorization, commentAuthorization } = require('../middlewares/authorization')
 
 const router = require('express').Router()
 
@@ -17,8 +17,6 @@ router.get('/pub/posts', PostController.posts)
 router.use(authentication)
 
 router.patch('/upgrade/:userId', UserController.upgradeUser)
-
-router.post('/add-profile' , ProfileController.create)
 router.get('/profile/:username', ProfileController.getProfile)
 router.put('/profile/:username/edit', profileAuthorization, ProfileController.editProfile)
 
@@ -31,6 +29,7 @@ router.post('/post/add', PostController.addPost)
 router.put('/post/:postId/edit',postAuthorization, PostController.editPost)
 
 router.post('/post/:postId/comment', CommentController.addComment)
+router.delete('/post/:postId/comment/:commentId', commentAuthorization, CommentController.destroyComment)
 
 router.use(errorHandler)
 

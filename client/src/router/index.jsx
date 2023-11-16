@@ -5,6 +5,8 @@ import { Home } from "../views/home"
 import { GameList } from "../views/gameList"
 import { DetailPost } from "../views/detailPost"
 import { Discusion } from "../views/discusion"
+import { Profile } from "../views/profile"
+import { AddPost } from "../views/add-post"
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
     {
         path: '/discusion',
         element: <Discusion/>
+    },
+    {
+        path: '/profile/:username',
+        element: <Profile/>
     },
     
 ])

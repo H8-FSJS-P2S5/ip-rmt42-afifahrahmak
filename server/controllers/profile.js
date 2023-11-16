@@ -1,15 +1,6 @@
 const {Profile, User, Post} = require('../models')
 
 class ProfileController {
-    static async create(req, res, next) {
-        try {
-            const {id, username, status} = req.user
-            const profile = await Profile.create({displayName: username, firstName: username, status: status, UserId: id})
-            res.status(201).json(profile)
-        } catch (error) {
-            next(error)
-        }
-    }
 
     static async editProfile(req, res, next) {
         try {
@@ -49,7 +40,6 @@ class ProfileController {
             })
             res.status(200).json(profile)
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

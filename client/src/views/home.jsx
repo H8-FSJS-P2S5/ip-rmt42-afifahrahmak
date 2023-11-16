@@ -3,6 +3,7 @@ import { Navbar } from "../components/navbar"
 import { Table } from "../components/table"
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { Link } from "react-router-dom"
 
 export const Home = () => {
     const [posts, setPosts] = useState([])
@@ -109,7 +110,7 @@ export const Home = () => {
                                     <p style={{ color: "white" }}>Discus about anything...</p>
                                 </div>
                                 <div className={localStorage.getItem('token') ? "position-absolute bottom-0 start-0" : "d-none"}>
-                                    <div className="card mb-3">
+                                    <Link to={`/profile/${user.username}`} className="card mb-3" style={{textDecoration: 'none'}}>
                                         <div className="row g-0">
                                             <div className="col-md-4">
                                                 <img src={`${profile.imgUrl}`} className="img-fluid rounded-start" alt="..." />
@@ -122,7 +123,7 @@ export const Home = () => {
                                             <span className={profile.status === 'Free' ? '' : 'd-none'}><button onClick={handleOnUpgrade} className="ms-3 btn btn-sm btn-warning">Upgrade</button></span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="col-md-8 me-3">
