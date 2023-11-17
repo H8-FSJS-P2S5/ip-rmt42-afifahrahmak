@@ -19,7 +19,7 @@ export default function EditPost() {
     const fetchData = async () => {
         try {
             const { data } = await axios({
-                url: `http://localhost:3000/comment/edit/${id}`,
+                url: `https://cyto-h8.pramresto.site/comment/${id}`,   //wait
                 method: "get",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -59,7 +59,7 @@ export default function EditPost() {
         event.preventDefault();
         try {
             const { data } = await axios({ 
-                url: `https://resto-server-h8.pramresto.site/cuisines/${id}/edit`,
+                url: `https://cyto-h8.pramresto.site/comment/edit/${id}`,
                 method: "put",
                 headers: {
                     Authorization: `Bearer ${token}`

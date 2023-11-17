@@ -7,6 +7,7 @@ import Landing from "../views/Landing";
 import Detail from "../views/Detail";
 import AddPost from "../views/AddPost";
 import EditPost from "../views/EditPost";
+import Posts from "../views/Posts";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/posts",      // => HALAMAN ISINYA POST
-                element: <></>,
+                element: <Posts />,
             },
             {
                 path: "/post/add",      // => comment

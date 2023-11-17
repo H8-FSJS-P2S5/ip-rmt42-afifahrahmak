@@ -19,7 +19,7 @@ export default function Form({ formData, onChange, onSubmit }) {
 
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <label className="form-label" htmlFor="imgUrl">IMAGE</label>
+                                                    <label className="form-label" htmlFor="imgUrl">Image</label>
                                                     <input onChange={onChange} type="text" id="imgUrl" 
                                                     name="imgUrl" className="form-control" defaultValue={formData.imgUrl}/>
                                                 </div>
@@ -42,7 +42,7 @@ export default function Form({ formData, onChange, onSubmit }) {
                                             </div>
 
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" className="btn btn-primary btn-lg">Register</button>
+                                                <button type="submit" className="btn btn-primary btn-lg">Save</button>
                                                 <Link to={"/posts"}>
                                                     <button type="button" className="btn btn-primary btn-lg ms-5">Cancel</button>
                                                 </Link>

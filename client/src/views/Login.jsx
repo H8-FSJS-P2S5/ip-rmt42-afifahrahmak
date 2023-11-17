@@ -21,7 +21,7 @@ export default function Login() {
         event.preventDefault();
         try {
             const { data } = await axios({
-                url: "http://localhost:3000/login",
+                url: "https://cyto-h8.pramresto.site/login",
                 method: "post",
                 data:
                 {
@@ -67,7 +67,7 @@ export default function Login() {
     async function handleCredentialResponse(response) {
         console.log("Encoded JWT ID token: " + response.credential);
         try {
-            let { data } = await axios.post("http://localhost:3000/google-login", null, {
+            let { data } = await axios.post("https://cyto-h8.pramresto.site/google-login", null, {
                 headers: {
                     g_token: response.credential
                 }

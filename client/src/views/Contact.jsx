@@ -23,7 +23,7 @@ export default function Contact() {
         event.preventDefault();
         try {
             const { data } = await axios({
-                url: "http://localhost:3000/contact-mail",
+                url: "https://cyto-h8.pramresto.site/contact-mail",
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`

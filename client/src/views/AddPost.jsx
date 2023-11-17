@@ -23,7 +23,7 @@ export default function AddPost() {
         event.preventDefault();
         try {
             const { data } = await axios({ 
-                url: "http://localhost:3000/comment/add",
+                url: "https://cyto-h8.pramresto.site/comment/add",
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`

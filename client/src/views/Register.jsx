@@ -23,7 +23,7 @@ export default function Register() {
         event.preventDefault();
         try {
             const { data } = await axios({
-                url: "http://localhost:3000/register",
+                url: "https://cyto-h8.pramresto.site/register",
                 method: "post",
                 data:
                 {

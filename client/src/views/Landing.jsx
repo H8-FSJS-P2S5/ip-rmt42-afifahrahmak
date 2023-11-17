@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 
 export default function Landing() {
@@ -39,9 +38,9 @@ export default function Landing() {
                         <div className="row gx-4 gx-lg-5">
                             <div className="col-lg-6">
                                 <h1 className="mt-5">CYTO</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente repellat esse, doloremque quod recusandae 
-                                    deleniti nostrum assumenda vel beatae sed aut modi nesciunt porro quisquam voluptatem.</p>
-                            
+                                <p>“Doctors won’t make you healthy. Nutritionists won’t make you slim. 
+                                    Teachers won’t make you smart. Gurus won’t make you calm. Mentors won’t make you rich. Trainers won’t make you fit. 
+                                    Ultimately, you have to take responsibility. Save yourself.” – Naval Ravikant</p>
                             </div>
                         </div>
                     </div>

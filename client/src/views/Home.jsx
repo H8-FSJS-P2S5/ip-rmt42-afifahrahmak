@@ -21,7 +21,7 @@ export default function Home() {
         const fetchData = async () => {
             try {
                 const { data: result } = await axios({
-                    url: "http://localhost:3000/recipes",
+                    url: "https://cyto-h8.pramresto.site/recipes",
                     method: "get",
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -89,14 +89,13 @@ export default function Home() {
 
                     <div className="col-lg-8">
                         <div className="row">
-                                <div className="container mx-auto mt-4">
-                                    <div className="card mb-4">
-                                        {data.map((d) => (
-                                            <Card key={d.id} recipe={d} />
-                                        ))}
-                                    </div>
+                            <div className="container mx-auto mt-4" >
+                                <div className="card mb-4 flex">
+                                    {data.map((d) => (
+                                        <Card key={d.id} recipe={d} />
+                                    ))}
                                 </div>
-
+                            </div>
                         </div>
                         <div className="pagination justify-content-center my-4">
                             <Pagination size="lg" className="mt-4">
@@ -113,9 +112,9 @@ export default function Home() {
 
                     <div className="col-lg-4">
 
-                        <Sidebar 
-                        search={search} setSearch={setSearch}
-                        filter={filter} setFilter={setFilter}
+                        <Sidebar
+                            search={search} setSearch={setSearch}
+                            filter={filter} setFilter={setFilter}
                         />
 
                     </div>
