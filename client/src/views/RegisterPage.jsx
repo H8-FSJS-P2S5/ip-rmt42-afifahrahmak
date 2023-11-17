@@ -41,29 +41,6 @@ function RegisterPage() {
 
     return (
         <>
-            {/* <div>
-                <div className='valo-bg'>
-                    <h1>Create Your Account</h1>
-                    <p>Join many clubs in here!</p>
-                    <div className='register-form'>
-                        <Form onSubmit={register}>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Control type="email" placeholder="Email" name='email' value={user.email} onChange={formHandler}/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                <Form.Control type="password" placeholder="Password" name='password' value={user.password} onChange={formHandler}/>
-                            </Form.Group>
-                            <Button as="input" type="submit" value="Register" style={{width: "100%"}}/>{' '}
-                        </Form>
-                        <div className='register-switch'>
-                            <p>You have account?</p>
-                            <Link to="/login">Login now</Link>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div> */}
-
 
             <div className="valo-bg">
                 <div className="login-content" style={{position: "fixed"}}>
@@ -76,7 +53,7 @@ function RegisterPage() {
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Control type='password' placeholder='Password' name='password' value={user.password} onChange={formHandler}/>
                         </Form.Group>
-                        <Button as="input" type="submit" value="Register" style={{width: "100%"}}/>{' '}
+                        <Button as="input" type="submit" value="REGISTER" style={{width: "100%"}}/>{' '}
                     </Form>
                     <div className='flex-row' style={{gap: "1%", justifyContent: "center", marginTop: "2%"}}>
                         <p className='white' style={{gap: "1%"}}>Already have an account?</p>
