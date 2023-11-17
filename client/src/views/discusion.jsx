@@ -24,7 +24,7 @@ export const Discusion = () => {
             if (localStorage.getItem('token')) {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://localhost:3000/posts?category=${filter}&sortBy=${sort}&search=${search}`,
+                    url: `http://3.24.135.191/posts?category=${filter}&sortBy=${sort}&search=${search}`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -36,7 +36,7 @@ export const Discusion = () => {
             } else {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://localhost:3000/pub/posts?category=${filter}&sortBy=${sort}&search=${search}`
+                    url: `http://3.24.135.191/pub/posts?category=${filter}&sortBy=${sort}&search=${search}`
                 })
                 setPosts(data.data)
                 setTotalData(data.totalData)
@@ -62,7 +62,7 @@ export const Discusion = () => {
             try {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://localhost:3000/categories`,
+                    url: `http://3.24.135.191/categories`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

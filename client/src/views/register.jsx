@@ -14,7 +14,7 @@ export const Register = () => {
         try {
             await axios({
                 method: 'POST',
-                url: 'http://localhost:3000/register',
+                url: 'http://3.24.135.191/register',
                 data: {
                     username, email, password
                 }
