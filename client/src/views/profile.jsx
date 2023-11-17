@@ -20,7 +20,7 @@ export const Profile = () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://localhost:3000/profile/${username}`,
+                url: `http://3.24.135.191/profile/${username}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -47,7 +47,7 @@ export const Profile = () => {
         try {
             const {data} = await axios({
                 method: 'POST',
-                url: 'http://localhost:3000/post/add',
+                url: 'http://3.24.135.191/post/add',
                 data: {
                     title,
                     description,
@@ -78,7 +78,7 @@ export const Profile = () => {
             try {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://localhost:3000/categories`,
+                    url: `http://3.24.135.191/categories`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

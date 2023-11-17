@@ -16,7 +16,7 @@ export const Home = () => {
             if (localStorage.getItem('token')) {
                 const { data } = await axios({
                     method: 'GET',
-                    url: 'http://localhost:3000/posts',
+                    url: 'http://3.24.135.191/posts',
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -28,7 +28,7 @@ export const Home = () => {
             } else {
                 const { data } = await axios({
                     method: 'GET',
-                    url: 'http://localhost:3000/pub/posts'
+                    url: 'http://3.24.135.191/pub/posts'
                 })
                 let random = data.data.sort(() => Math.random() - 0.5)
                 setPosts(random)
@@ -51,7 +51,7 @@ export const Home = () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://localhost:3000/profile/${user.username}`,
+                url: `http://3.24.135.191/profile/${user.username}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -67,7 +67,7 @@ export const Home = () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://localhost:3000/payment/${user.id}`,
+                url: `http://3.24.135.191/payment/${user.id}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -78,7 +78,7 @@ export const Home = () => {
                     /* You may add your own implementation here */
                     await axios({
                         method: 'PATCH',
-                        url: `http://localhost:3000/upgrade/${user.id}`,
+                        url: `http://3.24.135.191/upgrade/${user.id}`,
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         },
