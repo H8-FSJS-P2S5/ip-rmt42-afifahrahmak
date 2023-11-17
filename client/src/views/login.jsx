@@ -14,7 +14,7 @@ export const Login = () => {
         try {
             const { data } = await axios({
                 method: 'POST',
-                url: 'http://localhost:3000/login',
+                url: 'http://3.24.135.191/login',
                 data: {
                     email,
                     password
@@ -40,7 +40,7 @@ export const Login = () => {
         try {
             const {data} = await axios({
                 method: 'POST',
-                url: 'http://localhost:3000/login/google',
+                url: 'http://3.24.135.191/login/google',
                 headers: {
                     g_token: response.credential
                 }

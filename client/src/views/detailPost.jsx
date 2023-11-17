@@ -17,7 +17,7 @@ export const DetailPost = () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://localhost:3000/post/${postId}`,
+                url: `http://3.24.135.191/post/${postId}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -44,7 +44,7 @@ export const DetailPost = () => {
         try {
             const { data } = await axios({
                 method: 'POST',
-                url: `http://localhost:3000/post/${postId}/comment`,
+                url: `http://3.24.135.191/post/${postId}/comment`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },
@@ -71,7 +71,7 @@ export const DetailPost = () => {
         try {
             const {data} = await axios({
                 method: 'DELETE',
-                url: `http://localhost:3000/post/${postId}/comment/${id}`,
+                url: `http://3.24.135.191/post/${postId}/comment/${id}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },
