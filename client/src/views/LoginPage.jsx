@@ -72,7 +72,7 @@ function LoginPage() {
 
     useEffect(() => { 
         google.accounts.id.initialize({
-            client_id: "295306160107-mfbq999pkavnrnvao6or0gn6i02cll6k.apps.googleusercontent.com",
+            client_id: "295306160107-ecmg73tvpfbo8c99clqe0l793ffo2qb1.apps.googleusercontent.com",
             callback: handleCredentialResponse
           });
           google.accounts.id.renderButton(
