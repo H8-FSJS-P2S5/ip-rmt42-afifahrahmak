@@ -142,6 +142,125 @@ _Response (400 - Bad Request)_
 
 ---
 
+### POST /mail
+
+> POST email
+
+_Request Header_
+```
+{
+  "Authorization": "Bearer <your access token>"
+}
+```
+
+_Request Params_
+```
+not needed
+```
+
+_Request Body_
+```
+historyId: integer [required]
+```
+
+_Response (200 - Ok)_
+```
+{
+    message : `Successfully send email`
+}
+```
+---
+
+### POST /histories
+
+> POST history
+
+_Request Header_
+```
+{
+  "Authorization": "Bearer <your access token>"
+}
+```
+
+_Request Params_
+```
+not needed
+```
+
+_Request Body_
+```
+bookId: integer [required]
+```
+
+_Response (200 - Ok)_
+```
+{
+    questions : <any string>,
+    historyId : <historyId>
+}
+```
+---
+
+### GET /histories
+
+> GET History by user Id
+
+_Request Header_
+```
+{
+  "Authorization": "Bearer <your access token>"
+}
+```
+
+_Request Params_
+```
+not needed
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200 - Ok)_
+```
+{
+    <any array>
+}
+```
+---
+
+### PATCH /histories/:historyId/books/:bookId
+
+> PARTCH history
+
+_Request Header_
+```
+{
+  "Authorization": "Bearer <your access token>"
+}
+```
+
+_Request Params_
+```
+bookId: integer [required]
+historyId: integer [required]
+```
+
+_Request Body_
+```
+NO NEEDED
+```
+
+_Response (200 - Ok)_
+```
+{
+    questions : <any string>,
+    historyId : <historyId>
+}
+```
+---
+
 ### Global Error
 
 _Response (500 - Internal Server Error)_
