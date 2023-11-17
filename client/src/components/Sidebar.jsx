@@ -24,51 +24,51 @@ export default function Sidebar({ search, setSearch, filter, setFilter }) {
 
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Butter" id="Butter" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Butter" id="Butter" />
                                 <label className="form-check-label" htmlFor="Butter">
-                                Butter
+                                    Butter
                                 </label>
                             </div>
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Almond Milk" id="AlmondMilk" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Almond Milk" id="AlmondMilk" />
                                 <label className="form-check-label" htmlFor="AlmondMilk">
-                                Almond Milk
+                                    Almond Milk
                                 </label>
                             </div>
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Olive Oil" id="OliveOil" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Olive Oil" id="OliveOil" />
                                 <label className="form-check-label" htmlFor="Olive Oil">
-                                Olive Oil
+                                    Olive Oil
                                 </label>
                             </div>
 
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Peanut Butter" id="PeanutButter" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Peanut Butter" id="PeanutButter" />
                                 <label className="form-check-label" htmlFor="PeanutButter">
-                                Peanut Butter
+                                    Peanut Butter
                                 </label>
                             </div>
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Chicken" id="Chicken" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Chicken" id="Chicken" />
                                 <label className="form-check-label" htmlFor="Chicken">
-                                Chicken
+                                    Chicken
                                 </label>
                             </div>
 
                             <div className="form-check">
-                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox" 
-                                value="Egg" id="Egg" />
+                                <input className="form-check-input" onChange={(e) => setFilter(e.target.value)} type="checkbox"
+                                    value="Egg" id="Egg" />
                                 <label className="form-check-label" htmlFor="Egg">
-                                Egg
+                                    Egg
                                 </label>
                             </div>
 

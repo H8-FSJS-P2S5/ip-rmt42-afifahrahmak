@@ -3,7 +3,11 @@
 # Individual Project Phase 2
 
 CYTO is my Individual Project developed for assignment purposes. 
-It is an application ___
+It is an application that can be accessed here:
+* https://cyto-project-b7bd1.web.app/
+* https://cyto-project-b7bd1.firebaseapp.com/
+
+
 This app has : 
 * RESTful endpoint for asset's CRUD operation
 * JSON formatted response
