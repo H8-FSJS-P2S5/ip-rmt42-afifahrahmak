@@ -16,33 +16,11 @@ class BookController {
 
         if (userId) queryOptions.where.userId = userId;
 
-        if (filter && filter !== '') {
-            if (filter.category !== '' && typeof filter.category !== 'undefined') {
-                const categoriesId = filter.category
-                    .split(',')
-                    .map((i) => ({
-                        [Op.eq]: i
-                    }));
-
-                if (queryOptions.where) queryOptions.where.categoryId = { [Op.or]: categoriesId };
-            }
-        }
-
-        page = +page ?? 1;
-        if (q !== '' && typeof q !== 'undefined') queryOptions.where.title = { [Op.iLike]: `%${q}%` };
-        if (limit !== '' && typeof limit !== 'undefined') queryOptions.limit = limit;
-        if (sortBy !== '' && typeof sortBy !== 'undefined') queryOptions.order = [['createdAt', sortBy]];
-
-        queryOptions.offset = (page - 1) * queryOptions.limit;
 
         try {
             const books = await Book.findAndCountAll(queryOptions);
             const datas = {
                 books: books.rows,
-                totalPages: Math.ceil(books.count / queryOptions.limit),
-                totalDatas: books.count,
-                totalDataThisPage: books.rows.length,
-                currentPage: page
             }
             res.status(200).json(datas);
         } catch (error) {
@@ -60,42 +38,29 @@ class BookController {
         }
     }
 
-    static async create(req, res, next) {
-        const { title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek } = req.body;
-        try {
-            const book = await Book.create({ title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek });
-            res.status(201).json(book);
-        } catch (error) {
-            next(error);
-        }
-    }
+    // static async create(req, res, next) {
+    //     const { title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek } = req.body;
+    //     try {
+    //         const book = await Book.create({ title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek });
+    //         res.status(201).json(book);
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    // }
 
-    static async update(req, res, next) {
-        const { title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek } = req.body;
-        try {
-            let book = await Book.findByPk(req.params.id);
-            if (!book) throw ({ name: "NotFound" });
+    // static async delete(req, res, next) {
+    //     const { bookId } = req.params;
+    //     try {
+    //         let book = await Book.findByPk(bookId);
 
-            await book.update({ title, isbn, author, synopsis, pageCount, stock, publisher, publishedDate, lang, imgUrl, status, category, pricePerWeek });
-            res.status(200).json(book);
-        } catch (error) {
-            next(error);
-        }
-    }
+    //         if (!book) throw ({ name: "NotFound" });
 
-    static async delete(req, res, next) {
-        const { bookId } = req.params;
-        try {
-            let book = await Book.findByPk(bookId);
-
-            if (!book) throw ({ name: "NotFound" });
-
-            await book.destroy();
-            res.status(200).json({ message: `Book with id: ${book.id} success to delete` });
-        } catch (error) {
-            next(error);
-        }
-    }
+    //         await book.destroy();
+    //         res.status(200).json({ message: `Book with id: ${book.id} success to delete` });
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    // }
 
     static async findBook(req, res, next) {
         const { desc } = req.body;

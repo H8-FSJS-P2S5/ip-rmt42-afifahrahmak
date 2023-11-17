@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.11% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,41 +97,41 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const OpenAI = require('openai');
+<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">const OpenAI = require('openai');
 &nbsp;
 const chatAI = async (req) =&gt; {
     const openai = new OpenAI({
@@ -146,16 +146,16 @@ const chatAI = async (req) =&gt; {
     return choices[0].message.content;
 }
 &nbsp;
-const generateAnsPromt = <span class="fstat-no" title="function not covered" >(q</span>, answer) =&gt; {
-    let question = <span class="cstat-no" title="statement not covered" >q.split(';;');</span>
-    let result = <span class="cstat-no" title="statement not covered" >`berikan nilai terhadap jawaban dari pertanyaan-pertanyaan berikut. tentukan apakah jawabannya benar dari pertanyaannya `;</span>
+const generateAnsPromt = (q, answer) =&gt; {
+    let question = q.split(';;');
+    let result = `berikan nilai terhadap jawaban dari pertanyaan-pertanyaan berikut. tentukan apakah jawabannya benar dari pertanyaannya `;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 5; i++) {</span>
-<span class="cstat-no" title="statement not covered" >        result += ' ' + question[i] + ' apakah benar jawabannya adalah ' + answer[i] + '. ';</span>
+    for (let i = 0; i &lt; 5; i++) {
+        result += ' ' + question[i] + ' apakah benar jawabannya adalah ' + answer[i] + '. ';
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    result += 'cukup keluarkan respons dalam bentuk integer javascript. setiap jawaban benar mendapat 20 poin. Tidak perlu mengeluarkan respons deskripsi apa pun cukup integer total poinnya dalam bentuk js. cukup jawab misal 10 atau 50, tidak perlu ada deklarasi atau console log cukup angkanya saja. pastikan hitung dengan benar, koreksi dengan tepat antara pertanyaan dan jawaban! Jika jawaban asal dan tidak dapat dipahami maka salahkan/jangan tambah poin!'</span>
-<span class="cstat-no" title="statement not covered" >    return result;</span>
+    result += 'cukup keluarkan respons dalam bentuk integer javascript. setiap jawaban benar mendapat 20 poin. Tidak perlu mengeluarkan respons deskripsi apa pun cukup integer total poinnya dalam bentuk js. cukup jawab misal 10 atau 50, tidak perlu ada deklarasi atau console log cukup angkanya saja. pastikan hitung dengan benar, koreksi dengan tepat antara pertanyaan dan jawaban! Jika jawaban asal dan tidak dapat dipahami maka salahkan/jangan tambah poin!'
+    return result;
 }
 &nbsp;
 const generateBookPromt = (desc) =&gt; {
@@ -172,7 +172,7 @@ module.exports = { chatAI, generateAnsPromt, generateBookPromt };</pre></td></tr
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-16T23:22:53.870Z
+                at 2023-11-17T01:42:23.854Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
