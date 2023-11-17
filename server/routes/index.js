@@ -21,7 +21,7 @@ router.patch('/histories/:historyId/books/:bookId', authentication, HistoryContr
 router.post('/books', authentication, BookController.findBook);
 router.get('/books', authentication, BookController.getAll);
 router.get('/books/:bookId', authentication, BookController.getById);
-router.delete('/histories/:historyId', authentication, HistoryController.delete)
+router.delete('/histories/:historyId', authentication, HistoryController.delete);
 router.use(errorHandler.handler);
 
 module.exports = router;
