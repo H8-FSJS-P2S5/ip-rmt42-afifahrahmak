@@ -20,7 +20,7 @@ export const Profile = () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://3.24.135.191/profile/${username}`,
+                url: `http://localhost:3000/profile/${username}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -47,7 +47,7 @@ export const Profile = () => {
         try {
             const {data} = await axios({
                 method: 'POST',
-                url: 'http://3.24.135.191/post/add',
+                url: 'http://localhost:3000/post/add',
                 data: {
                     title,
                     description,
@@ -78,7 +78,7 @@ export const Profile = () => {
             try {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://3.24.135.191/categories`,
+                    url: `http://localhost:3000/categories`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -145,7 +145,7 @@ export const Profile = () => {
                                         <span className="input-group-text" style={{ backgroundColor: "black", border: "none" }} id="basic-addon1"><select onChange={(e) => setStatus(e.target.value)} class="form-select" aria-label="Default select example">
                                             <option selected disabled>Select Status</option>
                                             <option value="Free">Free</option>
-                                            <option value="Immortal">Immortal</option>
+                                            <option value="Immortal" className={profile.status === "Free" ? "d-none" : ""}>Immortal</option>
                                         </select></span>
                                     </div>
                                 </form>

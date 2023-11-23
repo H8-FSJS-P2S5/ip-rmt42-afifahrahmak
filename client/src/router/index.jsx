@@ -7,6 +7,8 @@ import { DetailPost } from "../views/detailPost"
 import { Discusion } from "../views/discusion"
 import { Profile } from "../views/profile"
 import { AddPost } from "../views/add-post"
+import { HomeContextProvider } from "../context/homeContext"
+import { PostContexProvide } from "../context/postContex"
 
 const router = createBrowserRouter([
     {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <Home/>
+        element: <HomeContextProvider><Home/></HomeContextProvider>
     },
     {
         path: '/game-list',
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/discusion',
+        // element: <PostContexProvide><Discusion/></PostContexProvide>
         element: <Discusion/>
     },
     {

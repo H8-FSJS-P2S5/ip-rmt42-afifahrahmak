@@ -1,73 +1,20 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Navbar } from "../components/navbar"
 import { Table } from "../components/table"
-import axios from 'axios'
-import Swal from 'sweetalert2'
 import { Link } from "react-router-dom"
+import { homeContext } from "../context/homeContext"
+import axios from "axios"
+
 
 export const Home = () => {
-    const [posts, setPosts] = useState([])
-    const [user, setUser] = useState([])
-    const [profile, setProfile] = useState([])
+    const {posts, setPosts, profile, setProfile, user, setUser} = useContext(homeContext) 
     const [updrade, setUpdrade] = useState(false)
-
-    const fetchPost = async () => {
-        try {
-            if (localStorage.getItem('token')) {
-                const { data } = await axios({
-                    method: 'GET',
-                    url: 'http://3.24.135.191/posts',
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    }
-                })
-                setUser(data.user)
-
-                let random = data.data.sort(() => Math.random() - 0.5)
-                setPosts(random)
-            } else {
-                const { data } = await axios({
-                    method: 'GET',
-                    url: 'http://3.24.135.191/pub/posts'
-                })
-                let random = data.data.sort(() => Math.random() - 0.5)
-                setPosts(random)
-            }
-
-        } catch (error) {
-            Swal.fire({
-                text: error.response.data.message,
-                icon: 'warning',
-                confirmButtonText: "Back",
-                confirmButtonColor: "red",
-                customClass: {
-                    popup: 'custom-pop-up'
-                }
-            })
-        }
-    }
-
-    const getProfile = async () => {
-        try {
-            const { data } = await axios({
-                method: 'GET',
-                url: `http://3.24.135.191/profile/${user.username}`,
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            })
-
-            setProfile(data)
-        } catch (error) {
-
-        }
-    }
 
     const handleOnUpgrade = async () => {
         try {
             const { data } = await axios({
                 method: 'GET',
-                url: `http://3.24.135.191/payment/${user.id}`,
+                url: `http://localhost:3000/payment/${user.id}`,
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -78,7 +25,7 @@ export const Home = () => {
                     /* You may add your own implementation here */
                     await axios({
                         method: 'PATCH',
-                        url: `http://3.24.135.191/upgrade/${user.id}`,
+                        url: `http://localhost:3000/${user.id}`,
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         },
@@ -114,16 +61,7 @@ export const Home = () => {
             })
         }
     }
-
-    useEffect(() => {
-        fetchPost()
-    }, [updrade])
-
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            getProfile()
-        }
-    }, [posts, updrade])
+    
 
     return (
         <>
@@ -141,7 +79,7 @@ export const Home = () => {
                                     <Link to={`/profile/${user.username}`} className="card mb-3" style={{ textDecoration: 'none' }}>
                                         <div className="row g-0">
                                             <div className="col-md-4">
-                                                <img src={`${profile.imgUrl}`} className="img-fluid rounded-start" alt="..." />
+                                                <img src={`${profile.imgUrl}`} style={{width: '20rem'}} className="img-fluid rounded-start" alt="..." />
                                             </div>
                                             <div className="col-md-8">
                                                 <div className="card-body">
