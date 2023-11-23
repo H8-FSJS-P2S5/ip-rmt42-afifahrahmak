@@ -2,12 +2,15 @@ import {
   RouterProvider
 } from "react-router-dom";
 import router from "./routers/router";
+import { MusicKitProvider } from "./context/MusicKitContext";
 
 function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <MusicKitProvider>
+        <RouterProvider router={router} />
+      </MusicKitProvider>
     </>
   )
 }
