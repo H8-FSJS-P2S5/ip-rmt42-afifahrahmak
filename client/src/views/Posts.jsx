@@ -21,6 +21,7 @@ export default function Posts() {
                 });
 
             setData(data)
+            console.log(data)
 
         } catch ({ response }) {
 
@@ -46,13 +47,13 @@ export default function Posts() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://resto-server-h8.pramresto.site/cuisines/${id}`,
+            await axios.delete(`https://resto-server-h8.pramresto.site/comment/delete/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
-            console.log(id)
+
             fetchData()
 
             toast.success('Successfully DELETE Post', {
@@ -88,16 +89,16 @@ export default function Posts() {
 
             <div>
                 {data.map((d) => (
-                    <div key={d.id} class="container px-4 px-lg-5">
-                        <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src={d.imgUrl} alt="..." /></div>
-                            <div class="col-lg-5">
-                                <h3 class="font-weight-light">Posted by: {d.username}</h3>
+                    <div key={d.id} className="container px-4 px-lg-5">
+                        <div className="row gx-4 gx-lg-5 align-items-center my-5">
+                            <div className="col-lg-7"><img className="img-fluid rounded mb-4 mb-lg-0" src={d.imgUrl} alt="..." /></div>
+                            <div className="col-lg-5">
+                                <h3 className="font-weight-light">Posted by: {d.username}</h3>
                                 <p>{d.description}</p>
                                 <li className="m-3">
                                     <Link to={`/post/edit/${d.id}`}>
                                         <span className="table-edit">
-                                            <button id="edit-image-button" type="button" className="btn btn-warning">
+                                            <button id="edit-image-button" type="button" className="btn btn-outline-dark flex-shrink-0">
                                                 Edit
                                             </button>
                                         </span>
@@ -105,8 +106,8 @@ export default function Posts() {
                                 </li>
                                 <li className="m-3">
                                     <span className="table-remove"><button onClick={() => handleDelete(d.id)} id="remove-button" type="button"
-                                        className="btn btn-danger flex-shrink-0">
-                                        Delete
+                                        className="btn btn-outline-dark flex-shrink-0">
+                                        Delete 
                                     </button></span>
                                 </li>
                             </div>

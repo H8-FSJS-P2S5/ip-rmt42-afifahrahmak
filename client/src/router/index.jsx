@@ -8,6 +8,8 @@ import Detail from "../views/Detail";
 import AddPost from "../views/AddPost";
 import EditPost from "../views/EditPost";
 import Posts from "../views/Posts";
+import { RecipeContextProvider } from "../context/RecipeContext";
+
 
 const router = createBrowserRouter([
     {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/home",          // => /recipes
-                element: <Home />,
+                element: <RecipeContextProvider><Home /></RecipeContextProvider> ,
             },
             {
                 path: "/recipe/:id",

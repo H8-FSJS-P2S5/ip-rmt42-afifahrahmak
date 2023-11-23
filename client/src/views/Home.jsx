@@ -1,62 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Pagination from 'react-bootstrap/Pagination';
 import Sidebar from "../components/Sidebar";
 import { Card } from "../components/Card";
 import Navbar from "../components/Navbar";
+import { RecipeContext } from "../context/RecipeContext";
 
 
 export default function Home() {
-    const [data, setData] = useState([]);
-    const [search, setSearch] = useState("");
-    const [filter, setFilter] = useState("");
-    const [page, setPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(1);
-
-    const token = localStorage.getItem("access_token");
-
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data: result } = await axios({
-                    url: "https://cyto-h8.pramresto.site/recipes",
-                    method: "get",
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                    params: {
-                        search,
-                        filter,
-                        page
-                    }
-                })
-
-                let { results, totalPage, total } = result
-                setTotalPage(totalPage)
-                setData(results)
-                console.log(results)
-
-            }
-            catch ({ response }) {
-                toast.error(response.data.message, {
-                    position: "top-center",
-                    autoClose: 2000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-
-                console.log({ response })
-            }
-        }
-        fetchData()
-    }, [search, filter, page])
-
+    const { data, totalPage, page, setPage } = useContext(RecipeContext)
 
     const PageNumber = () => {
         let result = []
@@ -88,14 +41,14 @@ export default function Home() {
                 <div className="row">
 
                     <div className="col-lg-8">
-                        <div className="row">
-                            <div className="container mx-auto mt-4" >
-                                <div className="card mb-4 flex">
-                                    {data.map((d) => (
-                                        <Card key={d.id} recipe={d} />
-                                    ))}
+                        <div className="row row-cols-2">
+                            {data.map((d) => (
+                                <div key={d.id} className="container mx-auto mt-4" >
+                                    <div className="col-lg-6 mb-4">
+                                        <Card recipe={d} />
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                         <div className="pagination justify-content-center my-4">
                             <Pagination size="lg" className="mt-4">
@@ -112,10 +65,7 @@ export default function Home() {
 
                     <div className="col-lg-4">
 
-                        <Sidebar
-                            search={search} setSearch={setSearch}
-                            filter={filter} setFilter={setFilter}
-                        />
+                        <Sidebar />
 
                     </div>
 
