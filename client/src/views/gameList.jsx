@@ -2,28 +2,53 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Navbar } from "../components/navbar"
 import { Card } from "../components/card"
+import Swal from 'sweetalert2'
 
 export const GameList = () => {
     const [game, setGame] = useState([])
     const [loading, setLoading] = useState(true)
     const [currnetPage, setCurrentPage] = useState(1)
+    const [category, setCategory] = useState('')
     const perPage = 12
 
     const fetchGame = async () => {
-        const options = {
-            method: 'GET',
-            url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-            headers: {
-                'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_X_RAPID_API_KEY,
-                'X-RapidAPI-Host': import.meta.env.VITE_REACT_APP_X_RAPID_API_HOST
-            }
-        };
+        let options
+        if (category) {
+            options = {
+                method: 'GET',
+                url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+                headers: {
+                    'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_X_RAPID_API_KEY,
+                    'X-RapidAPI-Host': import.meta.env.VITE_REACT_APP_X_RAPID_API_HOST
+                },
+                params: {
+                    category: `${category}`
+                },
+            };
+        } else {
+            options = {
+                method: 'GET',
+                url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+                headers: {
+                    'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_X_RAPID_API_KEY,
+                    'X-RapidAPI-Host': import.meta.env.VITE_REACT_APP_X_RAPID_API_HOST
+                }
+            };
+        }
 
         try {
             const { data } = await axios.request(options)
             setGame(data)
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                text: error.response.data.message,
+                icon: 'warning',
+                confirmButtonText: "Back",
+                confirmButtonColor: "red",
+                customClass: {
+                    popup: 'custom-pop-up'
+                }
+            })
         } finally {
             setLoading(false)
         }
@@ -31,7 +56,11 @@ export const GameList = () => {
 
     useEffect(() => {
         fetchGame()
-    }, [])
+    }, [category])
+
+    useEffect(() => {
+
+    })
 
     if (loading) {
         return (
@@ -59,11 +88,20 @@ export const GameList = () => {
                     <div className="col-md-3">
                         <div className="container">
                             <div className="py-3 px-2">
-                                <select className="form-select form-select-sm" aria-label="Default select example">
-                                    <option selected>Select Platform</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select onChange={(e) => setCategory(e.target.value)} className="form-select form-select-sm" aria-label="Default select example">
+                                    <option selected>Select Category</option>
+                                    <option value="shooter">shooter</option>
+                                    <option value="moba">MOBA</option>
+                                    <option value="anime">anime</option>
+                                    <option value="battle-royale">battle royale</option>
+                                    <option value="strategy">strategy</option>
+                                    <option value="fantasy">fantasy</option>
+                                    <option value="sci-fi">sci-fi</option>
+                                    <option value="card">card games</option>
+                                    <option value="racing">racing</option>
+                                    <option value="fighting">fighting</option>
+                                    <option value="social">social</option>
+                                    <option value="sports">sports</option>
                                 </select>
                             </div>
                         </div>
@@ -72,9 +110,6 @@ export const GameList = () => {
                         <div className="container">
                             <div>
                                 <h5 className="pt-3 text-light" style={{ textAlign: 'center' }}>Free for Play</h5>
-                            </div>
-                            <div>
-                                <select name="" id="">Sort By</select>
                             </div>
                             <hr className="my-4 border-2" style={{ margin: "0 40px", color: "yellow" }} />
                             <div className="pb-3" style={{ margin: "0 50px 20px", display: "flex", flexWrap: "wrap" }}>

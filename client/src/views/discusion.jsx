@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Navbar } from "../components/navbar"
 import Swal from 'sweetalert2'
 import axios from "axios"
 import { Table } from "../components/table"
 import { Link } from "react-router-dom"
+import { postContext } from "../context/postContex"
 
 
 export const Discusion = () => {
+    // const {loading, setLoading, categoryList, user,search, setSearch, setSort , setFilter , currnetPage, setCurrentPage, posts, totalData } = useContext(postContext)
     const [posts, setPosts] = useState([])
     const [totalPages, setTotalPages] = useState('')
     const [totalData, setTotalData] = useState('')
@@ -24,7 +26,7 @@ export const Discusion = () => {
             if (localStorage.getItem('token')) {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://3.24.135.191/posts?category=${filter}&sortBy=${sort}&search=${search}`,
+                    url: `http://localhost:3000/posts?category=${filter}&sortBy=${sort}&search=${search}`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -36,7 +38,7 @@ export const Discusion = () => {
             } else {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://3.24.135.191/pub/posts?category=${filter}&sortBy=${sort}&search=${search}`
+                    url: `http://localhost:3000/pub/posts?category=${filter}&sortBy=${sort}&search=${search}`
                 })
                 setPosts(data.data)
                 setTotalData(data.totalData)
@@ -62,7 +64,7 @@ export const Discusion = () => {
             try {
                 const { data } = await axios({
                     method: 'GET',
-                    url: `http://3.24.135.191/categories`,
+                    url: `http://localhost:3000/categories`,
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

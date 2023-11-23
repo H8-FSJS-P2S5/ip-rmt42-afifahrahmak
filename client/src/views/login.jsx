@@ -1,3 +1,4 @@
+
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
@@ -14,7 +15,7 @@ export const Login = () => {
         try {
             const { data } = await axios({
                 method: 'POST',
-                url: 'http://3.24.135.191/login',
+                url: 'http://localhost:3000/login',
                 data: {
                     email,
                     password
@@ -38,16 +39,27 @@ export const Login = () => {
 
     async function handleCredentialResponse(response) {
         try {
+            console.log(response.credential)
             const {data} = await axios({
                 method: 'POST',
-                url: 'http://3.24.135.191/login/google',
-                headers: {
+                url: 'http://localhost:3000/login/google',
+                data: {
                     g_token: response.credential
                 }
             })
+            
+            localStorage.setItem('token', data.access_token)
             navigate('/')
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                text: "you closed the popup without finishing the payment",
+                icon: 'warning',
+                confirmButtonText: "Back",
+                confirmButtonColor: "red",
+                customClass: {
+                    popup: 'custom-pop-up'
+                }
+            })
         }
     }
 
