@@ -11,7 +11,8 @@
     "password": "popop1000",
     "database": "IP-P2-CS2-test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
     "username": "root",

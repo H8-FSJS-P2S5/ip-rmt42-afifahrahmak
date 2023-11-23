@@ -29,50 +29,51 @@ app.use(express.urlencoded({extended: true}))
 
 
 ///--------------------------------------->(steam login)
-passport.use(
-  new SteamStrategy(
-    {
-      returnURL: `http://localhost:3000/auth/steam/return`,
-      realm: `http://localhost:3000/`,
-      apiKey: process.env.STEAM_API_KEY,
-    },
-    async (identifier, profile, done) => {
-      profile.identifier = identifier;
+// passport.use(
+//   new SteamStrategy(
+//     {
+//       returnURL: `http://localhost:3000/auth/steam/return`,
+//       realm: `http://localhost:3000/`,
+//       apiKey: process.env.STEAM_API_KEY,
+//     },
+//     async (identifier, profile, done) => {
+//       profile.identifier = identifier;
 
-      let user = await User.findOne({ steamId: profile.id });
+//       let user = await User.findOne({ steamId: profile.id });
 
-      if (!user) {
-        user = await new User({
-          steamId: profile._json.steamid,
-          steamUsername: profile._json.personaname,
-        }).save();
-      }
+//       if (!user) {
+//         user = await new User({
+//           steamId: profile._json.steamid,
+//           steamUsername: profile._json.personaname,
+//         }).save();
+//       }
 
-      return done(null, user);
-    }
-  )
-);
+//       return done(null, user);
+//     }
+//   )
+// );
 app.use(passport.initialize());
 ///---------------------------------------
 
 // Serialization and deserialization
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user.id);
+// });
 
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (error) {
-    next(error)
-    done(error, null);
-  }
-});
+// passport.deserializeUser(async (id, done) => {
+//   try {
+//     const user = await User.findById(id);
+//     done(null, user);
+//   } catch (error) {
+//     next(error)
+//     done(error, null);
+//   }
+// });
 ///---------------------------------------
 
 app.use(require("./routes/router.js"))
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+module.exports = app
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })

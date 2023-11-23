@@ -1,5 +1,5 @@
 function errorHandler(err, req, res, next) {
-    console.log(err)
+    // console.log(err)
     switch(err.name) {
         case "SequelizeUniqueConstraintError":
             res.status(400).json({message: "Email must be unique"})
