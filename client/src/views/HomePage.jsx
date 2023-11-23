@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import MusicKitCard from "../components/MusicKitCard"
 import axios from "axios"
+import { useMusicKitContext } from "../context/MusicKitContext"
 
 
 function HomePage () {
-    const [musicKits, setMusicKits] = useState([])
-    const [page, setPage] = useState("")
+    const {musicKits, setMusicKits} = useMusicKitContext()
     
     useEffect(() => {
         axios({
