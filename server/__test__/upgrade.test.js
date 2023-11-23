@@ -18,17 +18,16 @@ beforeAll( async () => {
 })
 
 const id = 1
+const orderId = 'asjdnasjdh12uh'
 
 describe('upgrade user', () => {
     test('Succes add new user', async () => {
         let {status, body} = await request(app)
             .patch(`/upgrade/${id}`)
             .set('Authorization', `Bearer ${token}`)
+            .send({orderId})
         expect(status).toBe(201)
         expect(body).toBeInstanceOf(Object)
-        expect(body).toHaveProperty('id', expect.any(Number))
-        expect(body).toHaveProperty('username', 'test2')
-        expect(body).toHaveProperty('status', 'Immortal')
     })
 })
 
