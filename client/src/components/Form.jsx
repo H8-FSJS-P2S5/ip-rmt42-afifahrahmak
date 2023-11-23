@@ -42,9 +42,9 @@ export default function Form({ formData, onChange, onSubmit }) {
                                             </div>
 
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" className="btn btn-primary btn-lg">Save</button>
+                                                <button type="submit" className="btn btn-outline-dark flex-shrink-0 btn-lg">Save</button>
                                                 <Link to={"/posts"}>
-                                                    <button type="button" className="btn btn-primary btn-lg ms-5">Cancel</button>
+                                                    <button type="button" className="btn btn-outline-dark flex-shrink-0 btn-lg ms-5">Cancel</button>
                                                 </Link>
                                             </div>
 

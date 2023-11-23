@@ -29,7 +29,7 @@ export default function Login() {
                     password: formData.password,
                 }
             })
-
+            console.log(data)
             localStorage.setItem("access_token", data.access_token)
 
             toast.success('Welcome Home ViCYTOr ❣️', {
@@ -156,22 +156,6 @@ export default function Login() {
                 </div>
             </div>
         </section>
-
-        // <form className="mt-5">
-        //     <div className="mb-3"><input className="form-control bg-light" type="email" placeholder="Email" /></div>
-        //     <div className="mb-0"><input className="form-control bg-light" type="password" placeholder="Password" /></div>
-        //     <div className="mb-3 d-grid"><button className="btn btn-dark mt-3" type="submit" name="submit">sign in</button></div>
-        //     <div className="mb-3 w-100 position-relative text-center mt-4">
-        //         <hr className="text-300" />
-        //         <div className="absolute-centered px-3 font-sans-serif fs--1 text-500">or sign-in with</div>
-        //     </div>
-        //     <div className="mb-0">
-        //         <div className="row gx-2">
-        //             <div className="col-6 d-grid"><a className="btn btn-outline-danger btn-sm mt-2" href="#!"><span className="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-        //             <div className="col-6 d-grid"><a className="btn btn-outline-primary btn-sm mt-2" href="#!"><span className="fab fa-facebook me-2" data-fa-transform="grow-8"></span> facebook</a></div>
-        //         </div>
-        //     </div>
-        // </form>
 
     )
 }
