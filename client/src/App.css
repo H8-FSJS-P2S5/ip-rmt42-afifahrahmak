@@ -1,0 +1,219 @@
+body{
+    font-family: sans-serif;
+    background: radial-gradient(circle, rgba(50,50,50,1) 0%, rgba(38,38,38,1) 60%, rgb(16, 16, 16) 100%);
+}
+
+.formRegister{
+    color: whitesmoke;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formRegister .formWrapper{
+    background-color: rgba(0, 0, 0, 0.179);
+    padding: 30px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+}
+
+
+.formRegister .formWrapper .logoRegister{
+    width: 25vh;
+}
+.formRegister .formWrapper .title{
+    color: rgba(255, 255, 255, 0.866);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.formRegister .formWrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formRegister .formWrapper .inputForm{
+    padding: 15px;
+    border: none;
+    width: 300px;
+    height: 10px;
+    border-radius: 5px;
+    &::placeholder{
+        color: rgba(0, 0, 0, 0.426);
+    }
+}
+
+.formRegister .formWrapper .submitButton{
+    background-color: rgb(255, 208, 0);
+    color: rgba(0, 0, 0, 0.866);
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formRegister .formWrapper p{
+    color: rgba(255, 255, 255, 0.866);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.formRegister .formWrapper a{
+    color: rgb(255, 208, 0);
+    text-decoration: none;
+}
+
+  /* =================alret=================*/
+  
+  .custom-pop-up{
+    background-color: rgba(55, 55, 55, 0.776);
+    color: rgb(231, 231, 231);
+  }
+
+  /* =================navbar=================*/
+
+
+  .submitButton{
+    background-color: rgb(255, 208, 0);
+    color: rgba(0, 0, 0, 0.866);
+    padding: 4px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.container{
+  background-color: rgb(15, 15, 15);
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.list-group-item{
+  background-color: rgb(31, 31, 31);
+  border-color: black;
+  color: white;
+  height: 60px;
+}
+
+/* ======== card ========== */
+.profile-card-2 {
+  width: 35vh;
+  height: 25vh;
+  background-color: #FFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  margin: 10px auto;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.profile-card-2 img {
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-name {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 20px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: #FFF;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-icons {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #FFF;
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-username {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #FFF;
+  font-size: 13px;
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-icons .fa {
+  margin: 5px;
+}
+
+.profile-card-2:hover img {
+  filter: grayscale(100%);
+}
+
+.profile-card-2:hover .profile-name {
+  bottom: 40px;
+}
+
+.profile-card-2:hover .profile-username {
+  bottom: 20px;
+}
+
+.profile-card-2:hover .profile-icons {
+  right: 40px;
+}
+
+.page-link{
+  background-color: black;
+  color: orange;
+  border-color: rgb(20, 20, 20);
+}
+
+.page-link:hover{
+  background-color: gray;
+  color: orange;
+}
+
+.form-select{
+  background-color: rgb(59, 59, 59);
+  color: white;
+}
+
+.card{
+  background-color: black;
+  border-color: rgb(165, 165, 165);
+  border-radius: 40px;
+  color: white;
+  margin-right: 10px;
+}
+
+.image-profile{
+  width: 5rem;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.image-profile-comment{
+  width: 2rem;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.form-control{
+  background-color: rgb(211, 211, 211);
+  border-color: rgb(41, 41, 41);
+}
+  
+/*===============profile=====================*/
+
+.img-thumbnail{
+  width: 100px;
+  border-radius: 99px;
+}
