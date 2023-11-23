@@ -1,6 +1,6 @@
 const app = require('../app')
 const request = require('supertest')
-const {sequelize, User, Post, Profile, Category} = require('../models')
+const {sequelize, User, Post, Profile, Category, Comment} = require('../models')
 const { signToken } = require('../helper/jwt')
 const {queryInterface} = sequelize
 
@@ -34,11 +34,7 @@ const comment = {
     PostId: 1,
     UserId:1
 }
-const comment2 = {
-    comment: "by 1 kita bang",
-    PostId: 10,
-    UserId:1
-}
+
 
 let token
 beforeAll( async () => {
@@ -46,28 +42,29 @@ beforeAll( async () => {
     await Profile.create({ displayName: user.username, firstName: user.username, status: user.status, UserId: user.id })
     await Category.create(category1)
     await Post.create(post1)
+    await Comment.create(comment)
     token = signToken({id: user.id })
 })
 
 describe('add-comment', () => {
-    test('Succes add comment', async () => {
+    test('Succes delete comment', async () => {
         let {status, body} = await request(app)
-            .post(`/post/1/comment`)
+            .delete(`/post/1/comment/1`)
             .set('Authorization', `Bearer ${token}`)
-            .send(comment)
-        expect(status).toBe(201)
+        expect(status).toBe(200)
         expect(body).toBeInstanceOf(Object)
-        expect(body).toHaveProperty('id', expect.any(Number))
+        expect(body).toHaveProperty('message', 'Delete success')
     })
-    test('eror post not found', async () => {
+
+    test('Succes delete comment', async () => {
         let {status, body} = await request(app)
-            .post(`/post/10/comment`)
+            .delete(`/post/1/comment/3`)
             .set('Authorization', `Bearer ${token}`)
-            .send(comment2)
         expect(status).toBe(404)
         expect(body).toBeInstanceOf(Object)
-        expect(body).toHaveProperty('message', 'Post not found')
+        expect(body).toHaveProperty('message', 'Comment not found')
     })
+    
 })
 
 afterAll( async () => {
