@@ -10,7 +10,7 @@ const SteamStrategy = require("passport-steam").Strategy; // --->(steam login)
 const {User} = require("./models");
 
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 const cors = require("cors")
 
 ///--------------------------------------->(session)
