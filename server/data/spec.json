@@ -1,0 +1,46 @@
+[
+    {
+        "weight": "204",
+        "display": "Amoled",
+        "os": "IOS 17.1.1",
+        "chipset": "A15 Bionic",
+        "memory": "128gb",
+        "camera": "12 MP, f/1.5, 26mm (wide), 1/1.7\", 1.9µm, dual pixel PDAF, sensor-shift OIS",
+        "battery": "Li-Po 5000 mAh, non-removable",
+        "network": "5G",
+        "gadgetId": "6"
+    },
+    {
+        "weight": "227",
+        "display": "Amoled",
+        "os": "Android 13, Miui 14",
+        "chipset": "Qualcomm SM8550-AB Snapdragon 8 Gen 2 (4 nm)",
+        "memory": "512gb",
+        "camera": "50 MP, f/1.9 or f/4.0, 23mm (wide), 1.0\"-type, 1.6µm, multi-directional PDAF",
+        "battery": "Li-Po 5000 mAh, non-removable",
+        "network": "5G",
+        "gadgetId": "7"
+    },
+    {
+        "weight": "234",
+        "display": "Amoled",
+        "os": "Android 13, upgradable to Android 14, One UI 6",
+        "chipset": "Qualcomm SM8550-AC Snapdragon 8 Gen 2 (4 nm)",
+        "memory": "256gb",
+        "camera": "200 MP, f/1.7, 24mm (wide), 1/1.3\", 0.6µm",
+        "battery": "Li-Po 5000 mAh, non-removable",
+        "network": "5G",
+        "gadgetId": "8"
+    },
+    {
+        "weight": "228",
+        "display": "Amoled",
+        "os": "Android 12, upgradable to Android 13, ColorOS 13",
+        "chipset": "Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)",
+        "memory": "512gb",
+        "camera": "50 MP, f/1.7, 25mm (wide), 1/1.56\"",
+        "battery": "Li-Po 5000 mAh, non-removable",
+        "network": "5G",
+        "gadgetId": "9"
+    }
+]

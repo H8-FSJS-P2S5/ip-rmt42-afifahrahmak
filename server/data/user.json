@@ -1,0 +1,30 @@
+[
+    {
+        "username": "admin0",
+        "email": "admin123@gmail.com",
+        "password": "admin",
+        "role": "admin",
+        "phoneNumber": "081892839484"
+    },
+    {
+        "username": "tiamega19",
+        "email": "tiamegap19@gmail.com",
+        "password": "Kromosom19",
+        "role": "user",
+        "phoneNumber": "081385087477"
+    },
+    {
+        "username": "febby19",
+        "email": "febbyoct@gmail.com",
+        "password": "fo190789",
+        "role": "user",
+        "phoneNumber": "088298377488"
+    },
+    {
+        "username": "sandi899",
+        "email": "sandimv@gmail.com",
+        "password": "sandi123",
+        "role": "user",
+        "phoneNumber": "088929388479"
+    }
+]

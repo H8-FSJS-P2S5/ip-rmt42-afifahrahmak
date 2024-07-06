@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Iphone 13 pro 128gb",
+        "description": "Apple iPhone 13 Pro dibekali RAM sebesar 6 GB dan pilihan memori internal 128GB/256GB/512 GB/1 TB. Dengan dukungan RAM sebesar 6 GB tersebut, smartphone ini punya kemampuan cukup baik untuk membuka banyak aplikasi dalam satu waktu.",
+        "imgUrl": "https://carisinyal.com/wp-content/uploads/2021/09/iPhone-13-Pro_-1.webp",
+        "rating": "9",
+        "categoryId": "1"
+    },
+    {
+        "name": "Samsung S23 Ultra 256gb",
+        "description": "Kemampuan zoom Galaxy S23 sudah tidak perlu diragukan lagi, khususnya pada Galaxy S23 Ultra yang bisa sampai 100x zoom. Banyak orang memaksimalkan kemampuan zoom ini untuk mengambil gambar jarak jauh yang tak bisa diambil oleh smartphone lain dengan presisi yang sama, misalnya untuk mengambil kecantikan bulan.",
+        "imgUrl": "https://radarjabar.disway.id/upload/4f16e24bed1c1268455b7479b93b2f5e.jpg",
+        "rating": "8",
+        "categoryId": "2"
+    },
+    {
+        "name": "Xiaomi Mi 13 Ultra 512gb",
+        "description": "For a while there, we weren't willing to get our hopes up that there would be a global Xiaomi Ultra again - the 2021 model could very well have remained a one-off to remember fondly. Then at one point, we were led to believe that not only was there not going to be a global one, there wasn't going to be one at all. Well, in the end, it all worked out nicely, and we now have the Xiaomi 13 Ultra - one for China and one for the world.",
+        "imgUrl": "https://asset.kompas.com/crops/rMXI9Uj_wQQG-Qr8hwM5rhuRCGs=/339x223:1925x1281/750x500/data/photo/2023/04/19/643f413aea443.png",
+        "rating": "7",
+        "categoryId": "3"
+    },
+    {
+        "name": "Oppo Find X5 Pro 512gb",
+        "description": "Advanced camera stabilization, bigger battery, yet more premium build - looking at the specsheet, these are perhaps the key improvements that the Oppo Find X5 Pro brings over last year's model. It may not sound like much at a passing glance, but the Find X3 Pro was good enough to be tough to improve on; plus, all too often, the real advancements are more significant than the seemingly minor differences in specs.",
+        "imgUrl": "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x5-pro.jpg",
+        "rating": "7",
+        "categoryId": "4"
+    }
+]

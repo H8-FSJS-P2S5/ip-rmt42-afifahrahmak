@@ -1,0 +1,365 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/*!
+ * IDEA Admin Panel v1.0.0
+ * Copyright 2022 Ziady Mubaraq
+ * MIT License
+ */
+@font-face {
+  font-family: 'NotoIKEA';
+  src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Regular.woff2)
+      format('woff2'),
+    url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Regular.woff)
+      format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NotoIKEA';
+  src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Bold.woff2)
+      format('woff2'),
+    url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Bold.woff)
+      format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NotoIKEA';
+  src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Italic.woff2)
+      format('woff2'),
+    url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Italic.woff)
+      format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NotoIKEA';
+  src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-BoldItalic.woff2)
+      format('woff2'),
+    url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-BoldItalic.woff)
+      format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+::selection {
+  background: #407ab1;
+  color: #ffce00;
+}
+
+::placeholder {
+  opacity: 0.5 !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'NotoIKEA', 'Verdana', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.57;
+  color: #484848;
+  text-align: left;
+  background-color: #fff;
+}
+
+/*
+ * Heading
+ */
+
+h1,
+h3,
+h6,
+.h1,
+.h3,
+.h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #111;
+}
+
+h1,
+.h1 {
+  font-size: 2.25rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.5rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+.display-1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.display-2 {
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.display-1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.0625em;
+}
+
+.display-2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.0625em;
+}
+
+@media (min-width: 768px) {
+  .display-1 {
+    font-size: 1.5rem;
+  }
+  .display-2 {
+    font-size: 1.5rem;
+  }
+}
+
+a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  vertical-align: middle;
+  line-height: 1rem;
+  margin-bottom: 4px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.sidebar .nav-link.active {
+  color: whitesmoke;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.navbar .navbar-toggler {
+  right: 1rem;
+}
+
+/*
+ * Form
+ */
+
+.form-control {
+  height: 45px;
+  line-height: 1rem;
+  font-size: 0.875rem;
+}
+
+textarea.form-control {
+  height: 60px;
+  line-height: 1rem;
+  font-size: 0.875rem;
+}
+
+.form-select {
+  height: 45px;
+  line-height: 1rem;
+  font-size: 0.875rem;
+}
+
+/*
+ * Button
+ */
+
+.btn:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  height: 45px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  height: 55px;
+  font-size: 0.875rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-toggle {
+  height: inherit;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #0058a3;
+  --bs-btn-border-color: #0058a3;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #004683;
+  --bs-btn-hover-border-color: #014e92;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #003869;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0058a3;
+  --bs-btn-disabled-border-color: #0058a3;
+}
+
+.btn-light {
+  --bs-btn-color: #111;
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: #ced4da;
+  --bs-btn-hover-color: #111;
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #ced4da;
+  --bs-btn-active-color: #111;
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-border-color: #ced4da;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #111;
+  --bs-btn-disabled-bg: #fff;
+  --bs-btn-disabled-border-color: #ced4da;
+}
+
+/*
+ * Card
+ */
+
+.card-number {
+  font-size: 3rem;
+}
+
+.centered-text {
+  display: flex;
+  justify-content: center; /* mengatur horizontal ke tengah */
+  align-items: center; /* mengatur vertikal ke tengah */
+  height: 100%; /* pastikan elemen memiliki tinggi penuh */
+}
+
+.card-img-top {
+  border-radius: 1.5%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.postListTitle {
+  margin: auto;
+  text-align: center;
+}
+
+.header-img {
+  width: 100px;
+}
+
+.header-title-text {
+  color: whitesmoke;
+}
